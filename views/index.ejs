@@ -35,6 +35,7 @@
                 <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
                 <li><a href="#profile" role="tab"><i class="fa fa-user"></i></a></li>
                 <li><a href="#device" role="tab"><i class="fa fa-heartbeat"></i></a></li>
+                <li><a href="#provider" role="tab"><i class="fa fa-shopping-cart"></i></a></li>
                 <li><a href="#api" role="tab"><i class="fa fa-html5"></i></a></li>
 
                 <li><a href="#contact" role="tab"><i class="fa fa-envelope"></i></a></li>
@@ -64,11 +65,48 @@
                 <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
             </div>
 
+            <!--formulario de login-->
             <div class="sidebar-pane" id="profile">
                 <h1 class="sidebar-header">Profile<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
-
+                <br>
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">New USER</h3>
+                  </div>
+                  <div class="panel-body">
+                    <p class="lorem">Introduzca la información del nuevo usuario</p>
+                    <form class="form-inline" action="" method="post" enctype="multipart/form-data">
+                      <div class="form-group">
+                        <label class="sr-only" for="firstName">Nombre</label>
+                        <input type="text" class="form-control " id="firstName" placeholder="nombre">
+                      </div>
+                      <br>
+                      <div class="form-group">
+                        <label class="sr-only" for="lastName">Apellidos</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="Apellidos">
+                      </div>
+                      <br>
+                      <div class="form-group">
+                        <label class="sr-only" for="email">Email</label>
+                        <input type="text" class="form-control" id="email" placeholder="email">
+                      </div>
+                      <br>
+                      <div class="form-group">
+                        <label class="sr-only" for="login">login</label>
+                        <input type="text" class="form-control" id="login" placeholder="login">
+                      </div>
+                      <div class="form-group">
+                        <label class="sr-only" for="password">Contraseña</label>
+                        <input type="text" class="form-control" id="password" placeholder="contraseña">
+                      </div>
+                      <br>
+                      <br><br>
+                      <button type="submit" class="btn btn-info">Enviar</button>
+                    </form>
+                  </div>
+                </div>
             </div>
-
+            <!--formulario de Devices -->
             <div class="sidebar-pane" id="device">
                 <h1 class="sidebar-header">DEA / DESA<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
                 <br>
@@ -118,6 +156,45 @@
                   </div>
                 </div>
             </div>
+            <!--formulario de providers -->
+            <div class="sidebar-pane" id="provider">
+                <h1 class="sidebar-header">PROVIDERS<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
+                <br>
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">New PROVIDER</h3>
+                  </div>
+                  <div class="panel-body">
+                    <p class="lorem">Introduzca la información del nuevo proveedor</p>
+                    <form class="form-inline" action="" method="post" enctype="multipart/form-data">
+                      <div class="form-group">
+                        <label class="sr-only" for="name">Nombre</label>
+                        <input type="text" class="form-control " id="name" placeholder="Nombre">
+                      </div>
+                      <br>
+                      <div class="form-group">
+                        <label class="sr-only" for="address">Dirección</label>
+                        <input type="text" class="form-control" id="address" placeholder="Dirección">
+                      </div>
+                      <br>
+                      <div class="form-group">
+                        <label class="sr-only" for="cif">Cif</label>
+                        <input type="text" class="form-control" id="cif" placeholder="Cif">
+                      </div>
+                      <br>
+                      <div class="form-group">
+                        <label class="sr-only" for="phone">Teléfono</label>
+                        <input type="text" class="form-control" id="phone" placeholder="Teléfono">
+                      </div>
+                      <br>
+                      <br><br>
+                      <br><br>
+                      <button type="submit" class="btn btn-info">Enviar</button>
+                    </form>
+                  </div>
+                </div>
+            </div>
+            <!--Formulario APIDocs-->
 
             <div class="sidebar-pane" id="api">
                 <h1 class="sidebar-header">API Docs<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
