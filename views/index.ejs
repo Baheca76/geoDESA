@@ -27,7 +27,7 @@
         }
     </style>
 </head>
-<body>
+<body onload="getLocation()">
     <div id="sidebar" class="sidebar collapsed">
         <!-- Nav tabs -->
         <div class="sidebar-tabs">
@@ -81,9 +81,6 @@
                         <label class="sr-only" for="password">Password</label></br>
                         <input type="text" class="form-control" id="password" placeholder="Password">
                       </div>
-                      <br>
-                      <br>
-                      <button type="submit" class="btn btn-info">Enviar</button>
                       <br>
                       <br>
                       <button type="submit" class="btn btn-info">Sing up</button>
@@ -263,24 +260,50 @@
 
     <div id="map" class="sidebar-map"></div>
 
-    <!-- <a ><img style="position: fixed; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a> -->
-    <a href="#localizacion" role="tab"><i style="position: fixed; top: 40px; right: 40px; border: 40px; width: 40px; heigth:40px" class="fa fa-globe fa-2x"></i>></a>
 
+    <a href="http://localhost:3000/" role="tab"><i style="position: fixed; top: 40px; right: 40px; border: 40px; width: 40px; heigth:40px" class="fa fa-globe fa-2x"></i>></a>
 
     <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
     <script src="../js/leaflet-sidebar.js"></script>
-
     <script>
 
-        var map = L.map('map');
-        map.setView([37.395520, -5.160449], 8);
-        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 18,
-            attribution: 'Map data &copy; OpenStreetMap contributors'
-        }).addTo(map);
+        function getLocation() {
+          if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(showPosition);
+          } else {
+              alarm ("No soporta geolocalización");
+          }
+        }
 
-        var marker = L.marker([37.395520, -5.160449]).addTo(map);
-        var sidebar = L.control.sidebar('sidebar').addTo(map);
+        function showPosition(position) {
+
+          geoPositionLat = position.coords.latitude;
+          geoPositionLon = position.coords.longitude;
+
+          var map = L.map('map');
+          map.setView([geoPositionLat, geoPositionLon], 8);
+          L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+              maxZoom: 18,
+              attribution: 'Map data &copy; OpenStreetMap contributors'
+          }).addTo(map);
+          //geolocalizacion de la posicion
+
+          var posiciones = {pos:0.1, pos2:0.2, pos3:0.3};
+
+
+          // marcamos nuestra posicion
+          var marker = L.marker([geoPositionLat, geoPositionLon]).addTo(map);
+          for (var posicion in posiciones) {
+            var nuevaMarca =  L.marker([geoPositionLat+posiciones[posicion], geoPositionLon]).addTo(map);
+          }
+
+          // Mostrar listado de posiciones de deispositivos cercanoss
+          // a nuestra posicion actual
+          var sidebar = L.control.sidebar('sidebar').addTo(map);
+
+        }
+
+
     </script>
 </body>
 </html>

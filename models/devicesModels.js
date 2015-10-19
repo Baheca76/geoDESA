@@ -69,7 +69,8 @@ var DeviceSchema = new Schema({
 			type : String,
 			default: 'Point'
 		},
-		coordinates :[Number]
+		coordinates :[Number],
+		index: '2d'
 	},
 	address:{
 		type: String,
