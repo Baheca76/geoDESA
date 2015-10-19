@@ -12,6 +12,7 @@ var devices = require('./routes/devices');
 var providers = require('./routes/providers');
 
 
+
 var app = express();
 
 // view engine setup
@@ -29,9 +30,27 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+//app.use('/sessions', sessions);
+
 
 app.use('/devices',devices);
 app.use('/providers', providers);
+
+/*app.use(function(req, res,redir)){
+    //si no exite lo inicializa
+    if(!req.session.redir){
+          req.session.redir = '/';
+    }
+    //guardar path en session.redir para despues de login
+    if (!req.path.math(/\/login|\/logout|\/user/)){
+      req.session.redirt = req.path;
+    }
+    //hacer visivle el req.session en las vistas
+    res.locals.session = req.sessins;
+    next();
+} );
+*/
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
