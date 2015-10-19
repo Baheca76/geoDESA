@@ -265,19 +265,20 @@
 
     <div id="map" class="sidebar-map"></div>
 
-
+    <!-- Icono del mundo a la derecha arriba.-->
     <a href="http://localhost:3000/" role="tab"><i style="position: fixed; top: 40px; right: 40px; border: 40px; width: 40px; heigth:40px" class="fa fa-globe fa-2x"></i>></a>
 
     <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
     <script src="../js/leaflet-sidebar.js"></script>
     <script>
+    //geolocalizacion de la posicion
 
         function getLocation() {
-          if (navigator.geolocation) {
-              navigator.geolocation.getCurrentPosition(showPosition);
-          } else {
-              alarm ("No soporta geolocalización");
-          }
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                alarm ("No soporta geolocalización");
+            }
         }
 
         function showPosition(position) {
@@ -291,12 +292,10 @@
               maxZoom: 18,
               attribution: 'Map data &copy; OpenStreetMap contributors'
           }).addTo(map);
-          //geolocalizacion de la posicion
 
           var posiciones = {pos:0.1, pos2:0.2, pos3:0.3};
 
-
-          // marcamos nuestra posicion
+          // marcamos nuestra posicion L.marker([lat, long], zoom, {icon:icono})
           var marker = L.marker([geoPositionLat, geoPositionLon]).addTo(map);
           for (var posicion in posiciones) {
             var nuevaMarca =  L.marker([geoPositionLat+posiciones[posicion], geoPositionLon]).addTo(map);
@@ -307,8 +306,6 @@
           var sidebar = L.control.sidebar('sidebar').addTo(map);
 
         }
-
-
     </script>
 </body>
 </html>
