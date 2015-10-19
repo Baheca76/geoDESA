@@ -271,13 +271,13 @@
     <script src="../js/leaflet-sidebar.js"></script>
 
     <script>
+
         var map = L.map('map');
         map.setView([37.395520, -5.160449], 8);
         L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 18,
             attribution: 'Map data &copy; OpenStreetMap contributors'
         }).addTo(map);
-        //geolocalizacion de la posicion
 
         var marker = L.marker([37.395520, -5.160449]).addTo(map);
         var sidebar = L.control.sidebar('sidebar').addTo(map);
