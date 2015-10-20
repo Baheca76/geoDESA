@@ -3,7 +3,7 @@
 /**
  * Module dependencies.
  */
-/*var GeoJSON = require ('mongoose-geojson-schema');*/
+//var GeoJSON = require ('mongoose-geojson-schema');
 
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
@@ -69,7 +69,8 @@ var DeviceSchema = new Schema({
 			type : String,
 			default: 'Point'
 		},
-		coordinates :[Number]
+		coordinates :[Number],
+		index: '2d'
 	},
 	address:{
 		type: String,

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var devicesController = require('../controllers/devicesController');
+//var devicesController = require('../controllers/devicesController');
 //autoload los id
 //router.param('deviceId', devicesController.load);
 //definicion de rutas de devices
