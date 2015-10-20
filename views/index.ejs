@@ -37,8 +37,8 @@
                 <li><a href="#device" role="tab"><i class="fa fa-heartbeat"></i></a></li>
                 <li><a href="#provider" role="tab"><i class="fa fa-shopping-cart"></i></a></li>
                 <li><a href="#api" role="tab"><i class="fa fa-html5"></i></a></li>
-
                 <li><a href="#contact" role="tab"><i class="fa fa-envelope"></i></a></li>
+                <li><a href="#chat" role="tab"><i class="fa fa-phone-alt"></i></a></li>
             </ul>
 
             <ul role="tablist">
@@ -225,6 +225,7 @@
                 </div>
             </div>
 
+
             <div class="sidebar-pane" id="contact">
                 <h1 class="sidebar-header">Contacto<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
                 <br>
@@ -256,7 +257,34 @@
                   </div>
                 </div>
             </div>
+            <!--icono para chatear con el centro coordinador.-->
+            <div class="sidebar-pane" id="chat">
+                <h1 class="sidebar-header">Chat<div class="sidebar-close"><i class="fa fa-phone-alt"></i></div></h1>
+                <br>
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Chatear con el 061</h3>
+                  </div>
+                  <div class="panel-body">
+                    <p class="lorem">Chatear con el centro de emergencias 061 </p>
+                    <form class="form-inline">
+                      <div class="form-group">
+                        <label class="sr-only" for="nombre">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+                      </div>
+                      <br>
+                      <br><br>
+                      <div class="form-group">
+                        <label class="sr-only" for="texto">texto</label>
+                        <textarea class="form-control" rows="7" placeholder="escribe tu duda, queja o sugerencia, GRACIAS"></textarea>
+                      </div>
 
+                      <br><br>
+                      <button type="submit" class="btn btn-info">Enviar</button>
+                    </form>
+                  </div>
+                </div>
+            </div>
             <div class="sidebar-pane" id="settings">
                 <h1 class="sidebar-header">Settings<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
             </div>
@@ -292,6 +320,18 @@
     <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
     <script src="../js/leaflet-sidebar.js"></script>
     <script>
+    //definimos variable para el icono
+    var personIcon = L.icon({
+        iconUrl: 'person.png',
+        //shadowUrl: 'person.png',
+
+        //iconSize:     [38, 95], // size of the icon
+        //shadowSize:   [50, 64], // size of the shadow
+        // iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+        //shadowAnchor: [4, 62],  // the same for the shadow
+        //popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    });
+
     //geolocalizacion de la posicion
 
         function getLocation() {
@@ -309,7 +349,7 @@
           geoPositionLon = position.coords.longitude;
 
           var map = L.map('map');
-          map.setView([geoPositionLat, geoPositionLon], 8);
+          map.setView([geoPositionLat, geoPositionLon], 8,{icon:personIcon});
           L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
               maxZoom: 18,
               attribution: 'Map data &copy; OpenStreetMap contributors'
@@ -318,7 +358,7 @@
           var posiciones = {pos:0.1, pos2:0.2, pos3:0.3};
 
           // marcamos nuestra posicion L.marker([lat, long], zoom, {icon:icono})
-          var marker = L.marker([geoPositionLat, geoPositionLon]).addTo(map);
+          var marker = L.marker([geoPositionLat, geoPositionLon],{icon:personIcon}).addTo(map);
           for (var posicion in posiciones) {
             var nuevaMarca =  L.marker([geoPositionLat+posiciones[posicion], geoPositionLon]).addTo(map);
           }

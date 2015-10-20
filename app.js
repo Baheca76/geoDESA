@@ -25,19 +25,15 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+//app.use(session());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//app.use(session());
-
-app.use('/', routes);
 app.use('/users', users);
-//app.use('/sessions', sessions);
-
-
 app.use('/devices',devices);
 app.use('/providers', providers);
 
-/*app.use(function(req, res,redir)){
+//Helpers dinamicos:
+/*app.use(function(req, res,redir){
     //si no exite lo inicializa
     if(!req.session.redir){
           req.session.redir = '/';
@@ -49,8 +45,9 @@ app.use('/providers', providers);
     //hacer visivle el req.session en las vistas
     res.locals.session = req.sessins;
     next();
-} );
-*/
+} );*/
+
+app.use('/', routes);
 
 
 // catch 404 and forward to error handler
