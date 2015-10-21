@@ -38,7 +38,7 @@
                 <li><a href="#provider" role="tab"><i class="fa fa-shopping-cart"></i></a></li>
                 <li><a href="#api" role="tab"><i class="fa fa-html5"></i></a></li>
                 <li><a href="#contact" role="tab"><i class="fa fa-envelope"></i></a></li>
-                <li><a href="#chat" role="tab"><i class="fa fa-phone-alt"></i></a></li>
+                <li><a href="#chat" role="tab"><i class="fa fa-comment"></i></a></li>
             </ul>
 
             <ul role="tablist">
@@ -105,8 +105,8 @@
                     <p class="lorem">Introduzca la información del nuevo dispositivo</p>
                     <form class="form-inline" action="" method="post" enctype="multipart/form-data">
                       <div class="form-group">
-                        <label class="sr-only" for="description">Descripción</label>
-                        <input type="text" class="form-control " id="description" placeholder="Descripción">
+                        <label class="sr-only" for="name">Descripción</label>
+                        <input type="text" class="form-control " id="name" placeholder="Descripción">
                       </div>
                       <br>
                       <div class="form-group">
@@ -299,37 +299,26 @@
 
     <!-- <a ><img style="position: fixed; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a> -->
     <!--muestra el icono del mundo para geolocalizacion de los desa o dea mas cercanos a nuestra posicion.-->
-    <a href="#localizacion" role="tab"><i style="position: fixed; top: 40px; right: 40px; border: 40px; width: 40px; heigth:40px" class="fa fa-globe fa-2x"></i>></a>
+
+       <!--geolocalizacion de la posicion-->
 
     <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
     <script src="../js/leaflet-sidebar.js"></script>
-   <!--geolocalizacion de la posicion-->
-    <script>
-
-        var map = L.map('map');
-        map.setView([37.395520, -5.160449], 8);
-
-        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 18,
-            attribution: 'Map data &copy; OpenStreetMap contributors'
-        }).addTo(map);
-
     <!-- Icono del mundo a la derecha arriba.-->
     <a href="http://localhost:3000/" role="tab"><i style="position: fixed; top: 40px; right: 40px; border: 40px; width: 40px; heigth:40px" class="fa fa-globe fa-2x"></i>></a>
 
-    <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
-    <script src="../js/leaflet-sidebar.js"></script>
+
     <script>
     //definimos variable para el icono
     var personIcon = L.icon({
-        iconUrl: 'person.png',
-        //shadowUrl: 'person.png',
+        iconUrl: './images/person.png',
+        //shadowUrl: './images/person.png',
 
-        //iconSize:     [38, 95], // size of the icon
+        iconSize:     [38, 55], // size of the icon
         //shadowSize:   [50, 64], // size of the shadow
-        // iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+        iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
         //shadowAnchor: [4, 62],  // the same for the shadow
-        //popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+        popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
 
     //geolocalizacion de la posicion
@@ -349,7 +338,7 @@
           geoPositionLon = position.coords.longitude;
 
           var map = L.map('map');
-          map.setView([geoPositionLat, geoPositionLon], 8,{icon:personIcon});
+          map.setView([geoPositionLat, geoPositionLon], 8, {icon: personIcon});
           L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
               maxZoom: 18,
               attribution: 'Map data &copy; OpenStreetMap contributors'
@@ -358,7 +347,7 @@
           var posiciones = {pos:0.1, pos2:0.2, pos3:0.3};
 
           // marcamos nuestra posicion L.marker([lat, long], zoom, {icon:icono})
-          var marker = L.marker([geoPositionLat, geoPositionLon],{icon:personIcon}).addTo(map);
+          var marker = L.marker([geoPositionLat, geoPositionLon],{icon: personIcon}).addTo(map);
           for (var posicion in posiciones) {
             var nuevaMarca =  L.marker([geoPositionLat+posiciones[posicion], geoPositionLon]).addTo(map);
           }
@@ -369,5 +358,6 @@
 
         }
     </script>
+
 </body>
 </html>

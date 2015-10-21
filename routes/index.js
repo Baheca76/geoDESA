@@ -6,5 +6,4 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'geoDESA, project by Vanesa Martín' });
 });
 
-
 module.exports = router;

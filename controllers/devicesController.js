@@ -1,14 +1,16 @@
-/*var models = require('../models/devicesModels.js');
+
 
 
 exports.new = function(req, res) {
 
-
+  res.render('devices/new', {DeviceSchema: "", errors: [], title : "Nuevo device"});
 
 };
 
 // POST /devices
 exports.create = function(req, res) {
+
+      res.send("funciona");
 
 };
 //GET /devices/:id

@@ -1,12 +1,17 @@
 var express = require('express');
-var router = express.Router();
+var router = express.Router()
 
-//var devicesController = require('../controllers/devicesController');
+var devicesController = require('../controllers/devicesController');
 //autoload los id
 //router.param('deviceId', devicesController.load);
 //definicion de rutas de devices
-//router.get('/devices', devicesController.index);
-//router.post('/devices', devicesController.create);
+router.get('/new', devicesController.new);
+router.post('/devices', devicesController.create);
+//app.get('/devices', devicesController.create)
+router.get('/', function(req, res, next) {
+  res.send('respond with a resource');
+});
+
 //router.get('/devices/:id', devicesController.list);
 //router.get('/devices/:id/edit', devicesController.edit);
 //router.put('/devices/:id', devicesController.update);

@@ -54,10 +54,10 @@ exports.edit = function(req, res) {
 
 // GET /user
 exports.new = function(req, res) {
-    var user = models.User.build( // crea objeto user
-        {username: "", password: ""}
-    );
-    res.render('users/new', {user: user, errors: []});
+    //var user = models.User.build( // crea objeto user
+      //  {username: "", password: ""}
+    //);
+    res.render('users/new', {user: "", errors: [], title : "Nuevo usuario"});
 
 
 };

@@ -1,0 +1,39 @@
+<!--formulario de Devices -->
+
+    <form class="form-inline" action="" method="post" enctype="multipart/form-data">
+          <div class="form-group">
+            <label class="sr-only" for="name">Descripción</label>
+            <input type="text" class="form-control " id="name" placeholder="Descripción">
+          </div>
+          <br>
+          <div class="form-group">
+            <label class="sr-only" for="address">Dirección</label>
+            <input type="text" class="form-control" id="address" placeholder="Dirección">
+          </div>
+          <br>
+          <div class="form-group">
+            <label class="sr-only" for="provider">Proveedor</label>
+            <input type="text" class="form-control" id="provider" placeholder="Proveedor">
+          </div>
+          <br><br>
+          <div class="form-group">
+            <label class="sr-only" for="deviceType">Tipo de dispositivo</label>
+            <select class="form-control" id="deviceType">
+              <option>DEA</option>
+              <option>DESA</option>
+              <option>Desfibrilador</option>
+            </select>
+          </div>
+          <br><br>
+          <div class="form-group">
+            <label class="sr-only" for="localizacion">localizacion</label>
+            <input type="text" class="form-control" id="provider" placeholder="localizacion (lon,lat) __._,__._">
+          </div>
+          <br><br>
+          <div class="form-group">
+            <label for="imagen">Imagen</label><br>
+            <input type="file" class="form-control" id="imagen" placeholder="Imagen">
+          </div>
+          <br><br>
+          <button type="submit" class="btn btn-info">Enviar</button>
+    </form>

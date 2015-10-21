@@ -5,12 +5,12 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var devices = require('./routes/devices');
 var providers = require('./routes/providers');
-
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/test');
 
 
 var app = express();
@@ -50,6 +50,7 @@ app.use('/providers', providers);
 app.use('/', routes);
 
 
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -80,6 +81,8 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
+
 
 
 module.exports = app;
