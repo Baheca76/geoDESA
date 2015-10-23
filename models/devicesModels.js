@@ -69,8 +69,7 @@ var DeviceSchema = new Schema({
 			type : String,
 			default: 'Point'
 		},
-		coordinates :[Number],
-		index: '2d'
+		coordinates :[Number]
 	},
 	address:{
 		type: String,
@@ -144,4 +143,4 @@ var DeviceSchema = new Schema({
 
 DeviceSchema.index({location:'2dsphere'});
 
-mongoose.model('Device', DeviceSchema);
+var Device = mongoose.model('Device', DeviceSchema);
