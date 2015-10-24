@@ -1,5 +1,5 @@
 // MW de autorización de accesos HTTP restringidos
-/*exports.loginRequired = function(req, res, next){
+exports.loginRequired = function(req, res, next){
     if (req.session.user) {
         next();
     } else {
@@ -21,8 +21,8 @@ exports.create = function(req, res) {
     var login     = req.body.login;
     var password  = req.body.password;
 
-  /*  var usersController = require('./usersController');
-    usersController.autenticar(login, password, function(error, user) {
+   var usersController = require('./usersController');
+        usersController.autenticar(login, password, function(error, user) {
 
         if (error) {  // si hay error retornamos mensajes de error de sesión
             req.session.errors = [{"message": 'Se ha producido un error: '+error}];
@@ -35,7 +35,7 @@ exports.create = function(req, res) {
         req.session.user = {id:user.id, username:user.username, isAdmin:user.isAdmin};
 
         res.redirect(req.session.redir.toString());// redirección a path anterior a login
-    });*/
+    });
 };
 
 // DELETE /logout   -- Destruir sesion

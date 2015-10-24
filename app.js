@@ -29,8 +29,8 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-//app.use(session());
+app.use(cookieParser(''));
+//(1)app.use(session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/users', users);
@@ -38,7 +38,7 @@ app.use('/devices',devices);
 app.use('/providers', providers);
 
 //Helpers dinamicos:
-/*app.use(function(req, res,redir){
+/*(1)app.use(function(req, res,redir){
     //si no exite lo inicializa
     if(!req.session.redir){
           req.session.redir = '/';
@@ -50,7 +50,7 @@ app.use('/providers', providers);
     //hacer visivle el req.session en las vistas
     res.locals.session = req.sessins;
     next();
-} );*/
+} );(1)*/
 
 app.use('/', routes);
 

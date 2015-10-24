@@ -27,6 +27,7 @@
         }
     </style>
 </head>
+
 <body onload="getLocation()">
     <div id="sidebar" class="sidebar collapsed">
         <!-- Nav tabs -->
@@ -53,7 +54,7 @@
                     geoDESA
                     <div class="sidebar-close"><i class="fa fa-caret-left"></i></div>
                 </h1>
-
+                <br>
                 <p> Web para la gestión y geolocalización de Desfibriladores Externos SemiAutomáticos (DESA) o Desfibriladores Externos Automáticos (DEA) <!--<a href="http://leafletjs.com/">Leaflet</a> or <a href="http://openlayers.org/">OpenLayers</a>-->.</p>
 
                 <p class="lorem">El desfibrilador externo semiautomático (DESA) o desfibriliador externo automático (DEA), es un aparato electrónico portátil (producto sanitario) que diagnostica y trata la parada cardiorrespiratoria cuando es debida a la fibrilación ventricular (en que el corazón tiene actividad eléctrica pero sin efectividad mecánica) o a una taquicardia ventricular sin pulso (en que hay actividad eléctrica y en este caso el bombeo sanguíneo es ineficaz), restableciendo un ritmo cardíaco efectivo eléctrica y mecánicamente. La desfibrilación consiste en emitir un impulso de corriente continua al corazón, despolarizando simultáneamente todas las células miocárdicas, pudiendo retomar su ritmo eléctrico normal u otro eficaz. La fibrilación ventricular es la causa más frecuente de muerte súbita.</p>
@@ -61,7 +62,6 @@
                 <p class="lorem">El DESA o DEA es muy eficaz para la mayor parte de los llamados paros cardíacos, que en su mayor parte son debidos a que el corazón fibrila y su ritmo no es el adecuado, estos equipos básicamente devuelven el ritmo adecuado al corazón, pero es totalmente ineficaz en la parada cardíaca con asistolia pues el corazón, en este caso, además de no bombear la sangre, no tiene actividad eléctrica; y en la actividad eléctrica sin pulso (AESP), antes denominada disociación electromecánica, donde hay actividad eléctrica, que puede ser incluso normal, pero sin eficacia mecánica. En estos dos últimos casos únicamente se debe realizar compresión torácica mientras se establecen otras medidas avanzadas.</p>
 
             </div>
-
             <!--Formulario de autenticación de usuarios registrados, y también pueden darse de alta con sing up-->
             <div class="sidebar-pane" id="profile">
                 <h1 class="sidebar-header">Profile<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
@@ -71,7 +71,7 @@
                     <h3 class="panel-title">Sign in</h3>
                   </div>
                   <div class="panel-body">
-                    <form class="form-inline" action="" method="post" enctype="multipart/form-data">
+                    <form class="form-inline" action="GET" method="get" enctype="multipart/form-data">
                       <div class="form-group">
                         <label class="sr-only" for="login">Login</label>
                         <input type="text" class="form-control " id="login" placeholder="Login">
@@ -79,7 +79,7 @@
                       <br>
                       <div class="form-group">
                         <label class="sr-only" for="password">Password</label></br>
-                        <input type="text" class="form-control" id="password" placeholder="Password">
+                        <input type="password" class="form-control" id="password" placeholder="Password">
                       </div>
                       <br>
                       <br>
@@ -91,8 +91,9 @@
                 <br>
                 <br>
                 <p type="text">¿No tienes cuenta?</p>
-                <button type="submit" class="btn btn-info">Sing up</button>
+                <button type="submit" class="btn btn-info">Sign up</button>
             </div>
+            
             <!--formulario de Devices -->
             <div class="sidebar-pane" id="device">
                 <h1 class="sidebar-header">DEA / DESA<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>

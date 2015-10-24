@@ -1,5 +1,6 @@
-
-var models = require('../models/devicesModels.js');
+//var mongoose = require ('mongoose'),Schema = mongoose.Schema;;
+var Device = require('../models/devicesModels.js');
+//var Device = mongoose.models('Device',Schema);
 
 exports.new = function(req, res) {
 
@@ -9,25 +10,26 @@ exports.new = function(req, res) {
 
 // POST /devices
 exports.create = function(req, res) {
-  var device = new Device({
-        name: this.name,
-        address: this.address,
-        provider: this.provider,
-        location: this.location,
-        province: this.province,
-        city: this.city
 
-    });
+    var device = new Device({
+            name: req.body.name,
+            address: req.body.address,
+            provider: req.body.provider,
+            location: req.body.location,
+            province: req.body.province,
+            city: req.body.city
 
+     });
      device.save(function(error){
+
         if(error){
            res.send('Error al intentar guardar el device.');
         }else{
-          res.redirect('/devices');
+          res.redirect('/devices/create');
         }
      });
-  console.log("Se ha insertado un desa con nombre:" + this.name);
-  res.send('funciona' + req.name);
+  //console.log("Se ha insertado un desa con nombre:" + this.name);
+  res.send('funciona' + req.body.name);
 };
 //GET /devices/:id
 exports.list = function(req, res) {
