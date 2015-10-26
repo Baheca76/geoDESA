@@ -71,20 +71,24 @@
                     <h3 class="panel-title">Sign in</h3>
                   </div>
                   <div class="panel-body">
-                    <form class="form-inline" action="GET" method="get" enctype="multipart/form-data">
-                      <div class="form-group">
-                        <label class="sr-only" for="login">Login</label>
-                        <input type="text" class="form-control " id="login" placeholder="Login">
-                      </div>
-                      <br>
-                      <div class="form-group">
-                        <label class="sr-only" for="password">Password</label></br>
-                        <input type="password" class="form-control" id="password" placeholder="Password">
-                      </div>
-                      <br>
-                      <br>
-                      <button type="submit" class="btn btn-info">Sign in</button>
-                    </form>
+                    <%if (!session.user){ %>
+                      <form class="form-inline" action="GET" method="get" enctype="multipart/form-data">
+                        <div class="form-group">
+                          <label class="sr-only" for="login">Login</label>
+                          <input type="text" class="form-control " id="login" placeholder="Login">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                          <label class="sr-only" for="password">Password</label></br>
+                          <input type="password" class="form-control" id="password" placeholder="Password">
+                        </div>
+                        <br>
+                        <br>
+                        <button type="submit" class="btn btn-info">Sign in</button>
+                      </form>
+                    <% } else { %>
+                      <button type="submit" class="btn btn-info">Log out</button>
+                    <% } %>
                   </div>
                 </div>
                 <br>
@@ -93,7 +97,7 @@
                 <p type="text">¿No tienes cuenta?</p>
                 <button type="submit" class="btn btn-info">Sign up</button>
             </div>
-            
+
             <!--formulario de Devices -->
             <div class="sidebar-pane" id="device">
                 <h1 class="sidebar-header">DEA / DESA<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>

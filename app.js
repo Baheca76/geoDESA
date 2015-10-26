@@ -9,6 +9,9 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var devices = require('./routes/devices');
 var providers = require('./routes/providers');
+var sessions = require('./routes/sessions');
+
+
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/test');
 var db = mongoose.connection;
@@ -29,30 +32,35 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser(''));
-//(1)app.use(session());
+// inicializamos cookie parser con una semilla para cifrar
+app.use(cookieParser('geodesa2015'));
+app.use(session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/users', users);
 app.use('/devices',devices);
 app.use('/providers', providers);
+app.use('/sessions', sessions);
+
+app.use('/', routes);
 
 //Helpers dinamicos:
-/*(1)app.use(function(req, res,redir){
+app.use(function(req, res,redir){
     //si no exite lo inicializa
     if(!req.session.redir){
           req.session.redir = '/';
     }
+    console.log("redir-->",req.session.redir);
     //guardar path en session.redir para despues de login
-    if (!req.path.math(/\/login|\/logout|\/user/)){
-      req.session.redirt = req.path;
+    if (!req.path.match(/\/login|\/logout|\/user/)){
+      req.session.redir = req.path;
     }
-    //hacer visivle el req.session en las vistas
-    res.locals.session = req.sessins;
+    //hacer visible el req.session en las vistas
+    res.locals.session = req.session;
     next();
-} );(1)*/
+} );
 
-app.use('/', routes);
+
 
 
 

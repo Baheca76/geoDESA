@@ -1,13 +1,13 @@
 var express = require('express');
 var router = express.Router();
 
-var sessionsController = require ('../controllers/sessionsController');
+var sessionController = require ('../controllers/sessionsController');
 
 //definicion de rutas de session
 
-router.get('/login', sessionsController.new); //formulario login
-router.post('/login', sessionsController.create);//crear session
-router.get('/logout', sessionsController.destroy);//destruir session
+router.get('/login', sessionController.new); //formulario login
+router.post('/login', sessionController.create); //crear session
+router.get('/logout', sessionController.destroy); //destruir session
 
 
 module.exports = router;
