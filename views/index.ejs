@@ -35,7 +35,9 @@
             <ul role="tablist">
                 <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
                 <li><a href="#profile" role="tab"><i class="fa fa-user"></i></a></li>
-                <li><a href="#device" role="tab"><i class="fa fa-heartbeat"></i></a></li>
+                <% if (session.user.isAdmin) { %>
+                  <li><a href="#device" role="tab"><i class="fa fa-heartbeat"></i></a></li>
+                <% } %>
                 <li><a href="#provider" role="tab"><i class="fa fa-shopping-cart"></i></a></li>
                 <li><a href="#api" role="tab"><i class="fa fa-html5"></i></a></li>
                 <li><a href="#contact" role="tab"><i class="fa fa-envelope"></i></a></li>
@@ -67,37 +69,39 @@
                 <h1 class="sidebar-header">Profile<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
                 <br>
                 <div class="panel panel-info">
+                  <%if (session.user == ""){ %>
                   <div class="panel-heading">
                     <h3 class="panel-title">Sign in</h3>
                   </div>
                   <div class="panel-body">
-                    <%if (!session.user){ %>
-                      <form class="form-inline" action="GET" method="get" enctype="multipart/form-data">
+                    <form class="form-inline" action="/sessions/login" method="post">
                         <div class="form-group">
                           <label class="sr-only" for="login">Login</label>
-                          <input type="text" class="form-control " id="login" placeholder="Login">
+                          <input type="text" class="form-control " id="login" name="login" placeholder="Login">
                         </div>
                         <br>
                         <div class="form-group">
                           <label class="sr-only" for="password">Password</label></br>
-                          <input type="password" class="form-control" id="password" placeholder="Password">
+                          <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                         </div>
                         <br>
                         <br>
                         <button type="submit" class="btn btn-info">Sign in</button>
                       </form>
-                    <% } else { %>
-                      <button type="submit" class="btn btn-info">Log out</button>
-                    <% } %>
                   </div>
+                    <% } else { %>
+                      <div class="panel-heading">
+                        <h3 class="panel-title">User</h3>
+                      </div>
+                      <div class="panel-body">
+                        <p>User: <%= session.user.username %></p>
+                        <form action="/sessions/logout" method="get">
+                          <button type="submit" class="btn btn-info">Log out</button>
+                        </form>
+                      </div>
+                    <% } %>
                 </div>
-                <br>
-                <br>
-                <br>
-                <p type="text">¿No tienes cuenta?</p>
-                <button type="submit" class="btn btn-info">Sign up</button>
             </div>
-
             <!--formulario de Devices -->
             <div class="sidebar-pane" id="device">
                 <h1 class="sidebar-header">DEA / DESA<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>

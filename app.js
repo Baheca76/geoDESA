@@ -31,7 +31,8 @@ app.set('view engine', 'ejs');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+//app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded());
 // inicializamos cookie parser con una semilla para cifrar
 app.use(cookieParser('geodesa2015'));
 app.use(session());
@@ -45,7 +46,7 @@ app.use('/sessions', sessions);
 app.use('/', routes);
 
 //Helpers dinamicos:
-app.use(function(req, res,redir){
+app.use(function(req, res, next){
     //si no exite lo inicializa
     if(!req.session.redir){
           req.session.redir = '/';
@@ -59,9 +60,6 @@ app.use(function(req, res,redir){
     res.locals.session = req.session;
     next();
 } );
-
-
-
 
 
 // catch 404 and forward to error handler
