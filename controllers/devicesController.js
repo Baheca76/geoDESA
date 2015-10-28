@@ -12,7 +12,7 @@ exports.new = function(req, res) {
 exports.create = function(req, res) {
 
     var device = new Device({
-            name: req.body.name,
+            name: req.name,
             address: req.body.address,
             provider: req.body.provider,
             location: req.body.location,

@@ -11,5 +11,6 @@ router.get('/', function(req, res, next) {
 
 router.get('/new', usersController.new); //formulario de sign up
 router.post('/users', usersController.create);//crear un nuevo usuario
+router.get('/insertar',usersController.insertar);
 
 module.exports = router;
