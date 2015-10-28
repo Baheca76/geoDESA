@@ -143,5 +143,4 @@ var DeviceSchema = new Schema({
 
 DeviceSchema.index({location:'2dsphere'});
 
-var Device = mongoose.model('Device', DeviceSchema);
-module.exports = Device;
+module.exports = mongoose.model('Device', DeviceSchema);

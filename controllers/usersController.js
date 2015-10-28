@@ -30,10 +30,25 @@ exports.new = function(req, res) {
 };
 exports.create = function(req, res) {
 
+     var user = new User({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        username: req.body.username,
+        password: req.body.password,
+        isAdmin: true,
+        isApprove: true
+    });
+    user.save(function (error){
+      if (error){
+        res.send(error);
+      }
+      res.json({mensaje: "usuario creado"});
+    });
 
 
 };
 exports.insertar = function(req, res){
+
 
   var user = new User({
     firstName: 'administrador1',
@@ -43,11 +58,30 @@ exports.insertar = function(req, res){
     isAdmin:true,
     isApprove:true
   });
-  user.save(function (err){
-    if (err){
-      res.send(err);
+  user.save(function (error){
+    if (error){
+      res.send(error);
     }
     res.json({mensaje: "usuario creado"});
+  });
+
+};
+exports.solicitudalta = function(req, res){
+
+  res.render('users/solicitudalta', {UsersSchema: "", errors: [], title : "solicitudalta"});
+  var user = new User({
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    username: req.body.username,
+    password: req.body.password,
+    isAdmin:false,
+    isApprove:false
+  });
+  user.save(function (error){
+    if (error){
+      res.send(error);
+    }
+    res.json({mensaje: "solicitud enviada"});
   });
 
 }

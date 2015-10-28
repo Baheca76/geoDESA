@@ -10,7 +10,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/new', usersController.new); //formulario de sign up
-router.post('/users', usersController.create);//crear un nuevo usuario
+router.post('/create', usersController.create);//crear un nuevo usuario
 router.get('/insertar',usersController.insertar);
+router.get('/solicitudalta', usersController.solicitudalta);
 
 module.exports = router;
