@@ -1,6 +1,6 @@
-var users = { admin1: {id:1, username:"admin1", password:"admin1", isAdmin: true },
-              admin2: {id:2, username:"admin2", password:"admin2", isAdmin: true },
-              user1: {id:3, username:"user1", password:"user1", isAdmin: false }
+var users = { admin1: {id:1, username:"admin1", password:"admin1", isAdmin: true, isApprove: true},
+              admin2: {id:2, username:"admin2", password:"admin2", isAdmin: true, isApprove:true },
+              user1: {id:3, username:"user1", password:"user1", isAdmin: false, isApprove:true }
             }
 
 // Comprueba si el usuario esta registrado en users
@@ -19,3 +19,11 @@ exports.autenticar = function(login, password, callback) {
   }
 
 };
+exports.new = function(req, res) {
+
+  res.render('users/new', {DeviceSchema: "", errors: [], title : "Nuevo usuario"});
+  next();
+};
+exports.create = function(req, res) {
+
+};  
