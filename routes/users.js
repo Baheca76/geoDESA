@@ -11,7 +11,11 @@ router.get('/', function(req, res, next) {
 
 });
 
-//router.get('/new', usersController.new); //formulario de sign up
+//formulario de sign up
+router.get('/new', function(req, res, next){
+  res.render('users/new');
+});
+
 //router.post('/users', usersController.create);//crear un nuevo usuario
 
 module.exports = router;
