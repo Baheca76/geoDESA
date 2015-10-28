@@ -1,27 +1,31 @@
 
-<form class="form-inline" action="POST" method="post" enctype="multipart/form-data">
+<form class="form-inline" action="/create" method="post" enctype="multipart/form-data">
       <div class="form-group">
               <label class="sr-only" for="firstName">Nombre</label>
-              <input type="text" class="form-control " id="firstName" placeholder="nombre">
+              <input type="text" class="form-control " id="firstName" name="firstName" placeholder="nombre">
       </div>
       <br>
       <div class="form-group">
               <label class="sr-only" for="lastName">Apellidos</label>
-              <input type="text" class="form-control" id="lastName" placeholder="Apellidos">
+              <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Apellidos">
       </div>
       <br>
       <div class="form-group">
               <label class="sr-only" for="email">Email</label>
-              <input type="email" class="form-control" id="email" placeholder="email">
+              <input type="email" class="form-control" id="email" name="email" placeholder="email">
       </div>
       <br>
       <div class="form-group">
             <label class="sr-only" for="login">login</label>
-            <input type="text" class="form-control" id="login" placeholder="login">
+            <input type="text" class="form-control" id="login" name="login" placeholder="login">
       </div>
       <div class="form-group">
             <label class="sr-only" for="password">Contraseña</label>
-            <input type="password" class="form-control" id="password" placeholder="contraseña">
+            <input type="password" class="form-control" id="password" name="password" placeholder="contraseña">
+      </div>
+      <div class="checkbox">
+          <label><input type= "checkbox" value= "isApprove" >Aprobado <a href="#">aceptamos que sea usuario</a>
+          </label>
       </div>
       <br>
       <br><br>

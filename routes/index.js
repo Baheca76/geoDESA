@@ -5,9 +5,11 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   var user = req.session.user || "";
   var isAdmin = req.session.isAdmin || false;
+  var isApprove = req.session.isApprove || false;
   console.log(user);
   console.log(isAdmin);
-  res.render('index', { title: 'geoDESA, project by Vanesa Martín', session: {user: user, isAdmin: isAdmin}});
+  console.log(isApprove);
+  res.render('index', { title: 'geoDESA, project by Vanesa Martín', session: {user: user, isAdmin: isAdmin,isApprove: isApprove}});
 });
 
 module.exports = router;

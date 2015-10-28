@@ -1,19 +1,19 @@
 <!--formulario de Devices -->
 
-    <form class="form-inline" action="POST" method="post" enctype="multipart/form-data">
+    <form class="form-inline" action="/create" method="post" enctype="multipart/form-data">
           <div class="form-group">
             <label class="sr-only" for="name">Nombre</label>
-            <input type="text" class="form-control" id="name" placeholder="Nombre">
+            <input type="text" class="form-control" id="name" name="name"placeholder="Nombre">
           </div>
           <br>
           <div class="form-group">
             <label class="sr-only" for="address">Dirección</label>
-            <input type="text" class="form-control" id="address" placeholder="Dirección">
+            <input type="text" class="form-control" id="address" name="address" placeholder="Dirección">
           </div>
           <br>
           <div class="form-group">
             <label class="sr-only" for="provider">Proveedor</label>
-            <input type="text" class="form-control" id="provider" placeholder="Proveedor">
+            <input type="text" class="form-control" id="provider" name="provider" placeholder="Proveedor">
           </div>
           <br><br>
           <div class="form-group">
@@ -27,12 +27,12 @@
           <br><br>
           <div class="form-group">
             <label class="sr-only" for="localizacion">localizacion</label>
-            <input type="text" class="form-control" id="provider" placeholder="localizacion (lon,lat) __._,__._">
+            <input type="text" class="form-control" id="provider" name="provider" placeholder="localizacion (lon,lat) __._,__._">
           </div>
           <br><br>
           <div class="form-group">
             <label for="imagen">Imagen</label><br>
-            <input type="file" class="form-control" id="imagen" placeholder="Imagen">
+            <input type="file" class="form-control" id="imagen" name="imagen" placeholder="Imagen">
           </div>
           <br><br>
           <button type="submit" class="btn btn-info">Enviar</button>
