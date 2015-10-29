@@ -102,6 +102,25 @@
                     <% } %>
                 </div>
             </div>
+            <div class="sidebar-pane" id="profile">
+                <!--<h1 class="sidebar-header">Profile<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>-->
+                <br>
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Sign up</h3>
+                  </div>
+                  <div class="panel-body">
+                    <form class="form-inline" action="/users/solicitudalta" method="get">
+                        <br>
+                        <br>
+                        <button type="submit" class="btn btn-info">Sign up</button>
+                      </form>
+                  </div>
+
+
+
+                </div>
+            </div>
             <!--formulario de Devices -->
             <div class="sidebar-pane" id="device">
                 <h1 class="sidebar-header">DEA / DESA<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
@@ -115,17 +134,17 @@
                     <form class="form-inline" action="" method="post" enctype="multipart/form-data">
                       <div class="form-group">
                         <label class="sr-only" for="name">Descripción</label>
-                        <input type="text" class="form-control " id="name" placeholder="Descripción">
+                        <input type="text" class="form-control " id="name" name="name" placeholder="Descripción">
                       </div>
                       <br>
                       <div class="form-group">
                         <label class="sr-only" for="address">Dirección</label>
-                        <input type="text" class="form-control" id="address" placeholder="Dirección">
+                        <input type="text" class="form-control" id="address" name="address" placeholder="Dirección">
                       </div>
                       <br>
                       <div class="form-group">
                         <label class="sr-only" for="provider">Proveedor</label>
-                        <input type="text" class="form-control" id="provider" placeholder="Proveedor">
+                        <input type="text" class="form-control" id="provider" name="provider" placeholder="Proveedor">
                       </div>
                       <br><br>
                       <div class="form-group">
@@ -138,8 +157,8 @@
                       </div>
                       <br><br>
                       <div class="form-group">
-                        <label class="sr-only" for="localizacion">localizacion</label>
-                        <input type="text" class="form-control" id="provider" placeholder="localizacion (lon,lat) __._,__._">
+                        <label class="sr-only" for="location">localizacion</label>
+                        <input type="text" class="form-control" id="location" name="location "placeholder="localizacion (lon,lat) __._,__._">
                       </div>
                       <br><br>
                       <div class="form-group">
@@ -165,22 +184,22 @@
                     <form class="form-inline" action="" method="post" enctype="multipart/form-data">
                       <div class="form-group">
                         <label class="sr-only" for="name">Nombre</label>
-                        <input type="text" class="form-control " id="name" placeholder="Nombre">
+                        <input type="text" class="form-control " id="name" name="name" placeholder="Nombre">
                       </div>
                       <br>
                       <div class="form-group">
                         <label class="sr-only" for="address">Dirección</label>
-                        <input type="text" class="form-control" id="address" placeholder="Dirección">
+                        <input type="text" class="form-control" id="address" name=" address" placeholder="Dirección">
                       </div>
                       <br>
                       <div class="form-group">
                         <label class="sr-only" for="cif">Cif</label>
-                        <input type="text" class="form-control" id="cif" placeholder="Cif">
+                        <input type="text" class="form-control" id="cif" name="cif" placeholder="Cif">
                       </div>
                       <br>
                       <div class="form-group">
                         <label class="sr-only" for="phone">Teléfono</label>
-                        <input type="text" class="form-control" id="phone" placeholder="Teléfono">
+                        <input type="text" class="form-control" id="phone" name="phone" placeholder="Teléfono">
                       </div>
                       <br>
                       <br><br>

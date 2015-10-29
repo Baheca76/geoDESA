@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.ie.css" /><![endif]-->
+
+    <link rel="stylesheet" href="../stylesheets/leaflet-sidebar.css" />
+    <link rel="stylesheet" href="../stylesheets/geodesa.css" />
+   <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        html, body, #map {
+            height: 200%;
+            font: 10pt "Helvetica Neue", Arial, Helvetica, sans-serif;
+        }
+        .lorem {
+            font-style: italic;
+            color: #AAA;
+        }
+    </style>
+</head>
+<body>
+  <div class="panel panel-info solicitudaltausuario">
+
+            <div class="panel-heading">
+              <h3 class="panel-title"><p>Formulario solicitud alta nuevo usuario: </p></h3>
+            </div>
+            <form class="form-inline" action="/solicitudalta" method="get" >
+                  <div class="form-group">
+                          <label class="sr-only" for="firstName">Nombre</label>
+                          <input type="text" class="form-control" id="firstName" name="firstName" placeholder="nombre">
+                  </div>
+                  <br>
+                  <br><br>
+                  <div class="form-group">
+                          <label class="sr-only" for="lastName">Apellidos</label>
+                          <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Apellidos">
+                  </div>
+                  <br>
+                  <br><br>
+                  <div class="form-group">
+                          <label class="sr-only" for="email">Email</label>
+                          <input type="email" class="form-control" id="email" name="email" placeholder="email">
+                  </div>
+                  <br><br>
+                  <div class="form-group">
+                        <label class="sr-only" for="login">login</label>
+                        <input type="text" class="form-control" id="login" name="login" placeholder="login">
+                  </div>
+                  <br><br>
+                  <div class="form-group">
+                        <label class="sr-only" for="password">Contraseña</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="contraseña">
+                  </div>
+                  <!--<div class="checkbox">
+                      <label><input type= "checkbox" value= "isApprove" >Aprobado <a href="#">aceptamos que sea usuario</a>
+                      </label>
+                  </div>-->
+                  <br><br><br>
+                  <br><br>
+                  <button type="submit" class="btn btn-info">Enviar</button>
+            </form>
+            <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+            <script src="../js/leaflet-sidebar.js"></script>
+
+  </div>
+
+</body>
