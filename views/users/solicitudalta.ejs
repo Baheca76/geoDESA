@@ -12,13 +12,13 @@
 
     <link rel="stylesheet" href="../stylesheets/leaflet-sidebar.css" />
     <link rel="stylesheet" href="../stylesheets/geodesa.css" />
-    <style>
+   <style>
         body {
             padding: 0;
             margin: 0;
         }
         html, body, #map {
-            height: 100%;
+            height: 200%;
             font: 10pt "Helvetica Neue", Arial, Helvetica, sans-serif;
         }
         .lorem {
@@ -33,10 +33,10 @@
             <div class="panel-heading">
               <h3 class="panel-title"><p>Formulario solicitud alta nuevo usuario: </p></h3>
             </div>
-            <form class="form-inline" action="/create" method="post" enctype="multipart/form-data">
+            <form class="form-inline" action="/solicitudalta" method="get" >
                   <div class="form-group">
                           <label class="sr-only" for="firstName">Nombre</label>
-                          <input type="text" class="form-control " id="firstName" name="firstName" placeholder="nombre">
+                          <input type="text" class="form-control" id="firstName" name="firstName" placeholder="nombre">
                   </div>
                   <br>
                   <br><br>
@@ -55,6 +55,7 @@
                         <label class="sr-only" for="login">login</label>
                         <input type="text" class="form-control" id="login" name="login" placeholder="login">
                   </div>
+                  <br><br>
                   <div class="form-group">
                         <label class="sr-only" for="password">Contraseña</label>
                         <input type="password" class="form-control" id="password" name="password" placeholder="contraseña">

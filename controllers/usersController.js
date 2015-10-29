@@ -25,7 +25,7 @@ exports.autenticar = function(login, password, callback) {
 };
 exports.new = function(req, res) {
 
-  res.render('users/new', {DeviceSchema: "", errors: [], title : "Nuevo usuario"});
+  res.render('users/new', {UserSchema: "", errors: [], title : "Nuevo usuario"});
   next();
 };
 exports.create = function(req, res) {
@@ -69,19 +69,5 @@ exports.insertar = function(req, res){
 exports.solicitudalta = function(req, res){
 
   res.render('users/solicitudalta', {UsersSchema: "", errors: [], title : "solicitudalta"});
-  var user = new User({
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    username: req.body.username,
-    password: req.body.password,
-    isAdmin:false,
-    isApprove:false
-  });
-  user.save(function (error){
-    if (error){
-      res.send(error);
-    }
-    res.json({mensaje: "solicitud enviada"});
-  });
 
 }
