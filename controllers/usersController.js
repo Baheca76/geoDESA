@@ -24,16 +24,14 @@ exports.autenticar = function(login, password, callback) {
 
 };
 exports.new = function(req, res) {
-
   res.render('users/new', {UserSchema: "", errors: [], title : "Nuevo usuario"});
-  next();
 };
 exports.create = function(req, res) {
 
      var user = new User({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        username: req.body.username,
+        userName: req.body.userName,
         password: req.body.password,
         isAdmin: true,
         isApprove: true
@@ -53,7 +51,7 @@ exports.insertar = function(req, res){
   var user = new User({
     firstName: 'administrador1',
     lastName:'administrador1',
-    username: 'admin1',
+    userName: 'admin1',
     password: 'admin1',
     isAdmin:true,
     isApprove:true

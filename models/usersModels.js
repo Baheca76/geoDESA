@@ -16,14 +16,12 @@ var UserSchema = new Schema({
 	firstName: {
 		type: String,
 		default: '',
-
 	},
 	lastName: {
 		type: String,
 		default: '',
-
 	},
-	username: {
+	userName: {
 		type: String,
 		unique: 'testing error message',
 		required: 'Please fill in a username',
@@ -32,7 +30,6 @@ var UserSchema = new Schema({
 	password: {
 		type: String,
 		default: '',
-
 	},
 	isAdmin:{
 		type: Boolean,
@@ -48,4 +45,3 @@ var UserSchema = new Schema({
 
 
 module.exports = mongoose.model('User', UserSchema);
- 
