@@ -46,4 +46,4 @@ var ProviderSchema = new Schema({
 	}
 });
 
-mongoose.model('Provider', ProviderSchema);
+module.exports = mongoose.model('Provider', ProviderSchema);

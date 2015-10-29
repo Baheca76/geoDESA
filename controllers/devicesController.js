@@ -4,18 +4,22 @@ var Device = require('../models/devicesModels.js')
 exports.new = function(req, res) {
 
   res.render('devices/new', {DeviceSchema: "", errors: [], title : "Nuevo device"});
-  next();
+
 };
 
 // POST /devices
 exports.create = function(req, res) {
 
+    //cogemos las coordenadas
+    var comaPosition = req.location.indexOf(',');
+    var latitude = req.location.substring(0, comaPosition);
+    var longitude = req.location.substring(comaPosition+1, req.location.length);
+
     var device = new Device({
             name: req.body.name,
             address: req.body.address,
-            provider: req.body.provider,
-            location: req.body.location,
-            province: req.body.province,
+            location: {type:'Point', coordinates:[latitude, longitude]},
+            //province: req.body.province,
             city: req.body.city
 
      });
@@ -28,6 +32,11 @@ exports.create = function(req, res) {
         }
      });
 };
+exports.solicitudalta = function(req, res){
+
+  res.render('devices/solicitudalta', {DeviceSchema: "", errors: [], title : "solicitudalta"});
+
+}
 //GET /devices/:id
 exports.list = function(req, res) {
 

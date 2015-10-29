@@ -31,39 +31,48 @@
   <div class="panel panel-info solicitudalta">
 
             <div class="panel-heading">
-              <h3 class="panel-title"><p>Formulario solicitud alta nuevo usuario: </p></h3>
+              <h3 class="panel-title"><p>Formulario solicitud alta nuevo device: </p></h3>
             </div>
-            <form class="form-inline" action="/solicitudalta" method="get" >
+            <form class="form-inline" action="/create" method="post" enctype="multipart/form-data">
                   <div class="form-group">
-                          <label class="sr-only" for="firstName">Nombre</label>
-                          <input type="text" class="form-control" id="firstName" name="firstName" placeholder="nombre">
+                    <label class="sr-only" for="name">Nombre</label>
+                    <input type="text" class="form-control" id="name" name="name"placeholder="Nombre">
                   </div>
                   <br>
-                  <br><br>
                   <div class="form-group">
-                          <label class="sr-only" for="lastName">Apellidos</label>
-                          <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Apellidos">
+                    <label class="sr-only" for="address">Dirección</label>
+                    <input type="text" class="form-control" id="address" name="address" placeholder="Dirección">
                   </div>
                   <br>
-                  <br><br>
                   <div class="form-group">
-                          <label class="sr-only" for="email">Email</label>
-                          <input type="email" class="form-control" id="email" name="email" placeholder="email">
+                    <label class="sr-only" for="provider">Proveedor</label>
+                    <input type="text" class="form-control" id="provider" name="provider" placeholder="Proveedor">
                   </div>
                   <br><br>
                   <div class="form-group">
-                        <label class="sr-only" for="login">login</label>
-                        <input type="text" class="form-control" id="login" name="login" placeholder="login">
+                    <label class="sr-only" for="deviceType">Tipo de dispositivo</label>
+                    <select class="form-control" id="deviceType">
+                      <option>DEA</option>
+                      <option>DESA</option>
+                      <option>Desfibrilador</option>
+                    </select>
                   </div>
                   <br><br>
                   <div class="form-group">
-                        <label class="sr-only" for="password">Contraseña</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="contraseña">
+                    <label class="sr-only" for="localizacion">localizacion</label>
+                    <input type="text" class="form-control" id="location" name="location" placeholder="localizacion (lon,lat) __._,__._">
                   </div>
-                  <br><br><br>
+                  <br><br>
+                  <div class="form-group">
+                    <label for="imagen">Imagen</label><br>
+                    <input type="file" class="form-control" id="imagen" name="imagen" placeholder="Imagen">
+                  </div>
+
+
                   <br><br>
                   <button type="submit" class="btn btn-info">Enviar</button>
             </form>
+
             <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
             <script src="../js/leaflet-sidebar.js"></script>
 
