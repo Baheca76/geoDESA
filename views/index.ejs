@@ -37,16 +37,18 @@
                 <li><a href="#profile" role="tab"><i class="fa fa-user"></i></a></li>
                 <% if (session.user.isAdmin) { %>
                   <li><a href="#device" role="tab"><i class="fa fa-heartbeat"></i></a></li>
+
+                  <li><a href="#provider" role="tab"><i class="fa fa-shopping-cart"></i></a></li>
                 <% } %>
-                <li><a href="#provider" role="tab"><i class="fa fa-shopping-cart"></i></a></li>
                 <li><a href="#api" role="tab"><i class="fa fa-html5"></i></a></li>
                 <li><a href="#contact" role="tab"><i class="fa fa-envelope"></i></a></li>
                 <li><a href="#chat" role="tab"><i class="fa fa-comment"></i></a></li>
             </ul>
-
-            <ul role="tablist">
-                <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
-            </ul>
+                        <% if (session.user.isAdmin) { %>
+                          <ul role="tablist">
+                              <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
+                          </ul>
+                        <%}%>
         </div>
 
         <!-- Tab panes -->
@@ -129,7 +131,7 @@
                   </div>
                   <div class="panel-body">
                     <p class="lorem">Introduzca la información del nuevo dispositivo</p>
-                    <form class="form-inline" action="" method="post" enctype="multipart/form-data">
+                    <form class="form-inline" action="/create" method="post" enctype="multipart/form-data">
                       <div class="form-group">
                         <label class="sr-only" for="name">Descripción</label>
                         <input type="text" class="form-control " id="name" name="name" placeholder="Descripción">
@@ -313,6 +315,36 @@
             </div>
             <div class="sidebar-pane" id="settings">
                 <h1 class="sidebar-header">Settings<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
+                <div class="panel panel-info">
+                  <div class="panel-body">
+                    <p class="lorem">User operations</p>
+                    <form class="form-inline" action="/users/userssettings" method="get">
+                        <br>
+                        <br>
+                          <button type="submit" class="btn btn-info">Users</button>
+                      </form>
+                  </div>
+                </div>
+                <div class="panel panel-info">
+                  <div class="panel-body">
+                    <p class="lorem">Device operations</p>
+                    <form class="form-inline" action="/devices/devicessettings" method="get">
+                        <br>
+                        <br>
+                          <button type="submit" class="btn btn-info">Devices</button>
+                      </form>
+                  </div>
+                </div>
+                <div class="panel panel-info">
+                  <div class="panel-body">
+                    <p class="lorem">Provider operations</p>
+                    <form class="form-inline" action="/providers/providerssettings" method="get">
+                        <br>
+                        <br>
+                          <button type="submit" class="btn btn-info">Providers</button>
+                      </form>
+                  </div>
+                </div>
             </div>
         </div>
     </div>

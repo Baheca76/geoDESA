@@ -8,17 +8,13 @@ exports.new = function(req, res) {
 };
 //POST /provider
 exports.create = function(req, res) {
-
-
     var provider = new Provider({
             name: req.body.name,
             address: req.body.address,
             cif: req.body.cif,
             phone: req.body.phone
-
      });
      device.save(function(error){
-
         if(error){
            res.send('Error al intentar guardar el provider.');
         }else{

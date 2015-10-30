@@ -5,12 +5,13 @@ var devicesController = require('../controllers/devicesController');
 //autoload los id
 //router.param('deviceId', devicesController.load);
 //definicion de rutas de devices
-router.get('/new', devicesController.new);
-router.post('/devices', devicesController.create);
-//app.get('/devices', devicesController.create)
+
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  res.send("enviado");
 });
+router.get('/new', devicesController.new);
+router.post('/create', devicesController.create);
+
 router.get('/solicitudalta', devicesController.solicitudalta);
 //router.get('/devices/:id', devicesController.list);
 //router.get('/devices/:id/edit', devicesController.edit);

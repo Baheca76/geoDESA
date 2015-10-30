@@ -22,10 +22,6 @@ var DeviceSchema = new Schema({
 		type: Date,
 		default: Date.now
 	},
-	user: {
-		type: Schema.ObjectId,
-		ref: 'User'
-	},
 	company: {
 			name: {
 				type: String,

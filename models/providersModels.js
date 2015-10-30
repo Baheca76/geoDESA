@@ -13,16 +13,10 @@ var ProviderSchema = new Schema({
 	name: {
 		type: String,
 		default: '',
-		required: 'Please fill Provider name',
-		trim: true
 	},
 	created: {
 		type: Date,
 		default: Date.now
-	},
-	user: {
-		type: Schema.ObjectId,
-		ref: 'User'
 	},
 	cif:{
 		type:String,
