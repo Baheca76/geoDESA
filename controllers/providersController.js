@@ -1,5 +1,5 @@
 var mongoose = require ('mongoose'),Schema = mongoose.Schema;;
-var Provider = require('../models/providersModels.js')
+var Provider = require('../models/providersModels.js');
 
 exports.new = function(req, res) {
 
@@ -14,7 +14,7 @@ exports.create = function(req, res) {
             cif: req.body.cif,
             phone: req.body.phone
      });
-     device.save(function(error){
+     provider.save(function(error){
         if(error){
            res.send('Error al intentar guardar el provider.');
         }else{
@@ -25,7 +25,15 @@ exports.create = function(req, res) {
 
 //GET /provider/:id
 exports.list = function(req, res) {
+  Provider.find({},function(error, providers){
 
+            if (error){
+                res.send(error);
+            }
+            res.json({providers});
+            //res.render('users/list', {UsersSchema: "users", errors: [], title : "Listado"});
+  });
+  //res.render('users/list', {UsersSchema: "", errors: [], title : "listado"});
 };
 //GET /provider/:id/edit
 exports.edit = function(req, res) {
@@ -38,5 +46,11 @@ exports.update = function(req, res, next) {
 
 // DELETE /provider/:id
 exports.delete = function(req, res) {
-
+  var provider = req.providers;
+  provider.remove(function(error){
+    if(error){
+      res.send(error);
+    }
+      res.json({mensaje:"provider borrado"});
+  });
 };

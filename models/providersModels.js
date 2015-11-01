@@ -20,6 +20,8 @@ var ProviderSchema = new Schema({
 	},
 	cif:{
 		type:String,
+		unique: 'testing error message',
+		required: 'Please fill in a cif',
 		default: ''
 	},
 	phone:{
@@ -40,4 +42,5 @@ var ProviderSchema = new Schema({
 	}
 });
 
+//ProviderSchema.index({cif: '2dsphere'});
 module.exports = mongoose.model('Provider', ProviderSchema);

@@ -10,9 +10,11 @@ router.get('/', function(req, res, next) {
 });
 router.get('/new', providersController.new);
 router.post('/create', providersController.create);
+router.get('/list',providersController.list);
+router.delete('/delete/:id', providersController.delete);
 /*router.get('/providers/:id', providersController.list);
 router.get('/providers/:id/edit', providersController.edit);
 router.put('/providers/:id', providersController.update);
-router.delete('/providers/:id', providersController.delete);
+
 */
 module.exports = router;

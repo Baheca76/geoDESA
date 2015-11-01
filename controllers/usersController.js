@@ -1,4 +1,4 @@
-var mongoose = require ('mongoose'),Schema = mongoose.Schema;;
+var mongoose = require ('mongoose'),Schema = mongoose.Schema;
 var User = require ('../models/usersModels.js');
 
 
@@ -33,7 +33,7 @@ exports.create = function(req, res) {
         lastName: req.body.lastName,
         userName: req.body.userName,
         password: req.body.password,
-        isAdmin: true,
+        isAdmin: req.body.isAdmin,
         isApprove: true
     });
     user.save(function (error){
@@ -68,4 +68,27 @@ exports.solicitudalta = function(req, res){
 
   res.render('users/solicitudalta', {UsersSchema: "", errors: [], title : "solicitudalta"});
 
-}
+};
+exports.list = function(req,res){
+
+  /*User.find({},function(error, users){
+
+            if (error){
+                res.send(error);
+            }
+
+            //res.json({users});
+            //(1)res.render('users/list', {UsersSchema: "users", errors: [], title : "Listado"});
+  });*/
+  res.render('users/list', {UsersSchema: "", errors: [], title : "listado"});//(2)
+
+};
+exports.delete = function(req, res) {
+  var user = req.users;
+  user.remove(function(error){
+    if(error){
+      res.send(error);
+    }
+      res.json({mensaje:"usuario borrado"});
+  });
+};

@@ -15,18 +15,18 @@ var DeviceSchema = new Schema({
 	name: {
 		type: String,
 		default: '',
-		//required: 'Please fill Device name',
-		//trim: true
+		required: 'Please fill Device name',
+		trim: true
 	},
 	created: {
 		type: Date,
 		default: Date.now
 	},
 	company: {
-			name: {
-				type: String,
-				default: '',
-			},
+				name: {
+					type: String,
+					default: '',
+				},
 	 	    Nif: {
 	 	    	type: String,
 	 	    	default: '',
@@ -39,26 +39,26 @@ var DeviceSchema = new Schema({
 	 	    	type:String,
 	 	    	default: '',
 	 	    },
-	 		city:{
-	 			type: String,
-	 			default: '',
-	 		},
-			postal_code:{
-				type: Number,
-				default: '',
-			},
-			phone:{
-				type: Number,
-				default: '',
-			},
-			fax:{
-				type: Number,
-				default: '',
-			},
-			mail:{
-				type: String,
-				default: '',
-			}
+		 		city:{
+		 			type: String,
+		 			default: '',
+		 		},
+				postal_code:{
+					type: Number,
+					default: '',
+				},
+				phone:{
+					type: Number,
+					default: '',
+				},
+				fax:{
+					type: Number,
+					default: '',
+				},
+				mail:{
+					type: String,
+					default: '',
+				}
 	},
 	location:{
 		type:{
