@@ -48,10 +48,9 @@ exports.list = function(req, res) {
                 res.send(error);
             }
               res.render('devices/list', {listDevices: devices});
-             //res.json({devices});
-             //res.render('users/list', {UsersSchema: "users", errors: [], title : "Listado"});
+
   });
-  //res.render('users/list', {UsersSchema: "", errors: [], title : "listado"});
+
 
 };
 //GET /devices/:id/edit

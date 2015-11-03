@@ -71,16 +71,13 @@ exports.solicitudalta = function(req, res){
 };
 exports.list = function(req,res){
 
-  /*User.find({},function(error, users){
+  User.find({},function(error, users){
 
-            if (error){
-                res.send(error);
-            }
-
-            //res.json({users});
-            //(1)res.render('users/list', {UsersSchema: "users", errors: [], title : "Listado"});
-  });*/
-  res.render('users/list', {UsersSchema: "", errors: [], title : "listado"});//(2)
+        if (error){
+            res.send(error);
+        }
+          res.render('users/list', {listUsers: users});
+  });
 
 };
 exports.delete = function(req, res) {

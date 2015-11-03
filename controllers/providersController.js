@@ -27,13 +27,14 @@ exports.create = function(req, res) {
 exports.list = function(req, res) {
   Provider.find({},function(error, providers){
 
-            if (error){
-                res.send(error);
-            }
-            res.json({providers});
-            //res.render('users/list', {UsersSchema: "users", errors: [], title : "Listado"});
+    if (error){
+        res.send(error);
+    }
+      res.render('providers/list', {listProviders: providers});
+
+
   });
-  //res.render('users/list', {UsersSchema: "", errors: [], title : "listado"});
+
 };
 //GET /provider/:id/edit
 exports.edit = function(req, res) {
