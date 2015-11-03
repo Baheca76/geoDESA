@@ -28,51 +28,67 @@
     </style>
 </head>
 <body>
-  <div class="panel panel-info solicitudalta">
+  <div class="panel panel-info panel-listado">
       <div class="panel-heading">
-            <h3 class="panel-title"><p>devices settings</p></h3>
+            <h3 class="panel-title"><p>Listado de dispositivos</p></h3>
       </div>
       <form class="form-inline" action="/list" method="get" >
          <table class="table">
            <thead>
              <tr>
-               <th>Devices</th>
-               <th></th>
+               <th>
+                 Nombre
+               </th>
+               <th>
+                 Localidad
+               </th>
+               <th>
+                 Localización
+               </th>
+               <th>
+
+               </th>
              </tr>
+
            </thead>
            <tbody>
-               <tr >
+           <% for (var i=0; i< listDevices.length; i++) { %>
+               <tr>
                  <td>
-
-                   <p id="demo"></p>
-                   <script>
-
-                   var text= '{}';
-                   var obj = JSON.parse(text);
-                   document.getElementById("demo").innerHTML = obj.userName + " " + obj.isAdmin;
-                   </script>
+                   <%= listDevices[i].name %>
+                 </td>
+                 <td>
+                  <%= listDevices[i].province %>
+                 </td>
+                 <td>
+                   <%= listDevices[i].location.coordinates %>
                  </td>
                  <td>
 
-                    <<!--<a href="#" class="btn btn-info btn-sm active">-->
-                      <form action="/edit/:id" method="get">
-                          <button type="button" class="btn btn-success">Edit</button>
+                    <!--<a href="#" class="btn btn-info btn-sm active">-->
+                      <form action="/devices/<%= listDevices[i]._id %>" method="get">
+                          <button type="submit" class="btn btn-success">Ver</button>
                       </form>
-                      <form action="/update/:id" method="put">
+                 </td>
+                 <td>
+                       <form action="/devices/update/<%= listDevices[i]._id %>" method="put">
                           <!-- Indicates caution should be taken with this action -->
-                          <button type="button" class="btn btn-warning">Update</button>
+                          <button type="submit" class="btn btn-warning">Editar</button>
                       </form>
-                      <form action="/delete/:id" method="delete">
+                 </td>
+                 <td>
+                      <form action="/devices/delete/<%= listDevices[i]._id %>" method="delete">
                           <!-- Indicates a dangerous or potentially negative action -->
-                          <button type="button" class="btn btn-danger">Delete</button>
+                          <button type="submit" class="btn btn-danger">Borrar</button>
                       </form>
-                  </td>
+                 </td>
                 </tr>
-                  </script>
+            <% } %>
             </tbody>
-              </table>
-          </form>
+          </table>
+        </form>
         <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
         <script src="../js/leaflet-sidebar.js"></script>
     </div>
 </body>
+</html>

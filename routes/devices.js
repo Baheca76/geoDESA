@@ -6,12 +6,9 @@ var devicesController = require('../controllers/devicesController');
 //router.param('deviceId', devicesController.load);
 //definicion de rutas de devices
 
-router.get('/', function(req, res, next) {
-  res.send("enviado");
-});
+router.get('/', devicesController.list);
 router.get('/new', devicesController.new);
 router.post('/create', devicesController.create);
-router.get('/list', devicesController.list);
 router.get('/solicitudalta', devicesController.solicitudalta);
 //router.get('/devices/:id', devicesController.list);
 //router.get('/devices/:id/edit', devicesController.edit);

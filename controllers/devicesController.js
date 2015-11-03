@@ -40,14 +40,15 @@ exports.solicitudalta = function(req, res){
   res.render('devices/solicitudalta', {DeviceSchema: "", errors: [], title : "solicitudalta"});
 
 }
-//GET /devices/:id
+
 exports.list = function(req, res) {
   Device.find({},function(error, devices){
 
             if (error){
                 res.send(error);
             }
-            res.json({devices});
+              res.render('devices/list', {listDevices: devices});
+             //res.json({devices});
              //res.render('users/list', {UsersSchema: "users", errors: [], title : "Listado"});
   });
   //res.render('users/list', {UsersSchema: "", errors: [], title : "listado"});
