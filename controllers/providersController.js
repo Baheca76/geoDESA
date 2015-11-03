@@ -10,9 +10,15 @@ exports.new = function(req, res) {
 exports.create = function(req, res) {
     var provider = new Provider({
             name: req.body.name,
-            address: req.body.address,
             cif: req.body.cif,
-            phone: req.body.phone
+            phone: req.body.phone,
+            fax: req.body.fax,
+            mail: req.body.mail,
+            address: req.body.address,
+            city: req.body.city,
+            postal_code: req.body.postal_code,
+            province: req.body.province
+
      });
      provider.save(function(error){
         if(error){

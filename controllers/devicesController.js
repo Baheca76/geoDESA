@@ -19,11 +19,20 @@ exports.create = function(req, res) {
     var device = new Device({
             name: req.body.name,
             serial_number: req.body.serial_number,
-            address: req.body.address,
-            //location:req.body.location,
             location: {type:'Point', coordinates:[latitude, longitude]},
-            //province: req.body.province,
-            city: req.body.city
+            address: req.body.address,
+            city: req.body.city,
+            postal_code: req.body.postal_code,
+            province: req.body.province,
+            city: req.body.city,
+            instalation: req.body.instalation,
+            activaction_emergency: req.body.activaction_emergency,
+            date_instalation: req.body.date_instalation,
+          	model: req.body.model,
+          	make: req.body.make,
+          	software:req.body.	software,
+          	software_version:req.body.software_version,
+          	id_estado:req.body.id_estado        	
 
      });
      device.save(function(error){

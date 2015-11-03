@@ -6,7 +6,7 @@ var usersController = require ('../controllers/usersController');
 /* GET users listing. */
 
 
-//router.post('/users', usersController.create);//crear un nuevo usuario
+
 router.get('/', usersController.list);//listar todos los usuarios
 router.get('/new', usersController.new); //formulario de sign up
 router.post('/create', usersController.create);//crear un nuevo usuario
