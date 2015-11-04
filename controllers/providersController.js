@@ -10,9 +10,15 @@ exports.new = function(req, res) {
 exports.create = function(req, res) {
     var provider = new Provider({
             name: req.body.name,
-            address: req.body.address,
             cif: req.body.cif,
-            phone: req.body.phone
+            phone: req.body.phone,
+            fax: req.body.fax,
+            mail: req.body.mail,
+            address: req.body.address,
+            city: req.body.city,
+            postal_code: req.body.postal_code,
+            province: req.body.province
+
      });
      provider.save(function(error){
         if(error){
@@ -27,13 +33,14 @@ exports.create = function(req, res) {
 exports.list = function(req, res) {
   Provider.find({},function(error, providers){
 
-            if (error){
-                res.send(error);
-            }
-            res.json({providers});
-            //res.render('users/list', {UsersSchema: "users", errors: [], title : "Listado"});
+    if (error){
+        res.send(error);
+    }
+      res.render('providers/list', {listProviders: providers});
+
+
   });
-  //res.render('users/list', {UsersSchema: "", errors: [], title : "listado"});
+
 };
 //GET /provider/:id/edit
 exports.edit = function(req, res) {

@@ -36,10 +36,23 @@ var ProviderSchema = new Schema({
 		type:String,
 		default: ''
 	},
-	Address:{
+	address:{
 		type:String,
 		default: ''
+	},
+	city:{
+		type: String,
+		default: '',
+	},
+	postal_code:{
+		type: Number,
+		default: '',
+	},
+	province: {
+		type:String,
+		default: '',
 	}
+
 });
 
 //ProviderSchema.index({cif: '2dsphere'});

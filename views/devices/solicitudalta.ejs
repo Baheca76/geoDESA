@@ -31,24 +31,37 @@
   <div class="panel panel-info solicitudalta">
 
             <div class="panel-heading">
-              <h3 class="panel-title"><p>Formulario solicitud alta nuevo device: </p></h3>
+              <h3 class="panel-title"><p>Formulario solicitud avistamiento de un device no registrado: </p></h3>
             </div>
-            <form class="form-inline" action="/create" method="post" enctype="multipart/form-data">
+            <br>
+            <form class="form-inline" action="/createT" method="post" enctype="multipart/form-data">
+
                   <div class="form-group">
-                    <label class="sr-only" for="name">Nombre</label>
-                    <input type="text" class="form-control" id="name" name="name"placeholder="Nombre">
-                  </div>
-                  <br>
-                  <div class="form-group">
-                    <label class="sr-only" for="address">Dirección</label>
-                    <input type="text" class="form-control" id="address" name="address" placeholder="Dirección">
-                  </div>
-                  <br>
-                  <div class="form-group">
-                    <label class="sr-only" for="provider">Proveedor</label>
-                    <input type="text" class="form-control" id="provider" name="provider" placeholder="Proveedor">
+                    <label class="sr-only" for="addressT">Dirección</label>
+                    <input type="text" class="form-control" id="address" name="addressT" placeholder="Dirección">
                   </div>
                   <br><br>
+                  <div class="form-group">
+                    <label class="sr-only" for="cityT">Ciudad</label>
+                    <input type="text" class="form-control" id="cityT" name="cityT" placeholder="Ciudad">
+                  </div>
+                  <br><br>
+                  <div class="form-group">
+                    <label class="sr-only" for="provinceT">Provincia</label>
+                    <input type="text" class="form-control" id="provinceT" name="provinceT"placeholder="Provincia">
+                  </div>
+                  <br><br>
+                  <div class="form-group">
+                    <label class="sr-only" for="postal_codeT">Código_postal</label>
+                    <input type="text" class="form-control" id="postal_codeT" name="postal_codeT" placeholder="Ciudad">
+                  </div>
+                  <br><br>
+                  <div class="form-group">
+                    <label class="sr-only" for="localizacion">localizacion</label>
+                    <input type="text" class="form-control" id="locationT" name="locationT" placeholder="localizacion (lon,lat) __._,__._">
+                  </div>
+                  <br><br>
+                  <br>
                   <div class="form-group">
                     <label class="sr-only" for="deviceType">Tipo de dispositivo</label>
                     <select class="form-control" id="deviceType">
@@ -59,20 +72,18 @@
                   </div>
                   <br><br>
                   <div class="form-group">
-                    <label class="sr-only" for="localizacion">localizacion</label>
-                    <input type="text" class="form-control" id="location" name="location" placeholder="localizacion (lon,lat) __._,__._">
-                  </div>
-                  <br><br>
-                  <div class="form-group">
                     <label for="imagen">Imagen</label><br>
                     <input type="file" class="form-control" id="imagen" name="imagen" placeholder="Imagen">
                   </div>
-
-
+                  <br><br>
                   <br><br>
                   <button type="submit" class="btn btn-info">Enviar</button>
             </form>
-
+            <br><br>
+            <form action="../" method="get">
+               <button type="submit" class="btn btn-primary">volver</button>
+            </form>
+            <br>
             <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
             <script src="../js/leaflet-sidebar.js"></script>
 

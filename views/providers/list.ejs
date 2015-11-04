@@ -28,51 +28,76 @@
     </style>
 </head>
 <body>
-  <div class="panel panel-info solicitudalta">
+  <div class="panel panel-info panel-listado">
       <div class="panel-heading">
-            <h3 class="panel-title"><p>providers settings</p></h3>
+            <h3 class="panel-title"><p>Listado de proveedores</p></h3>
       </div>
       <form class="form-inline" action="/list" method="get" >
          <table class="table">
            <thead>
              <tr>
-               <th>Providers</th>
-               <th></th>
+               <th>
+                 Nombre
+               </th>
+               <th>
+                 dirección
+               </th>
+               <th>
+                 cif
+               </th>
+               <th>
+                 teléfono
+               </th>
+               <th>
+
+               </th>
              </tr>
+
            </thead>
            <tbody>
-               <tr >
+           <% for (var i=0; i< listProviders.length; i++) { %>
+               <tr>
                  <td>
-
-                   <p id="demo"></p>
-                   <script>
-
-                   var text= '{}';
-                   var obj = JSON.parse(text);
-                   document.getElementById("demo").innerHTML = obj.userName + " " + obj.isAdmin;
-                   </script>
+                   <%= listProviders[i].name %>
+                 </td>
+                 <td>
+                   <%= listProviders[i].address %>
+                 </td>
+                 <td>
+                  <%= listProviders[i].cif %>
+                 </td>
+                 <td>
+                   <%= listProviders[i].phone %>
                  </td>
                  <td>
 
-                   <!--<a href="#" class="btn btn-info btn-sm active">-->
-                     <form action="/edit/:id" method="get">
-                         <button type="button" class="btn btn-success">Edit</button>
-                     </form>
-                     <form action="/update/:id" method="put">
-                         <!-- Indicates caution should be taken with this action -->
-                         <button type="button" class="btn btn-warning">Update</button>
-                     </form>
-                     <form action="/delete/:id" method="delete">
-                         <!-- Indicates a dangerous or potentially negative action -->
-                         <button type="button" class="btn btn-danger">Delete</button>
-                     </form>
-                  </td>
+                    <!--<a href="#" class="btn btn-info btn-sm active">-->
+                      <form action="/devices/<%= listProviders[i]._id %>" method="get">
+                          <button type="submit" class="btn btn-success">Ver</button>
+                      </form>
+                 </td>
+                 <td>
+                       <form action="/devices/update/<%= listProviders[i]._id %>" method="put">
+                          <!-- Indicates caution should be taken with this action -->
+                          <button type="submit" class="btn btn-warning">Editar</button>
+                      </form>
+                 </td>
+                 <td>
+                      <form action="/providers/delete/<%= listProviders[i]._id %>" method="delete">
+                          <!-- Indicates a dangerous or potentially negative action -->
+                          <button type="submit" class="btn btn-danger">Borrar</button>
+                      </form>
+                 </td>
                 </tr>
-                  </script>
+            <% } %>
             </tbody>
-              </table>
-          </form>
+          </table>
+        </form>
         <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
         <script src="../js/leaflet-sidebar.js"></script>
     </div>
+    <form action="../" method="get">
+        <!-- Indicates a dangerous or potentially negative action -->
+        <button type="submit" class="btn btn-primary">volver</button>
+    </form>
 </body>

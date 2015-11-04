@@ -7,14 +7,54 @@
           </div>
           <br>
           <div class="form-group">
+            <label class="sr-only" for="serial_number">Número de serie</label>
+            <input type="text" class="form-control" id="serial_number" name="serial_number" placeholder="Numero de serie">
+          </div>
+          <br>
+          <div class="form-group">
+            <label class="sr-only" for="localizacion">localizacion</label>
+            <input type="text" class="form-control" id="location" name="location" placeholder="localizacion (lon,lat) __._,__._">
+          </div>
+          <br>
+          <div class="form-group">
             <label class="sr-only" for="address">Dirección</label>
             <input type="text" class="form-control" id="address" name="address" placeholder="Dirección">
+          </div>
+          <br>
+          <div class="form-group">
+            <label class="sr-only" for="city">Ciudad</label>
+            <input type="text" class="form-control" id="city" name="city" placeholder="Ciudad">
+          </div>
+          <br>
+          <div class="form-group">
+            <label class="sr-only" for="postal_code">Código postal</label>
+            <input type="text" class="form-control" id="postal_code" name="postal_code" placeholder="Código postal">
+          </div>
+          <br>
+          <div class="form-group">
+            <label class="sr-only" for="province">Provincia</label>
+            <input type="text" class="form-control" id="province" name="province" placeholder="Provincia">
           </div>
           <br>
           <div class="form-group">
             <label class="sr-only" for="provider">Proveedor</label>
             <input type="text" class="form-control" id="provider" name="provider" placeholder="Proveedor">
           </div>
+          <br>
+          <!--<div class="form-group">
+            <label class="sr-only" for="provider">Instalacion</label>
+            <input type="text" class="form-control" id="provider" name="provider" placeholder="Proveedor">
+          </div>
+        
+          instalation: req.body.instalation,
+          activaction_emergency: req.body.activaction_emergency,
+          date_instalation: req.body.date_instalation,
+          model: req.body.model,
+          make: req.body.make,
+          software:req.body.	software,
+          software_version:req.body.software_version,
+          id_estado:req.body.id_estado   -->
+
           <br><br>
           <div class="form-group">
             <label class="sr-only" for="deviceType">Tipo de dispositivo</label>
@@ -24,11 +64,7 @@
               <option>Desfibrilador</option>
             </select>
           </div>
-          <br><br>
-          <div class="form-group">
-            <label class="sr-only" for="localizacion">localizacion</label>
-            <input type="text" class="form-control" id="location" name="location" placeholder="localizacion (lon,lat) __._,__._">
-          </div>
+
           <br><br>
           <div class="form-group">
             <label for="imagen">Imagen</label><br>
@@ -37,3 +73,8 @@
           <br><br>
           <button type="submit" class="btn btn-info">Enviar</button>
     </form>
+    <br><br>
+    <form action="../../" method="get">
+       <button type="submit" class="btn btn-primary">volver</button>
+    </form>
+    <br>

@@ -5,12 +5,10 @@ var providersController = require('../controllers/providersController');
 //autoload los id
 //router.param('providersId', providersController.load);
 //definicion de rutas de providers
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+
 router.get('/new', providersController.new);
 router.post('/create', providersController.create);
-router.get('/list',providersController.list);
+router.get('/',providersController.list);
 router.delete('/delete/:id', providersController.delete);
 /*router.get('/providers/:id', providersController.list);
 router.get('/providers/:id/edit', providersController.edit);

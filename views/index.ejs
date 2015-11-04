@@ -126,52 +126,98 @@
                 <h1 class="sidebar-header">DEA / DESA<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
                 <br>
                 <div class="panel panel-info">
-                  <div class="panel-heading">
-                    <h3 class="panel-title">New DEA/DESA</h3>
-                  </div>
-                  <div class="panel-body">
-                    <p class="lorem">Introduzca la información del nuevo dispositivo</p>
-                    <% if eres admin %>
-                    <form class="form-inline" action="/create" method="post" enctype="multipart/form-data">
-                      <div class="form-group">
-                        <label class="sr-only" for="name">Descripción</label>
-                        <input type="text" class="form-control " id="name" name="name" placeholder="Descripción">
+
+                  <% if (session.user.isAdmin) { %>
+                      <div class="panel-heading">
+                        <h3 class="panel-title">New DEA/DESA</h3>
                       </div>
-                      <br>
-                      <div class="form-group">
-                        <label class="sr-only" for="address">Dirección</label>
-                        <input type="text" class="form-control" id="address" name="address" placeholder="Dirección">
+                      <div class="panel-body">
+                        <p class="lorem">Introduzca la información del nuevo dispositivo</p>
+                        <form class="form-inline" action="/create" method="post" enctype="multipart/form-data">
+                          <div class="form-group">
+                            <label class="sr-only" for="name">Descripción</label>
+                            <input type="text" class="form-control " id="name" name="name" placeholder="Descripción">
+                          </div>
+                          <br>
+                          <div class="form-group">
+                            <label class="sr-only" for="address">Dirección</label>
+                            <input type="text" class="form-control" id="address" name="address" placeholder="Dirección">
+                          </div>
+                          <br>
+                          <div class="form-group">
+                            <label class="sr-only" for="provider">Proveedor</label>
+                            <input type="text" class="form-control" id="provider" name="provider" placeholder="Proveedor">
+                          </div>
+                          <br><br>
+                          <div class="form-group">
+                            <label class="sr-only" for="deviceType">Tipo de dispositivo</label>
+                            <select class="form-control" id="deviceType">
+                              <option>DEA</option>
+                              <option>DESA</option>
+                              <option>Desfibrilador</option>
+                            </select>
+                          </div>
+                          <br><br>
+                          <div class="form-group">
+                            <label class="sr-only" for="location">localizacion</label>
+                            <input type="text" class="form-control" id="location" name="location "placeholder="localizacion (lon,lat) __._,__._">
+                          </div>
+                          <br><br>
+                          <div class="form-group">
+                            <label for="imagen">Imagen</label><br>
+                            <input type="file" class="form-control" id="imagen" placeholder="Imagen">
+                          </div>
+                          <br><br>
+                          <button type="submit" class="btn btn-info">Enviar</button>
+                        </form>
                       </div>
-                      <br>
-                      <div class="form-group">
-                        <label class="sr-only" for="provider">Proveedor</label>
-                        <input type="text" class="form-control" id="provider" name="provider" placeholder="Proveedor">
+                    <%} else{ %>
+                      <div class="panel-body">
+                        <p class="lorem">Introduzca la información del dispositivo que ha enconctrado</p>
+                        <form class="form-inline" action="" method="post" enctype="multipart/form-data">
+                          <div class="form-group">
+                            <label class="sr-only" for=""></label>
+                            <input type="text" class="form-control " id="" name="" placeholder="Descripción">
+                          </div>
+                          <br>
+                          <div class="form-group">
+                            <label class="sr-only" for="address">Dirección</label>
+                            <input type="text" class="form-control" id="address" name="address" placeholder="Dirección">
+                          </div>
+                          <br>
+                          <br><br>
+                          <div class="form-group">
+                            <label class="sr-only" for="deviceType">Tipo de dispositivo</label>
+                            <select class="form-control" id="deviceType">
+                              <option>DEA</option>
+                              <option>DESA</option>
+                              <option>Desfibrilador</option>
+                            </select>
+                          </div>
+                          <br><br>
+                          <div class="form-group">
+                            <label class="sr-only" for="location">localizacion</label>
+                            <input type="text" class="form-control" id="location" name="location "placeholder="localizacion (lon,lat) __._,__._">
+                          </div>
+                          <br><br>
+                          <div class="form-group">
+                            <label for="imagen">Imagen</label><br>
+                            <input type="file" class="form-control" id="imagen" placeholder="Imagen">
+                          </div>
+                          <br><br>
+                          <button type="submit" class="btn btn-info">Enviar</button>
+                        </form>
                       </div>
-                      <br><br>
-                      <div class="form-group">
-                        <label class="sr-only" for="deviceType">Tipo de dispositivo</label>
-                        <select class="form-control" id="deviceType">
-                          <option>DEA</option>
-                          <option>DESA</option>
-                          <option>Desfibrilador</option>
-                        </select>
-                      </div>
-                      <br><br>
-                      <div class="form-group">
-                        <label class="sr-only" for="location">localizacion</label>
-                        <input type="text" class="form-control" id="location" name="location "placeholder="localizacion (lon,lat) __._,__._">
-                      </div>
-                      <br><br>
-                      <div class="form-group">
-                        <label for="imagen">Imagen</label><br>
-                        <input type="file" class="form-control" id="imagen" placeholder="Imagen">
-                      </div>
+<<<<<<< HEAD
                       <br><br>
                       <button type="submit" class="btn btn-info">Enviar</button>
                     </form>
                     <% else %>
                     formlua
                   </div>
+=======
+                    <%}%>
+>>>>>>> 9437c95ab6d2ce3bd149425065e7f653d4e864ac
                 </div>
             </div>
             <!--formulario de providers -->
@@ -321,7 +367,7 @@
                 <div class="panel panel-info">
                   <div class="panel-body">
                     <p class="lorem">User operations</p>
-                    <form class="form-inline" action="/users/list" method="get">
+                    <form class="form-inline" action="/users/" method="get">
                         <br>
                         <br>
                           <button type="submit" class="btn btn-info">Users</button>
@@ -331,7 +377,7 @@
                 <div class="panel panel-info">
                   <div class="panel-body">
                     <p class="lorem">Device operations</p>
-                    <form class="form-inline" action="/devices/list" method="get">
+                    <form class="form-inline" action="/devices/" method="get">
                         <br>
                         <br>
                           <button type="submit" class="btn btn-info">Devices</button>
@@ -341,7 +387,7 @@
                 <div class="panel panel-info">
                   <div class="panel-body">
                     <p class="lorem">Provider operations</p>
-                    <form class="form-inline" action="/providers/list" method="get">
+                    <form class="form-inline" action="/providers/" method="get">
                         <br>
                         <br>
                           <button type="submit" class="btn btn-info">Providers</button>
@@ -370,15 +416,17 @@
 
 
     <script>
-    //definimos variable para el icono
+    //definimos las variables para los iconos
     var personIcon = L.icon({
-        iconUrl: './images/person.png',
-        //shadowUrl: './images/person.png',
-
-        iconSize:     [38, 55], // size of the icon
-        //shadowSize:   [50, 64], // size of the shadow
-        iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-        //shadowAnchor: [4, 62],  // the same for the shadow
+        iconUrl: './images/boy.png',
+        iconSize:     [38, 40], // size of the icon
+        iconAnchor:   [22, 50], // point of the icon which will correspond to marker's location
+        popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    });
+    var desaIcon = L.icon({
+        iconUrl: './images/heart.png',
+        iconSize:     [38, 40], // size of the icon
+        iconAnchor:   [22, 50], // point of the icon which will correspond to marker's location
         popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
 
@@ -391,7 +439,6 @@
                 alarm ("No soporta geolocalización");
             }
         }
-
 
         function showPosition(position) {
 
@@ -410,7 +457,7 @@
           // marcamos nuestra posicion L.marker([lat, long], zoom, {icon:icono})
           var marker = L.marker([geoPositionLat, geoPositionLon],{icon: personIcon}).addTo(map);
           for (var posicion in posiciones) {
-            var nuevaMarca =  L.marker([geoPositionLat+posiciones[posicion], geoPositionLon]).addTo(map);
+            var nuevaMarca =  L.marker([geoPositionLat+posiciones[posicion], geoPositionLon],{icon: desaIcon}).addTo(map);
           }
 
           // Mostrar listado de posiciones de deispositivos cercanoss
