@@ -6,6 +6,7 @@ router.get('/', function(req, res, next) {
   var user = req.session.user || "";
   var isAdmin = req.session.isAdmin || false;
   var isApprove = req.session.isApprove || false;
+  req.session.redir = req.path;
   console.log(user);
   console.log(isAdmin);
   console.log(isApprove);

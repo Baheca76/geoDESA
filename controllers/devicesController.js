@@ -1,15 +1,39 @@
 var mongoose = require ('mongoose'),Schema = mongoose.Schema;;
 var Device = require('../models/devicesModels.js');
 
+// Middleware to preload de device
+exports.load = function(req, res, next, deviceId){
+  console.log("pasa por load");
+  Device.find({_id: deviceId}, function(error, device){
+    if (error){
+        res.send(error);
+    }
+    req.device = device[0];
+    console.log(req.device);
+    next();
+  });
 
+};
+
+exports.show = function(req, res){
+  console.log("Show...")
+  console.log(req.device);
+  console.log(req.session.redir);
+  console.log(req.path);
+  res.render('devices/show', {device: req.device, redir: req.session.redir});
+}
+
+
+
+// GET /devices/new
+// Form to insert a new device
 exports.new = function(req, res) {
-
   res.render('devices/new', {DeviceSchema: "", errors: [], title : "Nuevo device"});
   next();
 };
 
-// GET /devices/search/:location/:distance
-
+// GET /devices/search/:lat/:lon/:distance
+// looking for devices near [:lat, :lon] position and :distance parameters
 exports.search = function(req, res) {
   var location = {
     type : "Point",
@@ -18,17 +42,17 @@ exports.search = function(req, res) {
 
   var searchOptions = {
     maxDistance : Number(req.params.distance),
-    distanceMultiplier: 1,
+    distanceMultiplier: 1,  // with this value, we are looking for for device
+                            // in meters
     spherical : true
   }
   Device.geoNear(location, searchOptions, function (err, results, stats) {
     res.json(results);
   })
-
-
 }
 
 // POST /devices
+// Create a new device on DB, through a create device form
 exports.create = function(req, res) {
 
     //cogemos las coordenadas
@@ -76,7 +100,12 @@ exports.list = function(req, res) {
             if (error){
                 res.send(error);
             }
+              req.session.redir = "/devices"+req.path;
+              console.log(req.path);
+              console.log(req.session.redir);
+              res.locals.session = req.session;
               res.render('devices/list', {listDevices: devices});
+
 
   });
 

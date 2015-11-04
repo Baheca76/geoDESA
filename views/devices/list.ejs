@@ -32,7 +32,6 @@
       <div class="panel-heading">
             <h3 class="panel-title"><p>Listado de dispositivos</p></h3>
       </div>
-      <form class="form-inline" action="/list" method="get" >
          <table class="table">
            <thead>
              <tr>
@@ -52,7 +51,7 @@
 
            </thead>
            <tbody>
-           <% for (var i=0; i< listDevices.length; i++) { %>
+           <% for (var i=0; i<listDevices.length; i++) { %>
                <tr>
                  <td>
                    <%= listDevices[i].name %>
@@ -64,35 +63,30 @@
                    <%= listDevices[i].location.coordinates %>
                  </td>
                  <td>
-
-                    <!--<a href="#" class="btn btn-info btn-sm active">-->
                       <form action="/devices/<%= listDevices[i]._id %>" method="get">
                           <button type="submit" class="btn btn-success">Ver</button>
                       </form>
                  </td>
                  <td>
                        <form action="/devices/update/<%= listDevices[i]._id %>" method="put">
-                          <!-- Indicates caution should be taken with this action -->
                           <button type="submit" class="btn btn-warning">Editar</button>
                       </form>
                  </td>
                  <td>
                       <form action="/devices/delete/<%= listDevices[i]._id %>" method="delete">
-                          <!-- Indicates a dangerous or potentially negative action -->
                           <button type="submit" class="btn btn-danger">Borrar</button>
                       </form>
                  </td>
-                </tr>
+              </tr>
             <% } %>
             </tbody>
           </table>
-        </form>
-        <form action="../" method="get">
-            <!-- Indicates a dangerous or potentially negative action -->
-            <button type="submit" class="btn btn-primary .btn-block">volver</button>
-        </form>
+      </div>
+      <hr>
+      <div class="backButton">
+        <a href="/" class="btn btn-info btn-lg active btn-block">Volver</a>
+      </div>
 
-    </div>
 
     <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
     <script src="../js/leaflet-sidebar.js"></script>

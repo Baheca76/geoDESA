@@ -109,10 +109,8 @@
                 <br>
                 <div class="panel panel-info">
                   <div class="panel-body">
-                    <p class="lorem">Para darse de alta, pulse sign up, y rellene el formulario para solicitarla.</p>
+                    <div class="alert alert-info" role="alert">¿No tienes usuario? Pulsa a continuación para darte de alta</div>
                     <form class="form-inline" action="/users/solicitudalta" method="get">
-                        <br>
-                        <br>
                         <button type="submit" class="btn btn-info">Sign up</button>
                       </form>
                   </div>
@@ -451,11 +449,14 @@
           // Mostrar listado de posiciones de deispositivos cercanoss
           // a nuestra posicion actual
           $.get("/devices/search/"+geoPositionLat+"/"+geoPositionLon+"/155000", function(data){
-            console.log(data);
             for (var i = 0; i < data.length; i++){
-              var nuevaMarca =  L.marker([data[i].obj.location.coordinates[0], data[i].obj.location.coordinates[1] ],{icon: desaIcon}).addTo(map);
+              var nuevaMarca =  L.marker([data[i].obj.location.coordinates[0], data[i].obj.location.coordinates[1] ],{icon: desaIcon}).
+                                bindPopup("<html><body>"
+                                          + "<a href=/devices/"+data[i].obj._id
+                                          + ">Ver dispositivo</a>"
+                                          + "</body></html>").openPopup().addTo(map);
             }
-          
+
           var sidebar = L.control.sidebar('sidebar').addTo(map);
 
 
