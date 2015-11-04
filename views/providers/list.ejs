@@ -30,23 +30,22 @@
 <body>
   <div class="panel panel-info panel-listado">
       <div class="panel-heading">
-            <h3 class="panel-title"><p>Listado de proveedores</p></h3>
+            <h3 class="panel-title"><p>Listado de proveedores:</p></h3>
       </div>
-      <form class="form-inline" action="/list" method="get" >
-         <table class="table">
+        <table class="table">
            <thead>
              <tr>
-               <th>
-                 Nombre
-               </th>
-               <th>
-                 dirección
-               </th>
                <th>
                  cif
                </th>
                <th>
-                 teléfono
+                 Teléfono
+               </th>
+               <th>
+                 email
+               </th>
+               <th>
+                 Dirección
                </th>
                <th>
 
@@ -58,29 +57,26 @@
            <% for (var i=0; i< listProviders.length; i++) { %>
                <tr>
                  <td>
-                   <%= listProviders[i].name %>
-                 </td>
-                 <td>
-                   <%= listProviders[i].address %>
-                 </td>
-                 <td>
-                  <%= listProviders[i].cif %>
+                   <%= listProviders[i].cif %>
                  </td>
                  <td>
                    <%= listProviders[i].phone %>
                  </td>
                  <td>
-
-                    <!--<a href="#" class="btn btn-info btn-sm active">-->
-                      <form action="/devices/<%= listProviders[i]._id %>" method="get">
+                  <%= listProviders[i].mail %>
+                 </td>
+                 <td>
+                   <%= listProviders[i].address %>
+                 </td>
+                 <td>
+                      <form action="/providers/<%= listProviders[i]._id %>" method="get">
                           <button type="submit" class="btn btn-success">Ver</button>
                       </form>
                  </td>
                  <td>
-                       <form action="/devices/update/<%= listProviders[i]._id %>" method="put">
-                          <!-- Indicates caution should be taken with this action -->
+                     <form action="/providers/update/<%= listProviders[i]._id %>" method="put">
                           <button type="submit" class="btn btn-warning">Editar</button>
-                      </form>
+                     </form>
                  </td>
                  <td>
                       <form action="/providers/delete/<%= listProviders[i]._id %>" method="delete">
@@ -92,14 +88,14 @@
             <% } %>
             </tbody>
           </table>
-        </form>
 
     </div>
+    <hr>
+    <div class="backButton">
+      <a href="/" class="btn btn-info btn-lg active btn-block">Volver</a>
+    </div>
 
-    <form action="../" method="get">
-        <!-- Indicates a dangerous or potentially negative action -->
-        <button type="submit" class="btn btn-primary">volver</button>
-    </form>
+
     <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
     <script src="../js/leaflet-sidebar.js"></script>
 </body>

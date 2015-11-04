@@ -42,6 +42,28 @@ exports.list = function(req, res) {
   });
 
 };
+// Middleware to preload de provider
+exports.load = function(req, res, next, providerId){
+  console.log("pasa por load");
+  Provider.find({_id: providerId}, function(error, provider){
+    if (error){
+        res.send(error);
+    }
+    req.provider = provider[0];
+    console.log(req.provider);
+    next();
+  });
+
+};
+
+exports.show = function(req, res){
+  console.log("Show...")
+  console.log(req.provider);
+  console.log(req.session.redir);
+  console.log(req.path);
+  res.render('providers/show', {provider: req.provider, redir: req.session.redir});
+};
+
 //GET /provider/:id/edit
 exports.edit = function(req, res) {
 
