@@ -401,6 +401,7 @@
        <!--geolocalizacion de la posicion-->
 
     <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="../js/leaflet-sidebar.js"></script>
     <!-- Icono del mundo a la derecha arriba.-->
     <a href="http://localhost:3000/" role="tab"><i style="position: fixed; top: 40px; right: 40px; border: 40px; width: 40px; heigth:40px" class="fa fa-globe fa-3x"></i>></a>
@@ -443,18 +444,23 @@
               attribution: 'Map data &copy; OpenStreetMap contributors'
           }).addTo(map);
 
-          var posiciones = {pos:0.1, pos2:0.2, pos3:0.3};
 
           // marcamos nuestra posicion L.marker([lat, long], zoom, {icon:icono})
           var marker = L.marker([geoPositionLat, geoPositionLon],{icon: personIcon}).addTo(map);
-          for (var posicion in posiciones) {
-            var nuevaMarca =  L.marker([geoPositionLat+posiciones[posicion], geoPositionLon],{icon: desaIcon}).addTo(map);
-          }
 
           // Mostrar listado de posiciones de deispositivos cercanoss
           // a nuestra posicion actual
+          $.get("/devices/search/"+geoPositionLat+"/"+geoPositionLon+"/155000", function(data){
+            console.log(data);
+            for (var i = 0; i < data.length; i++){
+              var nuevaMarca =  L.marker([data[i].obj.location.coordinates[0], data[i].obj.location.coordinates[1] ],{icon: desaIcon}).addTo(map);
+            }
+          
           var sidebar = L.control.sidebar('sidebar').addTo(map);
 
+
+
+          });
         }
     </script>
 

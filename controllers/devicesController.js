@@ -8,6 +8,26 @@ exports.new = function(req, res) {
   next();
 };
 
+// GET /devices/search/:location/:distance
+
+exports.search = function(req, res) {
+  var location = {
+    type : "Point",
+    coordinates : [Number(req.params.lat), Number(req.params.lon)]
+  };
+
+  var searchOptions = {
+    maxDistance : Number(req.params.distance),
+    distanceMultiplier: 1,
+    spherical : true
+  }
+  Device.geoNear(location, searchOptions, function (err, results, stats) {
+    res.json(results);
+  })
+
+
+}
+
 // POST /devices
 exports.create = function(req, res) {
 
@@ -32,7 +52,7 @@ exports.create = function(req, res) {
           	make: req.body.make,
           	software:req.body.	software,
           	software_version:req.body.software_version,
-          	id_estado:req.body.id_estado        	
+          	id_estado:req.body.id_estado
 
      });
      device.save(function(error){
