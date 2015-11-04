@@ -131,6 +131,7 @@
                   </div>
                   <div class="panel-body">
                     <p class="lorem">Introduzca la información del nuevo dispositivo</p>
+                    <% if eres admin %>
                     <form class="form-inline" action="/create" method="post" enctype="multipart/form-data">
                       <div class="form-group">
                         <label class="sr-only" for="name">Descripción</label>
@@ -168,6 +169,8 @@
                       <br><br>
                       <button type="submit" class="btn btn-info">Enviar</button>
                     </form>
+                    <% else %>
+                    formlua
                   </div>
                 </div>
             </div>
