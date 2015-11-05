@@ -31,16 +31,17 @@ exports.create = function(req, res) {
 
 //GET /provider/:id
 exports.list = function(req, res) {
-  Provider.find({},function(error, providers){
+    Provider.find({},function(error, providers){
 
-    if (error){
-        res.send(error);
-    }
-      res.render('providers/list', {listProviders: providers});
-
-
-  });
-
+        if (error){
+              res.send(error);
+        }
+            req.session.redir = "/providers"+req.path;
+            console.log(req.path);
+            console.log(req.session.redir);
+            res.locals.session = req.session;
+            res.render('providers/list', {listProviders: providers});
+    });
 };
 // Middleware to preload de provider
 exports.load = function(req, res, next, providerId){

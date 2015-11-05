@@ -31,8 +31,10 @@ exports.create = function(req, res) {
      var user = new User({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
+        dni:req.body.dni,
         userName: req.body.userName,
         password: req.body.password,
+        mail: req.body.mail,
         isAdmin: req.body.isAdmin,
         isApprove: true
     });
@@ -73,19 +75,46 @@ exports.list = function(req,res){
 
   User.find({},function(error, users){
 
-        if (error){
-            res.send(error);
-        }
-          res.render('users/list', {listUsers: users});
+      if (error){
+              res.send(error);
+      }
+        req.session.redir = "/users"+req.path;
+        console.log(req.path);
+        console.log(req.session.redir);
+        res.locals.session = req.session;
+        res.render('users/list', {listUsers: users});
+
   });
 
 };
-exports.delete = function(req, res) {
-  var user = req.users;
-  user.remove(function(error){
-    if(error){
-      res.send(error);
+
+// Middleware to preload de users
+exports.load = function(req, res, next, userId){
+  console.log("pasa por load");
+  User.find({_id: userId}, function(error, user){
+    if (error){
+        res.send(error);
     }
-      res.json({mensaje:"usuario borrado"});
+    req.user = user[0];
+    console.log(req.user);
+    next();
   });
+
+};
+
+exports.show = function(req, res){
+  console.log("Show...")
+  console.log(req.user);
+  console.log(req.path);
+  res.render('users/show', {user: req.user, redir: req.session.redir});
+};
+
+
+// PUT /user/:id
+exports.update = function(req, res, next) {
+
+};
+exports.delete = function(req, res) {
+
+
 };

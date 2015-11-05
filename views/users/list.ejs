@@ -3,7 +3,7 @@
 <head>
     <title></title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=user-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
@@ -29,48 +29,29 @@
       <div class="panel-heading">
             <h3 class="panel-title"><p>Listado de usuarios</p></h3>
       </div>
-<<<<<<< HEAD
-       <form class="form-inline" action="/list" method="get" >
-         <table class="table-responsive">
+         <table class="table">
            <thead>
              <tr>
                <th>
                  Nombre
                </th>
                <th>
-                 Apellidos
+                 Login
                </th>
                <th>
-                 login
+                 Administrador
                </th>
                <th>
-                Administrador
-               </th>
-               <th>
-                Permitido
+                 Usuario autorizado
                </th>
              </tr>
 
            </thead>
            <tbody>
-           <% for (var i=0; i< listUsers.length; i++) { %>
+           <% for (var i=0; i<listUsers.length; i++) { %>
                <tr>
                  <td>
                    <%= listUsers[i].firstName %>
-                 </td>
-                 <td>
-<<<<<<< HEAD
-                      <!--<a href="#" class="btn btn-info btn-sm active">-->
-                      <button type="button" action="/edit/:id" method="get"class="btn btn-success">Edit</button>
-                            <!-- Indicates caution should be taken with this action -->
-                      <button type="button" action="/update/:id" method="put" class="btn btn-warning">Update</button>
-
-                            <!-- Indicates a dangerous or potentially negative action -->
-                      <button type="button" action="/delete/:id" method="delete"class="btn btn-danger">Delete</button>
-
-=======
-                   <%= listUsers[i].lastName %>
->>>>>>> 9437c95ab6d2ce3bd149425065e7f653d4e864ac
                  </td>
                  <td>
                   <%= listUsers[i].userName %>
@@ -82,34 +63,31 @@
                    <%= listUsers[i].isApprove %>
                  </td>
                  <td>
-
-                    <!--<a href="#" class="btn btn-info btn-sm active">-->
                       <form action="/users/<%= listUsers[i]._id %>" method="get">
                           <button type="submit" class="btn btn-success">Ver</button>
                       </form>
                  </td>
                  <td>
                        <form action="/users/update/<%= listUsers[i]._id %>" method="put">
-                          <!-- Indicates caution should be taken with this action -->
                           <button type="submit" class="btn btn-warning">Editar</button>
                       </form>
                  </td>
                  <td>
                       <form action="/users/delete/<%= listUsers[i]._id %>" method="delete">
-                          <!-- Indicates a dangerous or potentially negative action -->
                           <button type="submit" class="btn btn-danger">Borrar</button>
                       </form>
                  </td>
-                </tr>
+              </tr>
             <% } %>
             </tbody>
           </table>
-       </form>
-       <br>
-       <form action="../" method="get">
-          <button type="submit" class="btn btn-primary">volver</button>
-       </form>
-       <br>
+      </div>
+      <hr>
+      <div class="backButton">
+        <a href="/" class="btn btn-info btn-lg active btn-block">Volver</a>
+      </div>
+
+
        <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
        <script src="../js/leaflet-sidebar.js"></script>
     </div>

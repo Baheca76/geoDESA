@@ -21,6 +21,10 @@ var UserSchema = new Schema({
 		type: String,
 		default: '',
 	},
+	dni:{
+		type:String,
+		default:'',
+	},
 	userName: {
 		type: String,
 		unique: 'testing error message',
@@ -30,6 +34,10 @@ var UserSchema = new Schema({
 	password: {
 		type: String,
 		default: '',
+	},
+	mail: {
+		type: String,
+		default:'',
 	},
 	isAdmin:{
 		type: Boolean,

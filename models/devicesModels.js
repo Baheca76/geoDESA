@@ -83,6 +83,10 @@ var DeviceSchema = new Schema({
 		type:Number,
 		default: '',
 	},
+	id_provider:{
+		type:String,
+		default:'',
+	},
 	instalation:{
 		type: [{
 			type:String,
