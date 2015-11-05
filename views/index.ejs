@@ -11,6 +11,7 @@
     <!--[if lte IE 8]><link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.ie.css" /><![endif]-->
 
     <link rel="stylesheet" href="../stylesheets/leaflet-sidebar.css" />
+    <link rel="stylesheet" href="../stylesheets/chat.css" />
 
     <style>
         body {
@@ -323,34 +324,78 @@
                   </div>
                 </div>
             </div>
+
             <!--icono para chatear con el centro coordinador.-->
             <div class="sidebar-pane" id="chat">
-                <h1 class="sidebar-header">Chat<div class="sidebar-close"><i class="fa fa-phone-alt"></i></div></h1>
+                <h1 class="sidebar-header">Chat<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
                 <br>
                 <div class="panel panel-info">
                   <div class="panel-heading">
-                    <h3 class="panel-title">Chatear con el 061</h3>
+                    <h3 class="panel-title">Chat con centro coordinador</h3>
                   </div>
                   <div class="panel-body">
-                    <p class="lorem">Chatear con el centro de emergencias 061 </p>
-                    <form class="form-inline">
-                      <div class="form-group">
-                        <label class="sr-only" for="nombre">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" placeholder="Nombre">
-                      </div>
-                      <br>
-                      <br><br>
-                      <div class="form-group">
-                        <label class="sr-only" for="texto">texto</label>
-                        <textarea class="form-control" rows="7" placeholder="escribe tu duda, queja o sugerencia, GRACIAS"></textarea>
-                      </div>
+                    <div class="message-wrap">
+                        <div class="msg-wrap">
+                            <div class="media msg ">
+                                <a class="pull-left" href="#">
+                                    <img class="media-object    img-circle" style="width: 24px; height: 24px;" src="/images/boy.png">
+                                </a>
+                                <div class="media-body">
+                                    <small class="pull-right time"><i class="fa fa-clock-o"></i> 12:10am</small>
+                                    <h5 class="media-heading">Vanesa Martín</h5>
+                                    <small class="col-md-10 text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam convallis, augue sed euismod varius, nisl metus vestibulum neque, nec dictum est dui et tellus</small>
+                                </div>
+                            </div>
+                            <div class="alert alert-info msg-date">
+                                <strong>Today</strong>
+                            </div>
+                            <div class="media msg">
+                                <a class="pull-left" href="#">
+                                    <img class="media-object   img-circle" style="width: 24px; height: 24px;" src="/images/heart.png">
+                                </a>
+                                <div class="media-body">
+                                    <small class="pull-right time"><i class="fa fa-clock-o"></i> 12:10am</small>
+                                    <h5 class="media-heading">061</h5>
+                                    <small class="col-md-10 text-muted">Interdum et malesuada fames ac ante ipsum primis in faucibus. In at lacus ac velit vehicula elementum at a lorem. Nullam quis augue sodales, porttitor orci non"</small>
+                                </div>
+                            </div>
 
-                      <br><br>
-                      <button type="submit" class="btn btn-info">Enviar</button>
-                    </form>
+                            <div class="media msg">
+                                <a class="pull-left" href="#">
+                                    <img class="media-object  img-circle" data-src="holder.js/64x64" alt="64x64" style="width: 24px; height: 24px;" src="/images/boy.png">
+                                </a>
+                                <div class="media-body">
+                                    <small class="pull-right time"><i class="fa fa-clock-o"></i> 12:10am</small>
+                                    <h5 class="media-heading">Vanesa Martín</h5>
+                                    <small class="col-md-10 text-muted">consectetur dui. Quisque lacinia vitae lectus placerat dictum. Integer tristique sem a risus egestas, ac accumsan ligula volutpat. Donec at convallis elit"</small>
+                                </div>
+                            </div>
+
+                            <div class="media msg">
+                                <a class="pull-left" href="#">
+                                    <img class="media-object img-circle" style="width: 24px; height: 24px;" src="/images/heart.png">
+                                </a>
+                                <div class="media-body">
+                                    <small class="pull-right time"><i class="fa fa-clock-o"></i> 12:10am</small>
+                                    <h5 class="media-heading">061</h5>
+                                    <small class="col-md-10 text-muted">Cras commodo ante sit amet nulla porta, sed feugiat lectus accumsan. Maecenas luctus est sed dignissim mattis. Mauris ullamcorper hendrerit est in pharetra text-muted"</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="send-wrap ">
+                            <textarea class="form-control send-message" rows="3" placeholder="Escribe tu respuesta..."></textarea>
+                        </div>
+                        <div class="btn-panel">
+                            <button class="btn btn-success" role="button">
+                                <i class="fa fa-share"></i> Enviar mensaje
+                            </button>
+                        </div>
+                    </div>
                   </div>
                 </div>
             </div>
+
             <div class="sidebar-pane" id="settings">
                 <h1 class="sidebar-header">Settings<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
                 <div class="panel panel-info">
@@ -397,7 +442,7 @@
     <!--muestra el icono del mundo para geolocalizacion de los desa o dea mas cercanos a nuestra posicion.-->
 
        <!--geolocalizacion de la posicion-->
-
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="../js/leaflet-sidebar.js"></script>
