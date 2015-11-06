@@ -22,6 +22,8 @@ db.once('open', function (callback) {
 });
 
 var app = express();
+// call socket.io to the app
+app.io = require('socket.io')();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -97,6 +99,13 @@ app.use(function(err, req, res, next) {
 });
 
 
+app.io.on('connection', function(socket){
+  console.log('a user connected');
 
+  socket.on('new message', function(data){
+    console.log(data.name + ' new message: ' + data.message);
+    app.io.emit('chat message', data);
+  });
+});
 
 module.exports = app;

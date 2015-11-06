@@ -27,6 +27,31 @@
             color: #AAA;
         }
     </style>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+      var socket = io();
+
+      function sendMessage() {
+        var msg = $('#textMessage').val();
+        console.log(arguments[0] + " " + msg);
+        socket.emit('new message', {name: arguments[0], message: msg});
+
+        $('#textMessage').val('');
+      }
+
+      socket.on('chat message', function(msg) {
+        var messageHTML = '<div class="media msg"><a class="pull-left" href="#"><img class="media-object  img-circle" data-src="holder.js/64x64" alt="64x64" style="width: 24px; height: 24px;" src="/images/boy.png"></a><div class="media-body"><small class="pull-right time"><i class="fa fa-clock-o"></i> 12:10am</small><h5 class="media-heading">'+msg.name+'</h5><small class="col-md-10 text-muted">' + msg.message +'</small></div></div>';
+        $('#chatMessages').append(messageHTML);
+
+        var objDiv = document.getElementById("chatMessages");
+        objDiv.scrollTop = objDiv.scrollHeight;
+
+
+
+      });
+
+    </script>
+
 </head>
 
 <body onload="getLocation()">
@@ -326,7 +351,7 @@
                   </div>
                   <div class="panel-body">
                     <div class="message-wrap">
-                        <div class="msg-wrap">
+                        <div class="msg-wrap" id="chatMessages">
                             <div class="media msg ">
                                 <a class="pull-left" href="#">
                                     <img class="media-object    img-circle" style="width: 24px; height: 24px;" src="/images/boy.png">
@@ -340,45 +365,14 @@
                             <div class="alert alert-info msg-date">
                                 <strong>Today</strong>
                             </div>
-                            <div class="media msg">
-                                <a class="pull-left" href="#">
-                                    <img class="media-object   img-circle" style="width: 24px; height: 24px;" src="/images/heart.png">
-                                </a>
-                                <div class="media-body">
-                                    <small class="pull-right time"><i class="fa fa-clock-o"></i> 12:10am</small>
-                                    <h5 class="media-heading">061</h5>
-                                    <small class="col-md-10 text-muted">Interdum et malesuada fames ac ante ipsum primis in faucibus. In at lacus ac velit vehicula elementum at a lorem. Nullam quis augue sodales, porttitor orci non"</small>
-                                </div>
-                            </div>
 
-                            <div class="media msg">
-                                <a class="pull-left" href="#">
-                                    <img class="media-object  img-circle" data-src="holder.js/64x64" alt="64x64" style="width: 24px; height: 24px;" src="/images/boy.png">
-                                </a>
-                                <div class="media-body">
-                                    <small class="pull-right time"><i class="fa fa-clock-o"></i> 12:10am</small>
-                                    <h5 class="media-heading">Vanesa Martín</h5>
-                                    <small class="col-md-10 text-muted">consectetur dui. Quisque lacinia vitae lectus placerat dictum. Integer tristique sem a risus egestas, ac accumsan ligula volutpat. Donec at convallis elit"</small>
-                                </div>
-                            </div>
-
-                            <div class="media msg">
-                                <a class="pull-left" href="#">
-                                    <img class="media-object img-circle" style="width: 24px; height: 24px;" src="/images/heart.png">
-                                </a>
-                                <div class="media-body">
-                                    <small class="pull-right time"><i class="fa fa-clock-o"></i> 12:10am</small>
-                                    <h5 class="media-heading">061</h5>
-                                    <small class="col-md-10 text-muted">Cras commodo ante sit amet nulla porta, sed feugiat lectus accumsan. Maecenas luctus est sed dignissim mattis. Mauris ullamcorper hendrerit est in pharetra text-muted"</small>
-                                </div>
-                            </div>
                         </div>
 
                         <div class="send-wrap ">
-                            <textarea class="form-control send-message" rows="3" placeholder="Escribe tu respuesta..."></textarea>
+                            <textarea class="form-control send-message" rows="3" placeholder="Escribe tu respuesta..." id="textMessage"></textarea>
                         </div>
                         <div class="btn-panel">
-                            <button class="btn btn-success" role="button">
+                            <button class="btn btn-success" role="button" onclick="sendMessage('<%= String(session.user.username) %>')">
                                 <i class="fa fa-share"></i> Enviar mensaje
                             </button>
                         </div>
