@@ -2,30 +2,31 @@ var mongoose = require ('mongoose'),Schema = mongoose.Schema;
 var User = require ('../models/usersModels.js');
 
 
-var users = { admin1: {id:1, username:"admin1", password:"admin1", isAdmin: true, isApprove: true},
-              admin2: {id:2, username:"admin2", password:"admin2", isAdmin: true, isApprove:true },
-              user1: {id:3, username:"user1", password:"user1", isAdmin: false, isApprove:true }
-            }
+//var users = { admin1: {id:1, username:"admin1", password:"admin1", isAdmin: true, isApprove: true},
+//              admin2: {id:2, username:"admin2", password:"admin2", isAdmin: true, isApprove:true },
+//              user1: {id:3, username:"user1", password:"user1", isAdmin: false, isApprove:true }
+//            }
 
 // Comprueba si el usuario esta registrado en users
 // Si autenticación falla o hay errores se ejecuta callback(error).
 exports.autenticar = function(login, password, callback) {
-  if(users[login]){
-    if (password === users[login].password){
-      callback(null, users[login]);
+  User.find({userName: login}, function(error, user){
+    if (error){
+      callback(new Error('no existe el usuario'));
     }
-    else{
-      callback(new Error('password erróneo'));
+    if (user[0].password == password){
+      callback(null, user[0]);
+    } else {
+      callback(new Error("Contraseña incorrecta"), null);
     }
-  }
-  else{
-    callback(new Error('no existe el usuario'));
-  }
-
+  });
 };
+
+
 exports.new = function(req, res) {
   res.render('users/new', {UserSchema: "", errors: [], title : "Nuevo usuario"});
 };
+
 exports.create = function(req, res) {
 
      var user = new User({
@@ -44,9 +45,8 @@ exports.create = function(req, res) {
       }
       res.json({mensaje: "usuario creado"});
     });
-
-
 };
+
 exports.insertar = function(req, res){
 
 
@@ -66,11 +66,13 @@ exports.insertar = function(req, res){
   });
 
 };
+
 exports.solicitudalta = function(req, res){
 
   res.render('users/solicitudalta', {UsersSchema: "", errors: [], title : "solicitudalta"});
 
 };
+
 exports.list = function(req,res){
 
   User.find({},function(error, users){

@@ -22,23 +22,21 @@ exports.create = function(req, res) {
     var password  = req.body.password;
 
    var userController = require('./usersController');
-        console.log(login);
-        console.log(password);
         userController.autenticar(login, password, function(error, user) {
 
-        if (error) {  // si hay error retornamos mensajes de error de sesión
-            req.session.errors = [{"message": 'Se ha producido un error: '+ error}];
-            res.redirect("/");
-            return;
-        }
+          if (error) {  // si hay error retornamos mensajes de error de sesión
+              req.session.errors = [{"message": 'Se ha producido un error: '+ error}];
+              res.redirect("/");
+              return;
+            }
 
-        // Crear req.session.user y guardar campos   id  y  username
-        // La sesión se define por la existencia de:    req.session.user
-        req.session.user = {id:user.id, username:user.username, isAdmin:user.isAdmin, isApprove: user.isApprove};
-        console.log(req.session.user);
+          // Crear req.session.user y guardar campos   id  y  username
+          // La sesión se define por la existencia de:    req.session.user
+          req.session.user = {id:user._id, username:user.userName, isAdmin:user.isAdmin, isApprove: user.isApprove};
+          console.log(req.session.user);
 
-        res.redirect("/");// redirección a path anterior a login
-    });
+          res.redirect("/");// redirección a path anterior a login
+        });
 };
 
 // DELETE /logout   -- Destruir sesion
