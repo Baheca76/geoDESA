@@ -69,6 +69,7 @@
                  </td>
                  <td>
                        <form action="/users/update/<%= listUsers[i]._id %>" method="put">
+
                           <button type="submit" class="btn btn-warning">Editar</button>
                       </form>
                  </td>
@@ -82,6 +83,9 @@
             </tbody>
           </table>
       </div>
+      <form action="/users/new" method="get">
+         <button type="submit" class="btn btn-primary">Crear nuevo usuario</button>
+      </form>
       <hr>
       <div class="backButton">
         <a href="/" class="btn btn-info btn-lg active btn-block">Volver</a>

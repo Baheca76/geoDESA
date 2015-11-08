@@ -113,10 +113,39 @@ exports.show = function(req, res){
 
 
 // PUT /user/:id
-exports.update = function(req, res, next) {
+exports.update = function(req, res) {
+
+   console.log("pasa por aqui");
+    User.find({_id :req.params.id}, function(err, user){
+      var userm = user;
+         userm.firstName = req.body.firstName,
+         userm.lastName = req.body.lastName,
+         userm.dni = req.body.dni,
+         userm.userName =  req.body.userName,
+         userm.password =  req.body.password,
+         userm.mail = req.body.mail,
+         userm.isAdmin =  req.body.isAdmin,
+         userm.isApprove =  req.body.isApprove
+
+     userm.save(function (error){
+       if (error){
+         res.send(error);
+       }
+       res.redirect('users/');
+     });
+   })
 
 };
+
 exports.delete = function(req, res) {
-
-
+  User.find({_id: req.params.id}, function(err, user){
+    console.log('oos')
+    user.remove(function(err){
+      if (err){
+        res.send(error);
+      }
+        console.log('usuario borrado');
+        res.redirect('/');
+    })
+  })
 };
