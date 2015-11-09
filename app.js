@@ -10,6 +10,7 @@ var users = require('./routes/users');
 var devices = require('./routes/devices');
 var providers = require('./routes/providers');
 var sessions = require('./routes/sessions');
+var methodOverride = require('method-override');
 
 
 var mongoose = require('mongoose');
@@ -37,6 +38,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 // inicializamos cookie parser con una semilla para cifrar
 app.use(cookieParser('geodesa2015'));
+app.use(methodOverride('_method'));
 app.use(session({
   resave:true,
   saveUninitialized:true

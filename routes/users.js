@@ -12,10 +12,12 @@ router.get('/new', usersController.new); //formulario de sign up
 router.post('/create', usersController.create);//crear un nuevo usuario
 router.get('/insertar',usersController.insertar);
 router.get('/solicitudalta', usersController.solicitudalta);
-router.put('/update/:userId', usersController.update);
+
 router.delete('/users/:userId', usersController.delete);
 router.get('/:userId', usersController.show);
 
+router.get('/:userId/edit', usersController.edit);
+router.put('/:userId', usersController.update);
 
 
 module.exports = router;

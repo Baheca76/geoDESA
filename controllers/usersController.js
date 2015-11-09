@@ -93,12 +93,14 @@ exports.list = function(req,res){
 // Middleware to preload de users
 exports.load = function(req, res, next, userId){
   console.log("pasa por load");
+  console.log("userId: "+userId);
   User.find({_id: userId}, function(error, user){
     if (error){
+        console.log("Ojo hay error");
         res.send(error);
     }
-    req.user = user[0];
     console.log(req.user);
+    req.user = user[0];
     next();
   });
 
@@ -111,30 +113,41 @@ exports.show = function(req, res){
   res.render('users/show', {user: req.user, redir: req.session.redir});
 };
 
+//GET /users/:userId/edit
+exports.edit = function(req, res){
+  res.render('users/edit', {user: req.user, redir: req.session.redir});
+};
 
-// PUT /user/:id
+// PUT /users/:id
 exports.update = function(req, res) {
 
-   console.log("pasa por aqui");
-    User.find({_id :req.params.id}, function(err, user){
-      var userm = user;
-         userm.firstName = req.body.firstName,
-         userm.lastName = req.body.lastName,
-         userm.dni = req.body.dni,
-         userm.userName =  req.body.userName,
-         userm.password =  req.body.password,
-         userm.mail = req.body.mail,
-         userm.isAdmin =  req.body.isAdmin,
-         userm.isApprove =  req.body.isApprove
+  console.log("pasa por aqui - update");
+  console.log(req.body.firstName);
 
-     userm.save(function (error){
-       if (error){
-         res.send(error);
-       }
-       res.redirect('users/');
-     });
-   })
+  User.findById(req.user._id, function (err, user) {
+    if (err) return res.send(err);
+    console.log("User en mongodb:"+user);
+    user.firstName = req.body.firstName;
+    user.lastName = req.body.lastName;
+    user.save(function (err) {
+      if (err) return res.send(err);
+      res.send(user);
+    });
 
+  });
+
+  /*update({_id :req.user._id}, {$set: {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    dni: req.body.dni,
+    mail: req.body.mail,
+    }}, function(error, numberAffected, rawResponse){
+      if (error){
+        res.send(error);
+      }
+      res.redirect('users/');
+    }
+  );*/
 };
 
 exports.delete = function(req, res) {

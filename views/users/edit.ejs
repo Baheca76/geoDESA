@@ -34,29 +34,34 @@
               <h3 class="panel-title"><p>Usuario: </p></h3>
             </div>
             <div class="panel-body">
+              <form class="form-inline" method="post" action="/users/<%= user._id %>?_method=put" enctype="multipart/form-data">
                 <label for="firstNameUser">Nombre</label>
-                <input class="form-control" id="firstNameUser" type="text" placeholder="<%= user.firstName %>"><br>
+                <input class="form-control" id="firstNameUser" type="text" placeholder="<%= user.firstName %>" name="firstName"><br>
                 <label for="lastNameUser">Apellidos</label>
-                <input class="form-control" id="LastNameUser" type="text" placeholder="<%= user.lastName %>"><br>
+                <input class="form-control" id="LastNameUser" type="text" placeholder="<%= user.lastName %>" name="lastName"><br>
                 <label for="dnilUser">DNI</label>
-                <input class="form-control" id="dniUser" type="text" placeholder="<%= user.dni %>"><br>
+                <input class="form-control" id="dniUser" type="text" placeholder="<%= user.dni %>" name="dni"><br>
                 <label for="userNameUser">Login</label>
-                <input class="form-control" id="userNameUser" type="text" placeholder="<%= user.userName %>" ><br>
+                <input class="form-control" id="userNameUser" type="text" placeholder="<%= user.userName %>" name="userName" ><br>
                 <label for="passwordUser">password</label>
-                <input class="form-control" id="passwordUser" type="text" placeholder="<%= user.password %>" ><br>
-                <label for="mailUser">Login</label>
-                <input class="form-control" id="mailUser" type="text" placeholder="<%= user.mail %>" ><br>
+                <input class="form-control" id="passwordUser" type="text" placeholder="<%= user.password %>" name="password"><br>
+                <label for="mailUser">Email</label>
+                <input class="form-control" id="mailUser" type="text" placeholder="<%= user.mail %>" name="mail"><br>
                 <label for="isAdminUser">Administrador</label>
-                <input class="form-control" id="isAdminUser" type="text" placeholder="<%= user.isAdmin %>" ><br>
+                <input class="form-control" id="isAdminUser" type="text" placeholder="<%= user.isAdmin %>" name="isAdmin"><br>
                 <label for="isApproveUser">Usuario Autorizado</label>
-                <input class="form-control" id="isApproveUser" type="text" placeholder="<%= user.isApprove %>" ><br>
+                <input class="form-control" id="isApproveUser" type="text" placeholder="<%= user.isApprove %>" name="isApprove" ><br>
+                <br><br>
+                <button type="submit" class="btn btn-info">Modificar</button>
+              </form>
             </div>
+
   </div>
   <hr>
   <div class="backButton">
     <a href="<%= redir %>" class="btn btn-info btn-lg active btn-block">Volver</a>
   </div>
   <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
-  <script src="../js/leaflet-sidebar.js"></script>
+  <script src="../../js/leaflet-sidebar.js"></script>
 
 </body>
