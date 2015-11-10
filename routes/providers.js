@@ -9,7 +9,7 @@ router.param('providerId', providersController.load);
 router.get('/new', providersController.new);
 router.post('/create', providersController.create);
 router.get('/',providersController.list);
-router.delete('/delete/:id', providersController.delete);
+router.delete('/:providerId', providersController.delete);
 router.get('/:providerId', providersController.show);
 
 /*router.get('/providers/:id', providersController.list);

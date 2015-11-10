@@ -79,7 +79,7 @@
                      </form>
                  </td>
                  <td>
-                      <form action="/providers/delete/<%= listProviders[i]._id %>" method="delete">
+                      <form method="post" action="/providers/<%= listProviders[i]._id %>?_method=delete">
                           <!-- Indicates a dangerous or potentially negative action -->
                           <button type="submit" class="btn btn-danger">Borrar</button>
                       </form>
