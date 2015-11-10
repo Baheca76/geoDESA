@@ -13,7 +13,7 @@ router.post('/create', usersController.create);//crear un nuevo usuario
 router.get('/insertar',usersController.insertar);
 router.get('/solicitudalta', usersController.solicitudalta);
 
-router.delete('/users/:userId', usersController.delete);
+router.delete('/:userId', usersController.delete);
 router.get('/:userId', usersController.show);
 
 router.get('/:userId/edit', usersController.edit);

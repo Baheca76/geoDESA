@@ -43,7 +43,8 @@ exports.create = function(req, res) {
       if (error){
         res.send(error);
       }
-      res.json({mensaje: "usuario creado"});
+      console.log("usuario creado");
+      res.redirect('/users');
     });
 };
 
@@ -62,7 +63,8 @@ exports.insertar = function(req, res){
     if (error){
       res.send(error);
     }
-    res.json({mensaje: "usuario creado"});
+    console.log("usuario creado");
+    res.redirect('/users');
   });
 
 };
@@ -126,7 +128,7 @@ exports.update = function(req, res) {
 
   User.findById(req.user._id, function (err, user) {
     if (err) return res.send(err);
-    console.log("User en mongodb:"+user);
+    console.log("User en mongodb:"+ user);
     user.firstName = req.body.firstName;
     user.lastName = req.body.lastName;
     user.save(function (err) {
@@ -151,14 +153,13 @@ exports.update = function(req, res) {
 };
 
 exports.delete = function(req, res) {
-  User.find({_id: req.params.id}, function(err, user){
-    console.log('oos')
-    user.remove(function(err){
+
+    req.user.remove(function(err){
       if (err){
         res.send(error);
       }
         console.log('usuario borrado');
-        res.redirect('/');
+        res.redirect('/users');
     })
-  })
+//  })
 };
