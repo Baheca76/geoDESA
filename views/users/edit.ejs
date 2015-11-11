@@ -34,7 +34,7 @@
               <h3 class="panel-title"><p>Usuario: </p></h3>
             </div>
             <div class="panel-body">
-              <form class="form-inline" method="post" action="/users/<%= user._id %>?_method=put" enctype="multipart/form-data">
+              <form class="form-inline" method="POST" action="/users/<%= user._id %>?_method=PUT">
                 <label for="firstNameUser">Nombre</label>
                 <input class="form-control" id="firstNameUser" type="text" placeholder="<%= user.firstName %>" name="firstName"><br>
                 <label for="lastNameUser">Apellidos</label>

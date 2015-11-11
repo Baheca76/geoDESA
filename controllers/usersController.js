@@ -123,6 +123,9 @@ exports.update = function(req, res) {
 
   console.log("pasa por aqui - update");
   console.log(req.body.firstName);
+  console.log(req.params.firstName);
+  console.log(req.body.lastName);
+  console.log(req.params.lastName);
 
   User.findById(req.user._id, function (err, user) {
     if (err) return res.send(err);
