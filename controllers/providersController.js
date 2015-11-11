@@ -24,7 +24,8 @@ exports.create = function(req, res) {
         if(error){
            res.send('Error al intentar guardar el provider.');
         }else{
-          res.json({mensaje: "provider creado"});
+          console.log("provider creado");
+          res.redirect('/providers');
         }
      });
 };
@@ -76,11 +77,11 @@ exports.update = function(req, res, next) {
 
 // DELETE /provider/:id
 exports.delete = function(req, res) {
-  var provider = req.providers;
-  provider.remove(function(error){
-    if(error){
+  req.provider.remove(function(err){
+    if (err){
       res.send(error);
     }
-      res.json({mensaje:"provider borrado"});
-  });
+      console.log('proveedor borrado');
+      res.redirect('/providers');
+  })
 };

@@ -84,7 +84,8 @@ exports.create = function(req, res) {
         if(error){
            res.send('Error al intentar guardar el device.');
         }else{
-          res.json({mensaje: "device creado"});
+          console.log("device creado");
+          res.redirect('/devices');
         }
      });
 };
@@ -122,11 +123,11 @@ exports.update = function(req, res, next) {
 
 // DELETE /devices/:id
 exports.delete = function(req, res) {
-  var device = req.devices;
-  device.remove(function(error){
-    if(error){
+  req.device.remove(function(err){
+    if (err){
       res.send(error);
     }
-      res.json({mensaje:"device borrado"});
-  });
+      console.log('device borrado');
+      res.redirect('/devices');
+  })
 };

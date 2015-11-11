@@ -74,7 +74,7 @@
                       </form>
                  </td>
                  <td>
-                      <form action="/users/delete/<%= listUsers[i]._id %>" method="delete">
+                      <form method= "post" action="/users/<%= listUsers[i]._id %>?_method=delete">
                           <button type="submit" class="btn btn-danger">Borrar</button>
                       </form>
                  </td>
@@ -93,6 +93,6 @@
 
 
        <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
-       <script src="../js/leaflet-sidebar.js"></script>
+       <script src="../../js/leaflet-sidebar.js"></script>
     </div>
 </body>
