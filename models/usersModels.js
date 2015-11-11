@@ -39,15 +39,13 @@ var UserSchema = new Schema({
 		type: String,
 		default:'',
 	},
-	isAdmin:{
-		type: Boolean,
-		default: false,
-	},
-	isApprove:{
-		type:Boolean,
-		default:false,
+	permissions:{
+		type: [{
+			type:String,
+			enum: ['administrador','colaborador','revisor']
+			}],
+		default: ['colaborador'],
 	}
-
 });
 
 

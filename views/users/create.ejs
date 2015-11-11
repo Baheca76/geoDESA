@@ -23,14 +23,13 @@
             <label class="sr-only" for="password">Contraseña</label>
             <input type="password" class="form-control" id="password" name="password" placeholder="contraseña">
       </div>
-      <div class="checkbox">
-          <label><input type= "checkbox" name="isApprove" value= "true" >Aprobado <a href="#">aceptamos que sea usuario</a>
-          </label>
-      </div>
-      <div class="checkbox">
-          <label><input type= "checkbox" name="isAdmin" value= "true" >Administrador
-            <a href="#">usuario con permisos de administrador</a>
-          </label>
+      <div class="form-group">
+        <label class="sr-only" for="userType">Permisos</label>
+        <select class="form-control" id="userType" name="permissions" placeholder="permisos">
+          <option>administrador</option>
+          <option>colaborador</option>
+          <option>revisor</option>
+        </select>
       </div>
       <br>
       <br><br>
