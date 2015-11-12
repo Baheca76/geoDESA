@@ -130,23 +130,19 @@ exports.update = function(req, res) {
   User.findById(req.user._id, function (err, user) {
     if (err) return res.send(err);
     console.log("User en mongodb:"+ user);
-    usertemp = user;
-    if (req.body.firstName != 'undefined'){
-      user.firstName = req.body.firstName
-    }
-    else{
-      user.firstName = usertemp.firstName;
 
-    }
-    if (req.body.lastName != 'undefined' ){
-      console.log('pasa por aqui')
-      user.lastName = req.body.lastName}
-    else{
-      user.lastName = usertemp.lastName;
-    };
+      user.firstName = req.body.firstName,
+      user.lastName = req.body.lastName,
+      //user.password = req.body.password,
+      user.dni = req.body.dni,
+      user.mail = req.body.mail,
+      user.permisons = req.body.permisons,
+
+
     user.save(function (err) {
       if (err) return res.send(err);
-      res.send(user);
+      //res.send(user);
+        res.redirect('/users');
     });
 
   });

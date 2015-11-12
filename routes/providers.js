@@ -11,10 +11,8 @@ router.post('/create', providersController.create);
 router.get('/',providersController.list);
 router.delete('/:providerId', providersController.delete);
 router.get('/:providerId', providersController.show);
+router.get('/:providerId/edit', providersController.edit);
+router.put('/:providerId', providersController.update);
 
-/*router.get('/providers/:id', providersController.list);
-router.get('/providers/:id/edit', providersController.edit);
-router.put('/providers/:id', providersController.update);
 
-*/
 module.exports = router;

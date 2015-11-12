@@ -68,12 +68,34 @@ exports.show = function(req, res){
 
 //GET /provider/:id/edit
 exports.edit = function(req, res) {
-
+  res.render('providers/edit', {provider: req.provider, redir: req.session.redir});
 };
 // PUT /provider/:id
-exports.update = function(req, res, next) {
+exports.update = function(req, res) {
 
+    console.log("pasa por aqui - update");
+    console.log(req.body.name);
+    Provider.findById(req.provider._id, function (err, provider) {
+      if (err) return res.send(err);
+      console.log("User en mongodb:"+ provider);
+        provider.name = req.body.name,
+        provider.cif = req.body.cif,
+        provider.phone = req.body.phone,
+        provider.fax = req.body.fax,
+        provider.mail= req.body.mail,
+        provider.address = req.body.address,
+        provider.city = req.body.city,
+        provider.postal_code = req.body.postal_code,
+        provider.province = req.body.province
+
+        provider.save(function (err) {
+        if (err) return res.send(err);
+        //res.send(user);
+          res.redirect('/providers');
+      });
+    });
 };
+
 
 // DELETE /provider/:id
 exports.delete = function(req, res) {

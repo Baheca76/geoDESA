@@ -114,11 +114,39 @@ exports.list = function(req, res) {
 };
 //GET /devices/:id/edit
 exports.edit = function(req, res) {
-
+  res.render('devices/edit', {device: req.device, redir: req.session.redir});
 };
 // PUT /devices/:id
-exports.update = function(req, res, next) {
+exports.update = function(req, res) {
+  console.log("pasa por aqui - update");
 
+  Device.findById(req.device._id, function (err, device) {
+    if (err) return res.send(err);
+    console.log("Device en mongodb:"+ device);
+    device.name = req.body.name,
+    device.serial_number = req.body.serial_number,
+
+    device.address = req.body.address,
+    device.city = req.body.city,
+    device.postal_code = req.body.postal_code,
+    device.province = req.body.province,
+    device.city = req.body.city,
+    device.instalation = req.body.instalation,
+    device.activaction_emergency = req.body.activaction_emergency,
+    device.date_instalation = req.body.date_instalation,
+    device.model = req.body.model,
+    device.make = req.body.make,
+    device.software = req.body.	software,
+    device.software_version = req.body.software_version,
+    device.id_estado = req.body.id_estado,
+    device.revisions.date = req.body.revisions.date
+
+    device.save(function (err) {
+      if (err) return res.send(err);
+      //res.send(user);
+        res.redirect('/devices');
+    });
+  });
 };
 
 // DELETE /devices/:id

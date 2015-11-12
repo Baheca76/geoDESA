@@ -51,7 +51,7 @@
 
            </thead>
            <tbody>
-           <% for (var i=0; i<listDevices.length; i++) { %> 
+           <% for (var i=0; i<listDevices.length; i++) { %>
                <tr>
                  <td>
                    <%= listDevices[i].name %>
@@ -68,7 +68,7 @@
                       </form>
                  </td>
                  <td>
-                       <form action="/devices/update/<%= listDevices[i]._id %>" method="put">
+                       <form action="/devices/<%= listDevices[i]._id %>/edit" method="get">
                           <button type="submit" class="btn btn-warning">Editar</button>
                       </form>
                  </td>

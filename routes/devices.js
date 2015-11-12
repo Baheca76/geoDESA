@@ -15,8 +15,7 @@ router.get('/search/:lat/:lon/:distance', devicesController.search);
 
 router.get('/:deviceId', devicesController.show);
 router.delete('/:deviceId', devicesController.delete);
-//router.get('/devices/:devicesId/edit', devicesController.edit);
-//router.put('/devices/:deviceId', devicesController.update);
-//router.delete('/devices/:deviceId', devicesController.delete);
+router.get('/:deviceId/edit', devicesController.edit);
+router.put('/:deviceId', devicesController.update);
 
 module.exports = router;
