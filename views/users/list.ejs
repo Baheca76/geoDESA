@@ -39,11 +39,9 @@
                  Login
                </th>
                <th>
-                 Administrador
+                 Permisos
                </th>
-               <th>
-                 Usuario autorizado
-               </th>
+
              </tr>
 
            </thead>
@@ -58,9 +56,6 @@
                  </td>
                  <td>
                    <%= listUsers[i].permissions %>
-                 </td>
-                 <td>
-                   <%= listUsers[i].isApprove %>
                  </td>
                  <td>
                       <form action="/users/<%= listUsers[i]._id %>" method="get">
@@ -83,9 +78,11 @@
             </tbody>
           </table>
       </div>
-      <form action="/users/new" method="get">
-         <button type="submit" class="btn btn-primary">Crear nuevo usuario</button>
-      </form>
+      <div class="buttonPrimary">
+          <form action="/users/new" method="get">
+            <button type="submit" class="btn btn-primary">Crear nuevo usuario</button>
+          </form>
+      </div>
       <hr>
       <div class="backButton">
         <a href="/" class="btn btn-info btn-lg active btn-block">Volver</a>

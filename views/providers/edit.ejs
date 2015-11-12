@@ -35,12 +35,12 @@
             </div>
             <div class="panel-body">
               <form class="form-inline" method="post" action="/providers/<%=provider._id %>?_method=put">
-                <label for="nameProvider">Nombre</label>
-                <input class="form-control" id="nameProvider" type="text" value="<%= provider.name %>" name="name"><br>
-                <label for="cifProvider">Cif</label>
-                <input class="form-control" id="cifProvider" type="text" value="<%= provider.cif %>" name="cif"><br>
-                <label for="addressProvider">Direccion</label>
-                <input class="form-control" id="addressProvider" type="text" value="<%= provider.address %>" name="address"><br>
+                <label for="nameProvider">Nombre</label><br>
+                <input class="form-control" id="nameProvider" type="text" value="<%= provider.name %>" name="name"><br><br>
+                <label for="cifProvider">Cif</label><br>
+                <input class="form-control" id="cifProvider" type="text" value="<%= provider.cif %>" name="cif"><br><br>
+                <label for="addressProvider">Direccion</label><br>
+                <input class="form-control" id="addressProvider" type="text" value="<%= provider.address %>" name="address"><br><br>
 
                 <br><br>
                 <button type="submit" class="btn btn-info">Modificar</button>

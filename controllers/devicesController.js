@@ -143,7 +143,6 @@ exports.update = function(req, res) {
 
     device.save(function (err) {
       if (err) return res.send(err);
-      //res.send(user);
         res.redirect('/devices');
     });
   });

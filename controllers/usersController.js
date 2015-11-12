@@ -2,11 +2,6 @@ var mongoose = require ('mongoose'),Schema = mongoose.Schema;
 var User = require ('../models/usersModels.js');
 
 
-//var users = { admin1: {id:1, username:"admin1", password:"admin1", isAdmin: true, isApprove: true},
-//              admin2: {id:2, username:"admin2", password:"admin2", isAdmin: true, isApprove:true },
-//              user1: {id:3, username:"user1", password:"user1", isAdmin: false, isApprove:true }
-//            }
-
 // Comprueba si el usuario esta registrado en users
 // Si autenticación falla o hay errores se ejecuta callback(error).
 exports.autenticar = function(login, password, callback) {
@@ -129,14 +124,13 @@ exports.update = function(req, res) {
 
   User.findById(req.user._id, function (err, user) {
     if (err) return res.send(err);
-    console.log("User en mongodb:"+ user);
+    console.log("User en mongodb:" + user);
 
       user.firstName = req.body.firstName,
       user.lastName = req.body.lastName,
-      //user.password = req.body.password,
       user.dni = req.body.dni,
       user.mail = req.body.mail,
-      user.permisons = req.body.permisons,
+      user.permissions = req.body.permissions,
 
 
     user.save(function (err) {
@@ -146,19 +140,6 @@ exports.update = function(req, res) {
     });
 
   });
-
-  /*update({_id :req.user._id}, {$set: {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    dni: req.body.dni,
-    mail: req.body.mail,
-    }}, function(error, numberAffected, rawResponse){
-      if (error){
-        res.send(error);
-      }
-      res.redirect('users/');
-    }
-  );*/
 };
 
 exports.delete = function(req, res) {
@@ -170,5 +151,5 @@ exports.delete = function(req, res) {
         console.log('usuario borrado');
         res.redirect('/users');
     })
-//  })
+
 };
