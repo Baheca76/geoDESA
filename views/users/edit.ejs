@@ -36,19 +36,19 @@
             <div class="panel-body">
               <form class="form-inline" method="post" action="/users/<%= user._id %>?_method=put">
                 <label for="firstNameUser">Nombre</label>
-                <input class="form-control" id="firstNameUser" type="text" placeholder="<%= user.firstName %>" name="firstName"><br>
+                <input class="form-control" id="firstNameUser" type="text" value="<%= user.firstName %>" name="firstName"><br>
                 <label for="lastNameUser">Apellidos</label>
-                <input class="form-control" id="LastNameUser" type="text" placeholder="<%= user.lastName %>" name="lastName"><br>
+                <input class="form-control" id="LastNameUser" type="text" value="<%= user.lastName %>" name="lastName"><br>
                 <label for="dnilUser">DNI</label>
-                <input class="form-control" id="dniUser" type="text" placeholder="<%= user.dni %>" name="dni"><br>
+                <input class="form-control" id="dniUser" type="text" value="<%= user.dni %>" name="dni"><br>
                 <label for="userNameUser">Login</label>
-                <input class="form-control" id="userNameUser" type="text" placeholder="<%= user.userName %>" name="userName" ><br>
+                <input class="form-control" id="userNameUser" type="text" value="<%= user.userName %>" name="userName" ><br>
                 <label for="passwordUser">password</label>
-                <input class="form-control" id="passwordUser" type="text" placeholder="<%= user.password %>" name="password"><br>
+                <input class="form-control" id="passwordUser" type="text" value="<%= user.password %>" name="password"><br>
                 <label for="mailUser">Email</label>
-                <input class="form-control" id="mailUser" type="text" placeholder="<%= user.mail %>" name="mail"><br>
+                <input class="form-control" id="mailUser" type="text" value="<%= user.mail %>" name="mail"><br>
                 <label for="permissionsUser">Permisos</label>
-                <input class="form-control" id="permissionsUser" type="text" placeholder="<%= user.permissions %>" name="permissions"><br>
+                <input class="form-control" id="permissionsUser" type="text" value="<%= user.permissions %>" name="permissions"><br>
                 <select class="form-control" id="userType" name="permissions" placeholder="permisos">
                   <option>administrador</option>
                   <option>colaborador</option>
