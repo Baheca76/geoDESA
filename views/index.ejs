@@ -61,7 +61,7 @@
             <ul role="tablist">
                 <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
                 <li><a href="#profile" role="tab"><i class="fa fa-user"></i></a></li>
-                <% if (session.user.isAdmin) { %>
+                <% if (session.user.permissions == 'administrador') { %>
                   <li><a href="#device" role="tab"><i class="fa fa-heartbeat"></i></a></li>
 
                   <li><a href="#provider" role="tab"><i class="fa fa-shopping-cart"></i></a></li>
@@ -70,7 +70,7 @@
                 <li><a href="#contact" role="tab"><i class="fa fa-envelope"></i></a></li>
                 <li><a href="#chat" role="tab"><i class="fa fa-comment"></i></a></li>
             </ul>
-                        <% if (session.user.isAdmin) { %>
+                        <% if (session.user.permissions == 'administrador') { %>
                           <ul role="tablist">
                               <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
                           </ul>
@@ -142,7 +142,7 @@
                 <br>
                 <div class="panel panel-info">
 
-                  <% if (session.user.isAdmin) { %>
+                  <% if (session.user.permissions == 'administrador') { %>
                       <div class="panel-heading">
                         <h3 class="panel-title">New DEA/DESA</h3>
                       </div>

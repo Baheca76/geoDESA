@@ -36,8 +36,7 @@ exports.create = function(req, res) {
         userName: req.body.userName,
         password: req.body.password,
         mail: req.body.mail,
-        isAdmin: req.body.isAdmin,
-        isApprove: true
+        permissions: req.body.permissions
     });
     user.save(function (error){
       if (error){
@@ -56,8 +55,7 @@ exports.insertar = function(req, res){
     lastName:'administrador1',
     userName: 'admin1',
     password: 'admin1',
-    isAdmin:true,
-    isApprove:true
+    permissions: 'administrador'
   });
   user.save(function (error){
     if (error){
@@ -124,16 +122,28 @@ exports.edit = function(req, res){
 exports.update = function(req, res) {
 
   console.log("pasa por aqui - update");
-  console.log(req.body.firstName);
-  console.log(req.params.firstName);
+
+
   console.log(req.body.lastName);
-  console.log(req.params.lastName);
+
 
   User.findById(req.user._id, function (err, user) {
     if (err) return res.send(err);
     console.log("User en mongodb:"+ user);
-    user.firstName = req.body.firstName;
-    user.lastName = req.body.lastName;
+    usertemp = user;
+    if (req.body.firstName != 'undefined'){
+      user.firstName = req.body.firstName
+    }
+    else{
+      user.firstName = usertemp.firstName;
+
+    }
+    if (req.body.lastName != 'undefined' ){
+      console.log('pasa por aqui')
+      user.lastName = req.body.lastName}
+    else{
+      user.lastName = usertemp.lastName;
+    };
     user.save(function (err) {
       if (err) return res.send(err);
       res.send(user);

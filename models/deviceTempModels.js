@@ -13,7 +13,7 @@ var mongoose = require('mongoose'),
  */
 var DeviceTempSchema = new Schema({
 
-	locationT:{
+	locationTemp:{
 		type:{
 			type : String,
       required: 'Please fill Device location',
@@ -21,19 +21,19 @@ var DeviceTempSchema = new Schema({
 		},
 		coordinates :[Number]
 	},
-	addressT:{
+	addressTemp:{
 		type: String,
 		default: '',
 	},
-	provinceT:{
+	provinceTemp:{
 		type:String,
 		default: '',
 	},
-	cityT:{
+	cityTemp:{
 		type:String,
 		default: '',
 	},
-	postal_codeT:{
+	postal_codeTemp:{
 		type:Number,
 		default: '',
 	}
@@ -41,6 +41,6 @@ var DeviceTempSchema = new Schema({
 
 });
 
-DeviceSchema.index({location:'2dsphere'});
+DeviceTempSchema.index({location:'2dsphere'});
 
-module.exports = mongoose.model('Device', DeviceSchema);
+module.exports = mongoose.model('DeviceTemp', DeviceTempSchema);

@@ -94,9 +94,15 @@ var DeviceSchema = new Schema({
 			}],
 		default: ['voluntario'],
 	},
-	activaction_emergency:{
-		type: Boolean,
-		default: 'true',
+	registry:{
+		date_activation:{
+			type:Date,
+			default:'',
+		},
+		id_caso:{
+			type:Number,
+			default:'',
+		}
 	},
 	date_instalation:{
 		type: Date
@@ -127,7 +133,8 @@ var DeviceSchema = new Schema({
 	},
 	revisions:{
 		date:{
-		 	type: Date
+		 	type: Date,
+			default:'',
 		},
 		id_estado:{
 			type: String,
