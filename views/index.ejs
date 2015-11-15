@@ -46,8 +46,6 @@
         var objDiv = document.getElementById("chatMessages");
         objDiv.scrollTop = objDiv.scrollHeight;
 
-
-
       });
 
     </script>
@@ -61,7 +59,7 @@
             <ul role="tablist">
                 <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
                 <li><a href="#profile" role="tab"><i class="fa fa-user"></i></a></li>
-                <% if (session.user.permissions == 'administrador') { %>
+                <% if ((session.user.permissions == "administrador")){ %>
                   <li><a href="#device" role="tab"><i class="fa fa-heartbeat"></i></a></li>
 
                   <li><a href="#provider" role="tab"><i class="fa fa-shopping-cart"></i></a></li>
@@ -70,7 +68,12 @@
                 <li><a href="#contact" role="tab"><i class="fa fa-envelope"></i></a></li>
                 <li><a href="#chat" role="tab"><i class="fa fa-comment"></i></a></li>
             </ul>
-                        <% if (session.user.permissions == 'administrador') { %>
+                        <% if (session.user.permissions == "revisor") { %>
+                          <ul role="tablist">
+                              <li><a href="#revisions" role="tab"><i class="fa fa-gear"></i></a></li>
+                          </ul>
+                        <%}%>
+                        <% if (session.user.permissions == "administrador") { %>
                           <ul role="tablist">
                               <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
                           </ul>
@@ -142,13 +145,13 @@
                 <br>
                 <div class="panel panel-info">
 
-                  <% if (session.user.permissions == 'administrador') { %>
+                  <% if (session.user.permissions == "administrador"){ %>
                       <div class="panel-heading">
                         <h3 class="panel-title">New DEA/DESA</h3>
                       </div>
                       <div class="panel-body">
                         <p class="lorem">Introduzca la información del nuevo dispositivo</p>
-                        <form class="form-inline" action="/create" method="post" enctype="multipart/form-data">
+                        <form class="form-inline" action="/devices/create" method="post" enctype="multipart/form-data">
                           <div class="form-group">
                             <label class="sr-only" for="name">Descripción</label>
                             <input type="text" class="form-control " id="name" name="name" placeholder="Descripción">
@@ -189,15 +192,30 @@
                     <%} else { %>
                       <div class="panel-body">
                         <p class="lorem">Introduzca la información del dispositivo que ha enconctrado</p>
-                        <form class="form-inline" action="" method="post" enctype="multipart/form-data">
+                        <form class="form-inline" action="/createTemp" method="post" enctype="multipart/form-data">
                           <div class="form-group">
-                            <label class="sr-only" for=""></label>
-                            <input type="text" class="form-control " id="" name="" placeholder="Descripción">
+                            <label class="sr-only" for="locationTemp">Localizaciónoscript</label>
+                            <input type="text" class="form-control" id="locationTemp" name="locationTemp" placeholder="Localización">
                           </div>
                           <br>
                           <div class="form-group">
-                            <label class="sr-only" for="address">Dirección</label>
-                            <input type="text" class="form-control" id="address" name="address" placeholder="Dirección">
+                            <label class="sr-only" for="addressTemp">Dirección</label>
+                            <input type="text" class="form-control" id="addressTemp" name="addressTemp" placeholder="Dirección">
+                          </div>
+                          <br>
+                          <div class="form-group">
+                            <label class="sr-only" for="cityTemp">Localidad</label>
+                            <input type="text" class="form-control" id="cityTemp" name="cityTemp" placeholder="localidad">
+                          </div>
+                          <br>
+                          <div class="form-group">
+                            <label class="sr-only" for="postal_codeTemp">Código postal</label>
+                            <input type="text" class="form-control" id="postal_codeTemp" name="postal_codeTemp" placeholder="código postal_codeTemp">
+                          </div>
+                          <br>
+                          <div class="form-group">
+                            <label class="sr-only" for="provinceTemp">Dirección</label>
+                            <input type="text" class="form-control" id="provinceTemp" name="provinceTemp" placeholder="Provincia">
                           </div>
                           <br>
                           <br><br>
@@ -380,6 +398,20 @@
                   </div>
                 </div>
             </div>
+            <div class="sidebar-pane" id="revisions">
+                <h1 class="sidebar-header">Revisiones<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
+                <
+                <div class="panel panel-info">
+                  <div class="panel-body">
+                    <p class="lorem">Device operations</p>
+                    <form class="form-inline" action="/devices/" method="get">
+                        <br>
+                        <br>
+                          <button type="submit" class="btn btn-info">Devices</button>
+                      </form>
+                  </div>
+                </div>
+            </div>
 
             <div class="sidebar-pane" id="settings">
                 <h1 class="sidebar-header">Settings<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
@@ -432,7 +464,7 @@
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="../js/leaflet-sidebar.js"></script>
     <!-- Icono del mundo a la derecha arriba.-->
-    <a href="http://localhost:3000/" role="tab"><i style="position: fixed; top: 40px; right: 40px; border: 40px; width: 40px; heigth:40px" class="fa fa-globe fa-3x"></i>></a>
+    <a href="/" role="tab"><i style="position: fixed; top: 40px; right: 40px; border: 40px; width: 40px; heigth:40px" class="fa fa-globe fa-3x"></i>></a>
 
 
     <script>

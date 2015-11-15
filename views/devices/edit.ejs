@@ -37,16 +37,45 @@
               <form class="form-inline" method="post" action="/devices/<%= device._id %>?_method=put">
                 <label for="nameDevice">Nombre</label><br>
                 <input class="form-control" id="nameDevice" type="text" value="<%= device.name %>" name="name"><br><br>
+                <label for="serial_numberDevice">Número de serie</label><br>
+                <input class="form-control" id="serial_numberDevice" type="text" value="<%= device.serial_number %>" name="serial_number"><br><br>
+                <label for="locationDevice">Localización</label><br>
+                <input class="form-control" id="locationDevice" type="text" value="<%= device.location.coordinates %>" name="location" readonly><br><br>
                 <label for="addressDevice">Dirección</label><br>
                 <input class="form-control" id="addressDevice" type="text" value="<%= device.address %>" name="address"><br><br>
-                <label for="nameDevice">Nombre</label><br>
-                <input class="form-control" id="nameDevice" type="text" value="<%= device.name %>" name="name"><br><br>
-                <label for="addressDevice">Dirección</label><br>
-                <input class="form-control" id="addressDevice" type="text" value="<%= device.address %>" name="address"><br><br>
-                <label for="nameDevice">Nombre</label><br>
-                <input class="form-control" id="nameDevice" type="text" value="<%= device.name %>" name="name"><br><br>
-                <label for="addressDevice">Dirección</label><br>
-                <input class="form-control" id="addressDevice" type="text" value="<%= device.address %>" name="address"><br><br>
+                <label for="cityDevice">Localidad</label><br>
+                <input class="form-control" id="cityDevice" type="text" value="<%= device.city %>" name="city"><br><br>
+                <label for="postal_codeDevice">Código postal</label><br>
+                <input class="form-control" id="postal_codeDevice" type="text" value="<%= device.postal_code %>" name="postal_code"><br><br>
+                <label for="provinceDevice">Provincia</label><br>
+                <input class="form-control" id="provinceDevice" type="text" value="<%= device.province %>" name="province"><br><br>
+                <select class="form-control input" id="instalationUser" type="text" value="<%= device.instalation %>"name="instalation" placeholder="instalation"><br>
+                  <option>obligatorio</option>
+                  <option>voluntario</option>
+                </select><br>
+                <label for="date_instalationDevice">Fecha de instalación</label><br>
+                <input class="form-control" id="date_instalationDevice" type="date" value="<%= device.date_instalation %>" name="date_instalation"><br><br>
+                <label for="registryDevice">Registro</label><br>
+                <input type="date" class="form-control" id="registrydateDevice" value="<%= device.registrydate %>" name="registrydate" placeholder="fecha de activacion"><br>
+                <input type="text" class="form-control" id="registryid_casoDevice" value="<%= device.registryid_caso %>"name="registryid_caso" placeholder="numero de caso"><br>
+                <label for="deviceType">Estado (0 - fallo, 1 - ok, 2 - revision)</label><br>
+                <select class="form-control" id="id_estadoDevice" value="<%= device.id_estado %>" name="id_estado"><br><br>
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                </select><br>
+                <label for="revisionsDevice">Resviones</label><br>
+                <input type="date" class="form-control" id="revisionsdateDevice" value="<%= device.revisionsdate %>"name="revisionsdate" placeholder="fecha de revisión"><br>
+                <input type="text" class="form-control" id="revisionsid_estadoDevice" value="<%= device.revisionsid_estado %>"name="revisionsid_estado" placeholder="estado"><br>
+                <input type="text" class="form-control" id="revisionsid_revisorDevice" value="<%= device.revisionsid_revisor %>"name="revisionsid_revisor" placeholder="Revisor"><br><br>
+                <label for="makeDevice">Marca</label><br>
+                <input class="form-control" id="makeDevice" type="text" value="<%= device.make%>" name="make"><br><br>
+                <label for="modelDevice">Modelo</label><br>
+                <input class="form-control" id="modelDevice" type="text" value="<%= device.model %>" name="model"><br><br>
+                <label for="softwareDevice">Software</label><br>
+                <input class="form-control" id="softwareDevice" type="text" value="<%= device.software%>" name="software"><br><br>
+                <label for="software_versionDevice">Software_version</label><br>
+                <input class="form-control" id="software_versionDevice" type="text" value="<%= device.software_version %>" name="software_version"><br><br>
                 <br><br>
                 <button type="submit" class="btn btn-info">Modificar</button>
               </form>

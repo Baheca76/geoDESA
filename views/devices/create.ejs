@@ -2,67 +2,99 @@
 
     <form class="form-inline" action="/create" method="post" enctype="multipart/form-data">
           <div class="form-group">
-            <label class="sr-only" for="name">Nombre</label>
+            <label for="name">Nombre</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="Nombre">
           </div>
           <br>
           <div class="form-group">
-            <label class="sr-only" for="serial_number">Número de serie</label>
+            <label for="serial_number">Número de serie</label>
             <input type="text" class="form-control" id="serial_number" name="serial_number" placeholder="Numero de serie">
           </div>
           <br>
           <div class="form-group">
-            <label class="sr-only" for="localizacion">localizacion</label>
+            <label for="localizacion">localizacion</label><br>
             <input type="text" class="form-control" id="location" name="location" placeholder="localizacion (lon,lat) __._,__._">
           </div>
           <br>
           <div class="form-group">
-            <label class="sr-only" for="address">Dirección</label>
+            <label for="address">Dirección</label>
             <input type="text" class="form-control" id="address" name="address" placeholder="Dirección">
           </div>
           <br>
           <div class="form-group">
-            <label class="sr-only" for="city">Ciudad</label>
-            <input type="text" class="form-control" id="city" name="city" placeholder="Ciudad">
+            <label for="city">localidad</label>
+            <input type="text" class="form-control" id="city" name="city" placeholder="localidad">
           </div>
           <br>
           <div class="form-group">
-            <label class="sr-only" for="postal_code">Código postal</label>
+            <label for="postal_code">Código postal</label>
             <input type="text" class="form-control" id="postal_code" name="postal_code" placeholder="Código postal">
           </div>
           <br>
           <div class="form-group">
-            <label class="sr-only" for="province">Provincia</label>
+            <label  for="province">Provincia</label>
             <input type="text" class="form-control" id="province" name="province" placeholder="Provincia">
           </div>
           <br>
           <div class="form-group">
-            <label class="sr-only" for="provider">Proveedor</label>
+            <label  for="provider">Proveedor</label>
             <input type="text" class="form-control" id="provider" name="provider" placeholder="Proveedor">
           </div>
           <br>
           <div class="form-group">
-            <label class="sr-only" for="deviceType">Instalación</label>
+            <label for="deviceType">Instalación (obligatorio, voluntario)</label>
             <select class="form-control" id="deviceType" name="instalation">
               <option>obligatorio</option>
               <option>voluntario</option>
             </select>
           </div>
-          <!--<div class="form-group">
-            <label class="sr-only" for="provider">Instalacion</label>
-            <input type="text" class="form-control" id="provider" name="provider" placeholder="Proveedor">
+          <br>
+          <div class="form-group">
+            <label  for="date_instalation">Fecha de instalación</label>
+            <input type="date" class="form-control" id="date_instalation" name="date_instalation" placeholder="Fecha de instalación">
           </div>
-
-          instalation: req.body.instalation,
-          activaction_emergency: req.body.activaction_emergency,
-          date_instalation: req.body.date_instalation,
-          model: req.body.model,
-          make: req.body.make,
-          software:req.body.	software,
-          software_version:req.body.software_version,
-          id_estado:req.body.id_estado   -->
-
-          <br><br>
+          <br>
+          <div class="form-group">
+            <label for="registry">Registro</label>
+            <input type="date" class="form-control" id="registrydate" name="registrydate" placeholder="fecha de activacion">
+            <input type="text" class="form-control" id="registryid_caso" name="registryid_caso" placeholder="numero de caso">
+          </div>
+          <div class="form-group">
+            <label for="deviceType">Estado (0 - fallo, 1 - ok, 2 - revision)</label>
+            <select class="form-control" id="id_estado" name="id_estado">
+              <option>0</option>
+              <option>1</option>
+              <option>2</option>
+            </select>
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="revisions">Resiones</label>
+            <input type="date" class="form-control" id="revisionsdate" name="revisionsdate" placeholder="fecha de revisión">
+            <input type="text" class="form-control" id="revisionsid_estado" name="revisionsid_estado" placeholder="estado">
+            <input type="text" class="form-control" id="revisionsid_revisor" name="revisionsid_revisor" placeholder="Revisor">
+          </div>
+          <br>
+          <div class="form-group">
+            <label  for="make">Marca</label>
+            <input type="text" class="form-control" id="make" name="make" placeholder="Marca">
+          </div>
+          <br>
+          <div class="form-group">
+            <label  for="model">Modelo</label>
+            <input type="text" class="form-control" id="model" name="model" placeholder="Modelo">
+          </div>
+          <br>
+          <div class="form-group">
+            <label  for="software:">software:</label>
+            <input type="text" class="form-control" id="software:" name="software:" placeholder="software:">
+          </div>
+          <br>
+          <div class="form-group">
+            <label  for="software_version">software_version</label>
+            <input type="text" class="form-control" id="software_version" name="software_version" placeholder="software_version">
+          </div>
+          <br>
           <div class="form-group">
             <label class="sr-only" for="deviceType">Tipo de dispositivo</label>
             <select class="form-control" id="deviceType">
@@ -71,8 +103,7 @@
               <option>Desfibrilador</option>
             </select>
           </div>
-
-          <br><br>
+          <br>
           <div class="form-group">
             <label for="imagen">Imagen</label><br>
             <input type="file" class="form-control" id="imagen" name="imagen" placeholder="Imagen">

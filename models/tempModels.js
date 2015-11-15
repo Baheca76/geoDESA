@@ -11,12 +11,13 @@ var mongoose = require('mongoose'),
 /**
  * Device temporal Schema
  */
-var DeviceTempSchema = new Schema({
+var TempSchema = new Schema({
 
 	locationTemp:{
 		type:{
 			type : String,
-      required: 'Please fill Device location',
+      unique: 'testing error message',
+			required:'Please fill Device location',
 			default: 'Point'
 		},
 		coordinates :[Number]
@@ -37,10 +38,8 @@ var DeviceTempSchema = new Schema({
 		type:Number,
 		default: '',
 	}
-
-
 });
 
-DeviceTempSchema.index({location:'2dsphere'});
+TempSchema.index({locationTemp:'2dsphere'});
 
-module.exports = mongoose.model('DeviceTemp', DeviceTempSchema);
+module.exports = mongoose.model('Temp', TempSchema);

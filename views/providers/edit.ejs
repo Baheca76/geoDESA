@@ -38,9 +38,19 @@
                 <label for="nameProvider">Nombre</label><br>
                 <input class="form-control" id="nameProvider" type="text" value="<%= provider.name %>" name="name"><br><br>
                 <label for="cifProvider">Cif</label><br>
-                <input class="form-control" id="cifProvider" type="text" value="<%= provider.cif %>" name="cif"><br><br>
+                <input class="form-control" id="cifProvider" type="text" value="<%= provider.cif %>" name="cif" readonly><br><br>
+                <label for="phoneProvider">Teléfono</label><br>
+                <input class="form-control" id="phoneProvider" type="text" value="<%= provider.phone %>" name="phone"><br><br>
+                <label for="faxProvider">Fax</label><br>
+                <input class="form-control" id="faxProvider" type="text" value="<%= provider.fax %>" name="fax"><br><br>
+                <label for="mailProvider">Email</label><br>
+                <input class="form-control" id="mailProvider" type="text" value="<%= provider.mail %>" name="mail"><br><br>
                 <label for="addressProvider">Direccion</label><br>
                 <input class="form-control" id="addressProvider" type="text" value="<%= provider.address %>" name="address"><br><br>
+                <label for="postal_codeProvider">Código postal</label><br>
+                <input class="form-control" id="postal_codeProvider" type="text" value="<%= provider.postal_code %>" name="postal_code"><br><br>
+                <label for="provinceProvider">Provincia</label><br>
+                <input class="form-control" id="porvinceProvider" type="text" value="<%= provider.province %>" name="province"><br><br>
 
                 <br><br>
                 <button type="submit" class="btn btn-info">Modificar</button>

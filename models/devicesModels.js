@@ -71,10 +71,6 @@ var DeviceSchema = new Schema({
 		type: String,
 		default: '',
 	},
-	province:{
-		type:String,
-		default: '',
-	},
 	city:{
 		type:String,
 		default: '',
@@ -83,9 +79,13 @@ var DeviceSchema = new Schema({
 		type:Number,
 		default: '',
 	},
-	id_provider:{
+	province:{
 		type:String,
-		default:'',
+		default: '',
+	},
+	provider:{
+		type: Schema.ObjectId,
+		ref: "Provider"
 	},
 	instalation:{
 		type: [{
@@ -94,18 +94,19 @@ var DeviceSchema = new Schema({
 			}],
 		default: ['voluntario'],
 	},
-	registry:{
-		date_activation:{
+	date_instalation:{
+		type: Date,
+		default:'',
+	},
+	registrydate:{
+
 			type:Date,
 			default:'',
-		},
-		id_caso:{
+	},
+	registryid_caso:{
 			type:Number,
 			default:'',
-		}
-	},
-	date_instalation:{
-		type: Date
+
 	},
 	model:{
 		type: String,
@@ -129,21 +130,20 @@ var DeviceSchema = new Schema({
 	},
 	id_estado:{
 		type: Number,
-		default: '',
+		default: '1',
 	},
-	revisions:{
-		date:{
+	revisionsdate:{
 		 	type: Date,
 			default:'',
-		},
-		id_estado:{
+	},
+	revisionsid_estado:{
+			type: Number,
+			default: '2',
+	},
+	revisionsid_revisor:{
 			type: String,
 			default: '',
-		},
-		id_revisor:{
-			type: String,
-			default: '',
-		}
+		
 	}
 
 });

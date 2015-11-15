@@ -44,7 +44,6 @@ exports.create = function(req, res) {
 
 exports.insertar = function(req, res){
 
-
   var user = new User({
     firstName: 'administrador1',
     lastName:'administrador1',
@@ -132,10 +131,8 @@ exports.update = function(req, res) {
       user.mail = req.body.mail,
       user.permissions = req.body.permissions,
 
-
     user.save(function (err) {
       if (err) return res.send(err);
-      //res.send(user);
         res.redirect('/users');
     });
 

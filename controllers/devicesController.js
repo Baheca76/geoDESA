@@ -68,15 +68,18 @@ exports.create = function(req, res) {
             city: req.body.city,
             postal_code: req.body.postal_code,
             province: req.body.province,
-            city: req.body.city,
             instalation: req.body.instalation,
-            activaction_emergency: req.body.activaction_emergency,
             date_instalation: req.body.date_instalation,
-          	model: req.body.model,
+            registrydate: req.body.registrydate,
+            registryid_caso : req.body.registryid_caso,
+            model: req.body.model,
           	make: req.body.make,
-          	software:req.body.	software,
+          	software:req.body.software,
           	software_version:req.body.software_version,
-          	id_estado:req.body.id_estado
+          	id_estado:req.body.id_estado,
+            revisionsdate: req.body.revisionsdate,
+            revisionsid_estado: req.body.revisionsid_estado,
+            revisionsid_revisor: req.body.revisionsid_revisor
 
      });
      device.save(function(error){
@@ -132,14 +135,17 @@ exports.update = function(req, res) {
     device.province = req.body.province,
     device.city = req.body.city,
     device.instalation = req.body.instalation,
-    device.activaction_emergency = req.body.activaction_emergency,
     device.date_instalation = req.body.date_instalation,
+    device.registrydate = req.body.registrydate,
+    device.registryid_caso = req.body.registryid_caso,
     device.model = req.body.model,
     device.make = req.body.make,
-    device.software = req.body.	software,
+    device.software = req.body.software,
     device.software_version = req.body.software_version,
     device.id_estado = req.body.id_estado,
-    device.revisions.date = req.body.revisions.date
+    device.revisionsdate = req.body.revisionsdate,
+    device.revisionsid_estado = req.body.revisionsid_estado,
+    device.revisionsid_revisor = req.body.revisionsid_revisor
 
     device.save(function (err) {
       if (err) return res.send(err);

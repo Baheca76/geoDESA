@@ -39,9 +39,11 @@
                  Login
                </th>
                <th>
+                 Email
+               </th>
+               <th>
                  Permisos
                </th>
-
              </tr>
 
            </thead>
@@ -55,8 +57,12 @@
                   <%= listUsers[i].userName %>
                  </td>
                  <td>
+                  <%= listUsers[i].mail %>
+                 </td>
+                 <td>
                    <%= listUsers[i].permissions %>
                  </td>
+
                  <td>
                       <form action="/users/<%= listUsers[i]._id %>" method="get">
                           <button type="submit" class="btn btn-success">Ver</button>

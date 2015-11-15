@@ -42,10 +42,13 @@
                  Localidad
                </th>
                <th>
+                 Dirección
+               </th>
+               <th>
                  Localización
                </th>
                <th>
-
+                 Próxima revisión
                </th>
              </tr>
 
@@ -60,7 +63,13 @@
                   <%= listDevices[i].city %>
                  </td>
                  <td>
+                   <%= listDevices[i].address %>
+                 </td>
+                 <td>
                    <%= listDevices[i].location.coordinates %>
+                 </td>
+                 <td>
+                   <%= listDevices[i].revisionsdate %>
                  </td>
                  <td>
                       <form action="/devices/<%= listDevices[i]._id %>" method="get">

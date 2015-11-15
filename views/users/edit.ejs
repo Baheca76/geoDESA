@@ -42,13 +42,12 @@
                 <label for="dnilUser">DNI</label><br>
                 <input class="form-control" id="dniUser" type="text" value="<%= user.dni %>" name="dni"><br><br>
                 <label for="userNameUser">Login</label><br>
-                <input class="form-control" id="userNameUser" type="text" value="<%= user.userName %>" name="userName" ><br><br>
+                <input class="form-control" id="userNameUser" type="text" value="<%= user.userName %>" name="userName" readonly><br><br>
                 <label for="passwordUser">password</label><br>
                 <input class="form-control" id="passwordUser" type="text" value="<%= user.password %>" name="password"><br><br>
                 <label for="mailUser">Email</label><br>
-                <input class="form-control" id="mailUser" type="text" value="<%= user.mail %>" name="mail"><br><br>
+                <input class="form-control" id="mailUser" type="email" value="<%= user.mail %>" name="mail"><br><br>
                 <label for="permissionsUser">Permisos</label><br>
-              <!--  <input class="form-control" id="permissionsUser" type="text" value="<%= user.permissions %>" name="permissions"><br><br>-->
                 <select class="form-control input" id="permissionsUser" type="text" value="<%= user.permissions %>"name="permissions" placeholder="permisos">
                   <option>administrador</option>
                   <option>colaborador</option>
