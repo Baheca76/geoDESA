@@ -18,6 +18,7 @@ exports.new = function(req, res) {
 // POST /login   -- Crear la sesion si usuario se autentica
 exports.create = function(req, res) {
     console.log("Pasaba por aqui");
+    console.log(req.body);
     var login     = req.body.login;
     var password  = req.body.password;
 

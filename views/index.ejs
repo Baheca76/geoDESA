@@ -118,12 +118,12 @@
                         <br>
                         <br>
                         <button type="submit" class="btn btn-info">Sign in</button>
-                      </form>
-                      <br>
-                      <div class="alert alert-info" role="alert">¿No tienes usuario? Pulsa a continuación para darte de alta</div>
-                      <form class="form-inline" action="/users/solicitudalta" method="get">
-                          <button type="submit" class="btn btn-info">Sign up</button>
-                      </form>
+                    </form>
+                    <br>
+                    <div class="alert alert-info" role="alert">¿No tienes usuario? Pulsa a continuación para darte de alta</div>
+                    <form class="form-inline" action="/users/solicitudalta" method="get">
+                        <button type="submit" class="btn btn-info">Sign up</button>
+                    </form>
                   </div>
                     <% } else { %>
                       <div class="panel-heading">
@@ -151,39 +151,15 @@
                       </div>
                       <div class="panel-body">
                         <p class="lorem">Introduzca la información del nuevo dispositivo</p>
-                        <form class="form-inline" action="/devices/create" method="post" enctype="multipart/form-data">
+                        <form class="form-inline" action="/devices/create" method="post">
                           <div class="form-group">
                             <label class="sr-only" for="name">Descripción</label>
-                            <input type="text" class="form-control " id="name" name="name" placeholder="Descripción">
-                          </div>
-                          <br>
-                          <div class="form-group">
-                            <label class="sr-only" for="address">Dirección</label>
-                            <input type="text" class="form-control" id="address" name="address" placeholder="Dirección">
-                          </div>
-                          <br>
-                          <div class="form-group">
-                            <label class="sr-only" for="provider">Proveedor</label>
-                            <input type="text" class="form-control" id="provider" name="provider" placeholder="Proveedor">
-                          </div>
-                          <br><br>
-                          <div class="form-group">
-                            <label class="sr-only" for="deviceType">Tipo de dispositivo</label>
-                            <select class="form-control" id="deviceType">
-                              <option>DEA</option>
-                              <option>DESA</option>
-                              <option>Desfibrilador</option>
-                            </select>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Descripción">
                           </div>
                           <br><br>
                           <div class="form-group">
                             <label class="sr-only" for="location">localizacion</label>
-                            <input type="text" class="form-control" id="location" name="location "placeholder="localizacion (lon,lat) __._,__._">
-                          </div>
-                          <br><br>
-                          <div class="form-group">
-                            <label for="imagen">Imagen</label><br>
-                            <input type="file" class="form-control" id="imagen" placeholder="Imagen">
+                            <input type="text" class="form-control" id="location" name="location" placeholder="localizacion (lon,lat) __._,__._">
                           </div>
                           <br><br>
                           <button type="submit" class="btn btn-info">Enviar</button>

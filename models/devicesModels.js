@@ -143,7 +143,7 @@ var DeviceSchema = new Schema({
 	revisionsid_revisor:{
 			type: String,
 			default: '',
-		
+
 	}
 
 });

@@ -16,8 +16,6 @@ var TempSchema = new Schema({
 	locationTemp:{
 		type:{
 			type : String,
-      unique: 'testing error message',
-			required:'Please fill Device location',
 			default: 'Point'
 		},
 		coordinates :[Number]

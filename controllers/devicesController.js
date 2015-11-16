@@ -1,5 +1,6 @@
 var mongoose = require ('mongoose'),Schema = mongoose.Schema;;
 var Device = require('../models/devicesModels.js');
+var Temp = require('../models/tempModels.js');
 
 // Middleware to preload de device
 exports.load = function(req, res, next, deviceId){
@@ -56,6 +57,9 @@ exports.search = function(req, res) {
 exports.create = function(req, res) {
 
     //cogemos las coordenadas
+    console.log(req.body);
+    console.log("location----> "+req.body.location);
+    console.log("name---> "+req.body.name);
     var comaPosition = req.body.location.indexOf(",");
     var latitude = req.body.location.substring(0, comaPosition);
     var longitude = req.body.location.substring(comaPosition+1, req.body.location.length);
