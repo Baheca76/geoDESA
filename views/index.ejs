@@ -59,9 +59,10 @@
             <ul role="tablist">
                 <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
                 <li><a href="#profile" role="tab"><i class="fa fa-user"></i></a></li>
-                <% if ((session.user.permissions == "administrador")){ %>
+                <% if ((session.user.permissions == "administrador")|| (session.user.permissions == "colaborador")){ %>
                   <li><a href="#device" role="tab"><i class="fa fa-heartbeat"></i></a></li>
-
+                <% } %>
+                <% if (session.user.permissions == "administrador") { %>
                   <li><a href="#provider" role="tab"><i class="fa fa-shopping-cart"></i></a></li>
                 <% } %>
                 <li><a href="#api" role="tab"><i class="fa fa-html5"></i></a></li>
@@ -153,13 +154,97 @@
                         <p class="lorem">Introduzca la información del nuevo dispositivo</p>
                         <form class="form-inline" action="/devices/create" method="post">
                           <div class="form-group">
-                            <label class="sr-only" for="name">Descripción</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Descripción">
+                            <label for="name">Nombre</label><br>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Nombre"><br>
                           </div>
-                          <br><br>
+                          <br>
                           <div class="form-group">
-                            <label class="sr-only" for="location">localizacion</label>
-                            <input type="text" class="form-control" id="location" name="location" placeholder="localizacion (lon,lat) __._,__._">
+                            <label for="serial_number">Número de serie</label><br>
+                            <input type="text" class="form-control" id="serial_number" name="serial_number" placeholder="Numero de serie"><br>
+                          </div>
+                          <br>
+                          <div class="form-group">
+                            <label for="localizacion">localizacion</label><br>
+                            <input type="text" class="form-control" id="location" name="location" placeholder="localizacion (lon,lat) __._,__._"><br>
+                          </div>
+                          <br>
+                          <div class="form-group">
+                            <label for="address">Dirección</label><br>
+                            <input type="text" class="form-control" id="address" name="address" placeholder="Dirección"><br>
+                          </div>
+                          <br>
+                          <div class="form-group">
+                            <label for="city">localidad</label><br>
+                            <input type="text" class="form-control" id="city" name="city" placeholder="localidad"><br>
+                          </div>
+                          <br>
+                          <div class="form-group">
+                            <label for="postal_code">Código postal</label><br>
+                            <input type="text" class="form-control" id="postal_code" name="postal_code" placeholder="Código postal"><br>
+                          </div>
+                          <br>
+                          <div class="form-group">
+                            <label  for="province">Provincia</label><br>
+                            <input type="text" class="form-control" id="province" name="province" placeholder="Provincia"><br>
+                          </div>
+                          <br>
+                          <div class="form-group">
+                            <label  for="provider">Proveedor</label><br>
+                            <input type="text" class="form-control" id="provider" name="provider" placeholder="Proveedor"><br>
+                          </div>
+                          <br>
+                          <div class="form-group">
+                            <label for="deviceType">Instalación (obligatorio, voluntario)</label><br>
+                            <select class="form-control" id="deviceType" name="instalation"><br>
+                              <option>obligatorio</option>
+                              <option>voluntario</option>
+                            </select>
+                          </div>
+                          <br>
+                          <div class="form-group">
+                            <label  for="date_instalation">Fecha de instalación</label><br>
+                            <input type="date" class="form-control" id="date_instalation" name="date_instalation" placeholder="Fecha de instalación"><br>
+                          </div>
+                          <br>
+                          <div class="form-group">
+                            <label for="registry">Registro</label><br>
+                            <input type="date" class="form-control" id="registrydate" name="registrydate" placeholder="fecha de activacion"><br>
+                            <input type="text" class="form-control" id="registryid_caso" name="registryid_caso" placeholder="numero de caso"><br>
+                          </div><br>
+                          <div class="form-group">
+                            <label for="deviceType">Estado (0 - fallo, 1 - ok, 2 - revision)</label><br>
+                            <select class="form-control" id="id_estado" name="id_estado"><br>
+                              <option>0</option>
+                              <option>1</option>
+                              <option>2</option>
+                            </select>
+                          </div>
+                          <br>
+                          <div class="form-group">
+                            <label for="revisions">Resiones</label><br>
+                            <input type="date" class="form-control" id="revisionsdate" name="revisionsdate" placeholder="fecha de revisión"><br>
+                            <input type="text" class="form-control" id="revisionsid_estado" name="revisionsid_estado" placeholder="estado"><br>
+                            <input type="text" class="form-control" id="revisionsid_revisor" name="revisionsid_revisor" placeholder="Revisor"><br>
+                          </div>
+                          <br>
+                          <div class="form-group">
+                            <label  for="make">Marca</label><br>
+                            <input type="text" class="form-control" id="make" name="make" placeholder="Marca"><br>
+                          </div>
+                          <br>
+                          <div class="form-group">
+                            <label  for="model">Modelo</label><br>
+                            <input type="text" class="form-control" id="model" name="model" placeholder="Modelo"><br>
+                          </div>
+                          <br>
+                          <div class="form-group">
+                            <label  for="software:">software:</label><br>
+                            <input type="text" class="form-control" id="software:" name="software:" placeholder="software:"><br>
+                          </div>
+                          <br>
+                          <div class="form-group">
+                            <label  for="software_version">software_version</label><br>
+                            <input type="text" class="form-control" id="software_version" name="software_version" placeholder="software_version"><br>
                           </div>
                           <br><br>
                           <button type="submit" class="btn btn-info">Enviar</button>
@@ -168,50 +253,31 @@
                     <%} else { %>
                       <div class="panel-body">
                         <p class="lorem">Introduzca la información del dispositivo que ha enconctrado</p>
-                        <form class="form-inline" action="/createTemp" method="post" enctype="multipart/form-data">
+                        <form class="form-inline" action="/devices/createTemp" method="post">
+                          <br>
                           <div class="form-group">
-                            <label class="sr-only" for="locationTemp">Localizaciónoscript</label>
-                            <input type="text" class="form-control" id="locationTemp" name="locationTemp" placeholder="Localización">
+                            <label for="locationTemp">localización</label><br>
+                            <input type="text" class="form-control" id="locationTemp" name="locationTemp" placeholder="localizacion (lon,lat) __._,__._"><br>
                           </div>
                           <br>
                           <div class="form-group">
-                            <label class="sr-only" for="addressTemp">Dirección</label>
-                            <input type="text" class="form-control" id="addressTemp" name="addressTemp" placeholder="Dirección">
+                            <label for="addressTemp">Dirección</label><br>
+                            <input type="text" class="form-control" id="addressTemp" name="addressTemp" placeholder="Dirección"><br>
                           </div>
                           <br>
                           <div class="form-group">
-                            <label class="sr-only" for="cityTemp">Localidad</label>
-                            <input type="text" class="form-control" id="cityTemp" name="cityTemp" placeholder="localidad">
+                            <label for="cityTemp">localidad</label><br>
+                            <input type="text" class="form-control" id="cityTemp" name="cityTemp" placeholder="localidad"><br>
                           </div>
                           <br>
                           <div class="form-group">
-                            <label class="sr-only" for="postal_codeTemp">Código postal</label>
-                            <input type="text" class="form-control" id="postal_codeTemp" name="postal_codeTemp" placeholder="código postal_codeTemp">
+                            <label for="postal_codeTemp">Código postal</label><br>
+                            <input type="text" class="form-control" id="postal_codeTemp" name="postal_codeTemp" placeholder="Código postal"><br>
                           </div>
                           <br>
                           <div class="form-group">
-                            <label class="sr-only" for="provinceTemp">Dirección</label>
-                            <input type="text" class="form-control" id="provinceTemp" name="provinceTemp" placeholder="Provincia">
-                          </div>
-                          <br>
-                          <br><br>
-                          <div class="form-group">
-                            <label class="sr-only" for="deviceType">Tipo de dispositivo</label>
-                            <select class="form-control" id="deviceType">
-                              <option>DEA</option>
-                              <option>DESA</option>
-                              <option>Desfibrilador</option>
-                            </select>
-                          </div>
-                          <br><br>
-                          <div class="form-group">
-                            <label class="sr-only" for="location">localizacion</label>
-                            <input type="text" class="form-control" id="location" name="location "placeholder="localizacion (lon,lat) __._,__._">
-                          </div>
-                          <br><br>
-                          <div class="form-group">
-                            <label for="imagen">Imagen</label><br>
-                            <input type="file" class="form-control" id="imagen" placeholder="Imagen">
+                            <label  for="provinceTemp">Provincia</label><br>
+                            <input type="text" class="form-control" id="provinceTemp" name="provinceTemp" placeholder="Provincia"><br>
                           </div>
                           <br><br>
                           <button type="submit" class="btn btn-info">Enviar</button>

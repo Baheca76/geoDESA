@@ -168,3 +168,33 @@ exports.delete = function(req, res) {
       res.redirect('/devices');
   })
 };
+exports.createTemp = function(req, res) {
+
+    //cogemos las coordenadas
+    console.log(req.body);
+    console.log("location----> "+req.body.locationTemp);
+
+    var comaPosition = req.body.locationTemp.indexOf(",");
+    var latitude = req.body.locationTemp.substring(0, comaPosition);
+    var longitude = req.body.locationTemp.substring(comaPosition+1, req.body.locationTemp.length);
+
+    var temp = new Temp({
+
+            locationTemp: {type:'Point', coordinates:[latitude, longitude]},
+            addressTemp: req.body.addressTemp,
+            cityTemp: req.body.cityTemp,
+            postal_codeTemp: req.body.postal_codeTemp,
+            provinceTemp: req.body.provinceTemp,
+
+     });
+     temp.save(function(error){
+
+        if(error){
+           res.send('Error al intentar guardar el device.');
+        }else{
+          console.log("device creado");
+          console.log(temp);
+          res.redirect('/');
+        }
+     });
+};

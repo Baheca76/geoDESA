@@ -18,4 +18,6 @@ router.delete('/:deviceId', devicesController.delete);
 router.get('/:deviceId/edit', devicesController.edit);
 router.put('/:deviceId', devicesController.update);
 
+router.post('/createTemp', devicesController.createTemp);
+
 module.exports = router;
