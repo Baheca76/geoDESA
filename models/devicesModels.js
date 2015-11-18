@@ -98,16 +98,16 @@ var DeviceSchema = new Schema({
 		type: Date,
 		default:'',
 	},
-	registrydate:{
+	registry: [
 
-			type:Date,
-			default:'',
-	},
-	registryid_caso:{
-			type:Number,
-			default:'',
-
-	},
+		{date:{
+				type:Date,
+				default:'',
+		},
+		id_caso:{
+				type:Number,
+				default:'',}
+	}],
 	model:{
 		type: String,
 		default: '',

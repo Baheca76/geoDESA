@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <meta name="viewport" content="width=user-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.ie.css" /><![endif]-->
+
+    <link rel="stylesheet" href="../../stylesheets/leaflet-sidebar.css" />
+    <link rel="stylesheet" href="../../stylesheets/geodesa.css" />
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        html, body, #map {
+            height: 100%;
+            font: 10pt "Helvetica Neue", Arial, Helvetica, sans-serif;
+        }
+        .lorem {
+            font-style: italic;
+            color: #AAA;
+        }
+    </style>
+</head>
+<body>
+  <div class="panel panel-info nuevoformulario">
+
+            <div class="panel-heading">
+              <h3 class="panel-title"><p>Device: </p></h3>
+            </div>
+            <div class="panel-body">
+              <form class="form-inline" method="post" action="/devices/editRevisions/<%= devices.revisions[i]._id %>?_method=put">
+
+                <label for="revisionsDevice">Resviones</label><br>
+                <input type="date" class="form-control" id="revisionsdateDevice" name="devices.revisions[i].date" placeholder="fecha de revisión"><br>
+                <input type="text" class="form-control" id="revisionsid_estadoDevice" name="devices.revisions[i].id_estado" placeholder="estado"><br>
+                <input type="text" class="form-control" id="revisionsid_revisorDevice" name="devices.revisions[i].id_revisor" placeholder="Revisor"><br><br>
+
+                <br><br>
+                <button type="submit" class="btn btn-info">Guardar</button>
+              </form>
+            </div>
+
+  </div>
+  <hr>
+  <div class="backButton">
+    <a href="<%= redir %>" class="btn btn-info btn-lg active btn-block">Volver</a>
+  </div>
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+  <script src="../../js/leaflet-sidebar.js"></script>
+
+</body>

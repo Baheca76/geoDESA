@@ -20,6 +20,6 @@ router.put('/:deviceId', devicesController.update);
 
 router.post('/createTemp', devicesController.createTemp);
 router.get('/:deviceId/revisions', devicesController.listRevisions);
-
+router.get('/:deviceId/registry', devicesController.listRegistry);
 
 module.exports = router;

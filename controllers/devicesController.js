@@ -195,8 +195,39 @@ exports.createTemp = function(req, res) {
      });
 };
 
-
+//revisiones
 exports.listRevisions = function(req, res){
   req.session.redir= "/devices/" + req.device._id;
   res.render('devices/showRevisions', {device: req.device, redir: req.session.redir});
-}
+};
+
+exports.createNewRevision = function(req, res){
+     var atemp = {"date":req.body.revisionsDate,"id_estado":req.body.revisionsId_estado,"id_revisor":req.body.revisionsId_revisor};
+     Device.update({_id:req.body._id}, {$push: {revisions : [atemp]}}, function(err){
+
+        if(err){
+                console.log(err);
+        }else{
+                console.log("Successfully added");
+        }
+    }
+)};
+
+
+//Registro
+exports.listRegistry = function(req, res){
+  req.session.redir= "/devices/" + req.device._id;
+  res.render('devices/showRegistry', {device: req.device, redir: req.session.redir});
+};
+
+exports.createNewRegistry = function(req, res){
+     var atemp = {"date":req.body.registryDate,"id_caso":req.body.registryId_caso};
+     Device.update({_id:req.body._id}, {$push: {registry : [atemp]}}, function(err){
+
+        if(err){
+                console.log(err);
+        }else{
+                console.log("Successfully added");
+        }
+    }
+)};
