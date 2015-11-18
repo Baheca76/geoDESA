@@ -120,11 +120,7 @@ var DeviceSchema = new Schema({
 		type: String,
 		default: '',
 	},
-	software:{
-		type: String,
-		default: '',
-	},
-	software_version:{
+	firmware:{
 		type: String,
 		default: '',
 	},
@@ -132,22 +128,24 @@ var DeviceSchema = new Schema({
 		type: Number,
 		default: '1',
 	},
-	revisionsdate:{
+	revisions: [
+
+		{date:{
 		 	type: Date,
 			default:'',
-	},
-	revisionsid_estado:{
+		},
+	  id_estado:{
 			type: Number,
 			default: '2',
-	},
-	revisionsid_revisor:{
+		},
+	  id_revisor:{
 			type: String,
 			default: '',
-
-	}
+		}}
+	]
 
 });
 
 DeviceSchema.index({location:'2dsphere'});
-
+DeviceSchema.index({revisions:'1'});
 module.exports = mongoose.model('Device', DeviceSchema);

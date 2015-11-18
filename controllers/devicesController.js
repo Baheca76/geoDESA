@@ -65,6 +65,7 @@ exports.create = function(req, res) {
     var longitude = req.body.location.substring(comaPosition+1, req.body.location.length);
 
     var device = new Device({
+
             name: req.body.name,
             serial_number: req.body.serial_number,
             location: {type:'Point', coordinates:[latitude, longitude]},
@@ -78,12 +79,9 @@ exports.create = function(req, res) {
             registryid_caso : req.body.registryid_caso,
             model: req.body.model,
           	make: req.body.make,
-          	software:req.body.software,
-          	software_version:req.body.software_version,
+          	firmware:req.body.firmware,
           	id_estado:req.body.id_estado,
-            revisionsdate: req.body.revisionsdate,
-            revisionsid_estado: req.body.revisionsid_estado,
-            revisionsid_revisor: req.body.revisionsid_revisor
+
 
      });
      device.save(function(error){
@@ -132,7 +130,6 @@ exports.update = function(req, res) {
     console.log("Device en mongodb:"+ device);
     device.name = req.body.name,
     device.serial_number = req.body.serial_number,
-
     device.address = req.body.address,
     device.city = req.body.city,
     device.postal_code = req.body.postal_code,
@@ -144,12 +141,9 @@ exports.update = function(req, res) {
     device.registryid_caso = req.body.registryid_caso,
     device.model = req.body.model,
     device.make = req.body.make,
-    device.software = req.body.software,
-    device.software_version = req.body.software_version,
+    device.firmware = req.body.firmware,
     device.id_estado = req.body.id_estado,
-    device.revisionsdate = req.body.revisionsdate,
-    device.revisionsid_estado = req.body.revisionsid_estado,
-    device.revisionsid_revisor = req.body.revisionsid_revisor
+    //device.revisions: [{"date":req.body.revisionsDate,"id_estado":req.body.revisionsId_estado,"id_revisor":req.body.revisionsId_revisor}]
 
     device.save(function (err) {
       if (err) return res.send(err);
@@ -157,6 +151,8 @@ exports.update = function(req, res) {
     });
   });
 };
+
+
 
 // DELETE /devices/:id
 exports.delete = function(req, res) {
@@ -198,3 +194,9 @@ exports.createTemp = function(req, res) {
         }
      });
 };
+
+
+exports.listRevisions = function(req, res){
+  req.session.redir= "/devices/" + req.device._id;
+  res.render('devices/showRevisions', {device: req.device, redir: req.session.redir});
+}

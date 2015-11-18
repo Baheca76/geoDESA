@@ -19,5 +19,7 @@ router.get('/:deviceId/edit', devicesController.edit);
 router.put('/:deviceId', devicesController.update);
 
 router.post('/createTemp', devicesController.createTemp);
+router.get('/:deviceId/revisions', devicesController.listRevisions);
+
 
 module.exports = router;

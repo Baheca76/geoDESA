@@ -238,8 +238,8 @@
                           </div>
                           <br>
                           <div class="form-group">
-                            <label  for="software:">software:</label><br>
-                            <input type="text" class="form-control" id="software:" name="software:" placeholder="software:"><br>
+                            <label  for="software">software:</label><br>
+                            <input type="text" class="form-control" id="software" name="software" placeholder="software"><br>
                           </div>
                           <br>
                           <div class="form-group">
@@ -296,10 +296,11 @@
                   </div>
                   <div class="panel-body">
                     <p class="lorem">Introduzca la información del nuevo proveedor</p>
-                    <form class="form-inline" action="/providers/create" method="post" enctype="multipart/form-data">
+                    <form class="form-inline" action="/providers/create" method="post">
+                      <br>
                       <div class="form-group">
                         <label for="name">Nombre</label><br>
-                        <input type="text" class="form-control " id="name" name="name" placeholder="Nombre">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Nombre">
                       </div>
                       <br>
                       <div class="form-group">
@@ -562,7 +563,7 @@
           geoPositionLon = position.coords.longitude;
 
           var map = L.map('map');
-          map.setView([geoPositionLat, geoPositionLon], 8, {icon: personIcon});
+          map.setView([geoPositionLat, geoPositionLon], 14, {icon: personIcon});
           L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
               maxZoom: 18,
               attribution: 'Map data &copy; OpenStreetMap contributors'
