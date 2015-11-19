@@ -27,7 +27,7 @@
 <body>
   <div class="panel panel-info panel-listado">
       <div class="panel-heading">
-            <h3 class="panel-title"><p>Revisiones</p></h3>
+            <h3 class="panel-title"><p>Registro</p></h3>
       </div>
          <table class="table">
            <thead>
@@ -36,36 +36,29 @@
                  Fecha
                </th>
                <th>
-                 Estado
-               </th>
-               <th>
-                 Revisor
+                 Caso
                </th>
              </tr>
 
            </thead>
            <tbody>
-           <% for (var i=0; i< device.revisions.length; i++) { %>
+           <% for (var i=0; i< device.registry.length; i++) { %>
                <tr>
                  <td>
-                   <%= device.revisions[i].date %>
+                   <%= device.registry[i].date %>
                  </td>
                  <td>
-                  <%= device.revisions[i].id_estado %>
+                  <%= device.registry[i].id_caso %>
                  </td>
                  <td>
-                  <%= device.revisions[i].id_revisor %>
-                 </td>
-
-                 <td>
-                    <form action="/devices/<%= device._id %>/revisions/<%= device.revisions[i]._id %>/edit" method="get">
+                    <form action="/devices/<%= device.registry[i]._id %>/editRegistry" method="get">
                           <button type="submit" class="btn btn-warning">
                             <span class="glyphicon glyphicon-pencil"></span>
                           </button>
                     </form>
                  </td>
                  <td>
-                   <form method="post" action="/devices/<%= device._id %>/revisions/<%= device.revisions[i]._id %>?_method=delete">
+                   <form method= "post" action="/devices/<%= device.registry[i]._id %>?_method=delete">
                             <button type="submit" class="btn btn-danger">
                               <span class="glyphicon glyphicon-trash"></span>
                             </button>
@@ -77,9 +70,9 @@
           </table>
       </div>
       <hr>
-      <form action="/devices/<%= device._id %>/revisions/new" method="get">
+      <form action="createNewRegistry" method="get">
         <div class="buttonPrimary">
-          <button  class="btn btn-primary btn-lg active">Nueva revisión</button>
+          <button  class="btn btn-primary btn-lg active">Nueva registro</button>
         </div>
       </form>
       <hr>

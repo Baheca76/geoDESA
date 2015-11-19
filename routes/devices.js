@@ -19,7 +19,21 @@ router.get('/:deviceId/edit', devicesController.edit);
 router.put('/:deviceId', devicesController.update);
 
 router.post('/createTemp', devicesController.createTemp);
+
+// ROUTES to manage revisions
 router.get('/:deviceId/revisions', devicesController.listRevisions);
-router.get('/:deviceId/registry', devicesController.listRegistry);
+router.get('/:deviceId/revisions/new', devicesController.newRevision);
+router.get('/:deviceId/revisions/:revisionId/edit', devicesController.editRevision);
+router.put('/:deviceId/revisions/:revisionId', devicesController.updateRevision);
+router.delete('/:deviceId/revisions/:revisionId', devicesController.deleteRevision);
+router.post('/:deviceId/revisions/:revisionId', devicesController.createRevision);
+
+// ROUTES to manages registries
+router.get('/:deviceId/registries', devicesController.listRegistries);
+router.get('/:deviceId/registries/new', devicesController.newRegistry);
+router.get('/:deviceId/registries/:registryId/edit', devicesController.editRegistry);
+router.put('/:deviceId/registries/:registryId', devicesController.updateRegistry);
+router.delete('/:deviceId/registries/:registryId', devicesController.deleteRegistry);
+router.post('/:deviceId/registries/:registryId', devicesController.createRegistry);
 
 module.exports = router;

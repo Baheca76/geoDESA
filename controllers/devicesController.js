@@ -201,8 +201,15 @@ exports.listRevisions = function(req, res){
   res.render('devices/showRevisions', {device: req.device, redir: req.session.redir});
 };
 
-exports.createNewRevision = function(req, res){
-     var atemp = {"date":req.body.revisionsDate,"id_estado":req.body.revisionsId_estado,"id_revisor":req.body.revisionsId_revisor};
+// GET /devices/:revisionId/revisions/new
+exports.newRevision = function(req, res){
+  req.session.redir= "/devices/" + req.device._id +"/revisions";
+  res.render('devices/newRevision', {device: req.device, errors: [], title : "Nueva revision", redir: req.session.redir });
+}
+
+// POST /device/:deviceId/revisions/:revisionId
+exports.createRevision = function(req, res){
+     var atemp = {"date":req.body.date,"id_estado":req.body.id_estado,"id_revisor":req.body.id_revisor};
      Device.update({_id:req.body._id}, {$push: {revisions : [atemp]}}, function(err){
 
         if(err){
@@ -213,21 +220,50 @@ exports.createNewRevision = function(req, res){
     }
 )};
 
+// GET /devices/:deviceId/revisions/:revisionId/edit
+exports.editRevision = function(req, res){
+
+}
+
+// PUT /devices/:deviceId/revisions/:revisionId
+exports.updateRevision = function(req, res){
+
+}
+
+// Controller to execute when API REST delete revision is executed
+exports.deleteRevision = function(req, res){
+
+};
+
 
 //Registro
-exports.listRegistry = function(req, res){
+exports.listRegistries = function(req, res){
   req.session.redir= "/devices/" + req.device._id;
   res.render('devices/showRegistry', {device: req.device, redir: req.session.redir});
 };
 
-exports.createNewRegistry = function(req, res){
-     var atemp = {"date":req.body.registryDate,"id_caso":req.body.registryId_caso};
-     Device.update({_id:req.body._id}, {$push: {registry : [atemp]}}, function(err){
+// GET /devices/new
+// Form to new registry
+exports.newRegistry = function(req, res){
 
-        if(err){
-                console.log(err);
-        }else{
-                console.log("Successfully added");
-        }
-    }
-)};
+};
+
+// POST /device/:deviceId/registries/:registryId
+exports.createRegistry = function(req, res){
+
+};
+
+// GET /devices/:deviceId/registries/:registryId/edit
+exports.editRegistry = function(req, res){
+
+}
+
+// PUT /devices/:deviceId/registries/:registryId
+exports.updateRegistry = function(req, res){
+
+}
+
+// DELETE /devices/:deviceId/registries/:registryId
+exports.deleteRegistry = function(req, res){
+
+};
