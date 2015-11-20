@@ -239,19 +239,29 @@ exports.deleteRevision = function(req, res){
 //Registro
 exports.listRegistries = function(req, res){
   req.session.redir= "/devices/" + req.device._id;
-  res.render('devices/showRegistry', {device: req.device, redir: req.session.redir});
+  res.render('devices/showRegistries', {device: req.device, redir: req.session.redir});
 };
 
 // GET /devices/new
 // Form to new registry
 exports.newRegistry = function(req, res){
+  req.session.redir= "/devices/" + req.device._id +"/registries";
+  res.render('devices/newRegistry', {device: req.device, errors: [], title : "Nuevo registro", redir: req.session.redir });
 
 };
 
 // POST /device/:deviceId/registries/:registryId
 exports.createRegistry = function(req, res){
+  var atemp = {"date":req.body.date,"id_caso":req.body.id_caso};
+  Device.update({_id:req.body._id}, {$push: {registry : [atemp]}}, function(err){
 
-};
+     if(err){
+             console.log(err);
+     }else{
+             console.log("Successfully added");
+     }
+  }
+)};
 
 // GET /devices/:deviceId/registries/:registryId/edit
 exports.editRegistry = function(req, res){

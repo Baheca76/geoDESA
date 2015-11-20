@@ -68,18 +68,18 @@
 
             </div>
   </div>
+
   <form action="/devices/<%= device._id %>/revisions" method="get">
-    <div class="buttonPrimary">
-      <button  class="btn btn-primary btn-lg active">Revisiones</button>
-    </div>
-
+      <div class="buttonPrimary">
+        <button  class="btn btn-primary btn-lg active">Revisiones</button>
+      </div>
+  </form><br>
+  <form action="/devices/<%= device._id %>/registries" method="get">
+      <div class="buttonPrimary">
+        <button  class="btn btn-primary btn-lg active">Registro</button>
+      </div>
   </form>
-  <form action="/devices/<%= device._id %>/registry" method="get">
-    <div class="buttonPrimary">
-      <button  class="btn btn-primary btn-lg active">Registro</button>
-    </div>
 
-  </form>
   <hr>
   <div class="backButton">
     <a href="<%= redir %>" class="btn btn-info btn-lg active btn-block">Volver</a>

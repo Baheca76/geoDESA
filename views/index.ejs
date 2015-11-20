@@ -546,6 +546,18 @@
         iconAnchor:   [22, 50], // point of the icon which will correspond to marker's location
         popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
+    var desaGreen = L.icon({
+        iconUrl: './images/healthgreen.png',
+        iconSize:     [24, 24], // size of the icon
+        iconAnchor:   [22, 50], // point of the icon which will correspond to marker's location
+        popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    });
+    var desaYellow = L.icon({
+        iconUrl: './images/heartyellow.png',
+        iconSize:     [24, 24], // size of the icon
+        iconAnchor:   [22, 50], // point of the icon which will correspond to marker's location
+        popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    });
 
     //geolocalizacion de la posicion
 
@@ -577,11 +589,28 @@
           // a nuestra posicion actual
           $.get("/devices/search/"+geoPositionLat+"/"+geoPositionLon+"/155000", function(data){
             for (var i = 0; i < data.length; i++){
-              var nuevaMarca =  L.marker([data[i].obj.location.coordinates[0], data[i].obj.location.coordinates[1] ],{icon: desaIcon}).
+              if(data[i].obj.id_estado == "0"){
+                  var nuevaMarca =  L.marker([data[i].obj.location.coordinates[0], data[i].obj.location.coordinates[1] ],{icon: desaIcon}).
                                 bindPopup("<html><body>"
                                           + "<a href=/devices/"+data[i].obj._id
                                           + ">Ver dispositivo</a>"
                                           + "</body></html>").openPopup().addTo(map);
+              };
+              if(data[i].obj.id_estado == "1"){
+                  var nuevaMarca =  L.marker([data[i].obj.location.coordinates[0], data[i].obj.location.coordinates[1] ],{icon: desaGreen}).
+                                bindPopup("<html><body>"
+                                          + "<a href=/devices/"+data[i].obj._id
+                                          + ">Ver dispositivo</a>"
+                                          + "</body></html>").openPopup().addTo(map);
+              };
+              if(data[i].obj.id_estado == "2"){
+                  var nuevaMarca =  L.marker([data[i].obj.location.coordinates[0], data[i].obj.location.coordinates[1] ],{icon: desaYellow}).
+                                bindPopup("<html><body>"
+                                          + "<a href=/devices/"+data[i].obj._id
+                                          + ">Ver dispositivo</a>"
+                                          + "</body></html>").openPopup().addTo(map);
+              };
+
             }
 
           var sidebar = L.control.sidebar('sidebar').addTo(map);
