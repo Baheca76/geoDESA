@@ -259,6 +259,7 @@ exports.createRegistry = function(req, res){
              console.log(err);
      }else{
              console.log("Successfully added");
+             res.redirect('/devices/registries/' + +req.body._id);
      }
   }
 )};

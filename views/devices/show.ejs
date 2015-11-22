@@ -29,7 +29,6 @@
 </head>
 <body>
   <div class="panel panel-info nuevoformulario">
-
             <div class="panel-heading">
               <h3 class="panel-title"><p>Dispositivo: </p></h3>
             </div>
@@ -51,12 +50,14 @@
                 <label for="instalationDevice">Instalación</label>
                 <input class="form-control" id="instalationDevice" type="text" placeholder="<%= device.instalation %>" readonly><br>
                 <label for="date_instalationDevice">Fecha de instalación</label>
-                <input class="form-control" id="date_instalationDevice" type="text" placeholder="<%= device.date_instalation %>" readonly><br>
+                <input class="form-control" id="date_instalationDevice" type="text" placeholder="<%= device.date_instalation.getDate() + "/" + (device.date_instalation.getMonth()+1 ) + "/" + device.date_instalation.getFullYear() %>" readonly><br>
+                <label for="id_estadoDevice">Estado (0 - fallo, 1 - ok, 2 - revision) </label>
+                <input class="form-control" id="id_estadoDevice" type="text" placeholder="<%= device.id_estado %>" readonly><br>
                 <label for="registryDevice">Registro</label>
-                <input class="form-control" id="registry.dateDevice" type="date" placeholder="<%= device.registrydate %>" readonly><br>
+                <input class="form-control" id="registry.dateDevice" type="text" placeholder="<%= device.registrydate %>" readonly><br>
                 <input class="form-control" id="registry.id_casoDevice" type="text" placeholder="<%= device.registryid_caso %>" readonly><br>
                 <label for="revisionsDevice">Revisiones</label>
-                <input class="form-control" id="revisionsdateDevice" type="text" placeholder="<%= device.revisionsdate %>" readonly><br>
+                <input class="form-control" id="revisionsdateDevice" type="text" placeholder="<%= device.revisionsdate%>" readonly><br>
                 <input class="form-control" id="revisionsid_estadoDevice" type="text" placeholder="<%= device.revisionsid_caso %>" readonly><br>
                 <input class="form-control" id="revisionsid_revisorDevice" type="text" placeholder="<%= device.revisionsid_revisor %>" readonly><br>
                 <label for="makeDevice">Marca</label>
