@@ -54,20 +54,13 @@
                   <option>voluntario</option>
                 </select><br>
                 <label for="date_instalationDevice">Fecha de instalación</label><br>
-                <input class="form-control" id="date_instalationDevice" type="date" value="<%= device.date_instalation %>" name="date_instalation"><br><br>
-                <label for="registryDevice">Registro</label><br>
-                <input type="date" class="form-control" id="registrydateDevice" value="<%= device.registrydate %>" name="registrydate" placeholder="fecha de activacion"><br>
-                <input type="text" class="form-control" id="registryid_casoDevice" value="<%= device.registryid_caso %>"name="registryid_caso" placeholder="numero de caso"><br>
+                <input class="form-control" id="date_instalationDevice" type="date" value="<% if (device.date_instalation != null) { %> <%=device.date_instalation.getDate() + "/" + (device.date_instalation.getMonth()+1 ) + "/" + device.date_instalation.getFullYear()%><% } else { %> <%= device.date_instalation %> <% } %>" name="date_instalation"><br><br>
                 <label for="deviceType">Estado (0 - fallo, 1 - ok, 2 - revision)</label><br>
                 <select class="form-control" id="id_estadoDevice" value="<%= device.id_estado %>" name="id_estado"><br><br>
                   <option>0</option>
                   <option>1</option>
                   <option>2</option>
                 </select><br>
-                <label for="revisionsDevice">Resviones</label><br>
-                <input type="date" class="form-control" id="revisionsdateDevice" value="<%= device.revisionsdate %>"name="revisionsdate" placeholder="fecha de revisión"><br>
-                <input type="text" class="form-control" id="revisionsid_estadoDevice" value="<%= device.revisionsid_estado %>"name="revisionsid_estado" placeholder="estado"><br>
-                <input type="text" class="form-control" id="revisionsid_revisorDevice" value="<%= device.revisionsid_revisor %>"name="revisionsid_revisor" placeholder="Revisor"><br><br>
                 <label for="makeDevice">Marca</label><br>
                 <input class="form-control" id="makeDevice" type="text" value="<%= device.make%>" name="make"><br><br>
                 <label for="modelDevice">Modelo</label><br>

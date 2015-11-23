@@ -31,6 +31,7 @@ exports.create = function(req, res) {
         userName: req.body.userName,
         password: req.body.password,
         mail: req.body.mail,
+        phone: req.body.phone,
         permissions: req.body.permissions
     });
     user.save(function (error){
@@ -129,6 +130,7 @@ exports.update = function(req, res) {
       user.lastName = req.body.lastName,
       user.dni = req.body.dni,
       user.mail = req.body.mail,
+      user.phone = req.body.phone,
       user.permissions = req.body.permissions,
 
     user.save(function (err) {

@@ -96,7 +96,7 @@ var DeviceSchema = new Schema({
 	},
 	date_instalation:{
 		type: Date,
-		default:'',
+		default:Date.now,
 	},
 	registry: [
 
@@ -136,7 +136,7 @@ var DeviceSchema = new Schema({
 		},
 	  id_estado:{
 			type: Number,
-			default: '2',
+			default: '',
 		},
 	  id_revisor:{
 			type: String,

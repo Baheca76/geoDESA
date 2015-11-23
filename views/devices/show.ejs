@@ -34,38 +34,31 @@
             </div>
             <div class="panel-body">
                 <label for="nameDevice">Nombre</label>
-                <input class="form-control" id="nameDevice" type="text" placeholder="<%= device.name %>" readonly><br>
+                <input class="form-control" id="nameDevice" type="text" value="<%= device.name %>" readonly><br>
                 <label for="serial_numberDevice">Número de serie</label>
-                <input class="form-control" id="serial_numberDevice" type="text" placeholder="<%= device.serial_number %>" readonly><br>
+                <input class="form-control" id="serial_numberDevice" type="text" value="<%= device.serial_number %>" readonly><br>
                 <label for="locationDevice">Localización</label>
-                <input class="form-control" id="locationDevice" type="text" placeholder="<%= device.location.coordinates %>" readonly><br>
+                <input class="form-control" id="locationDevice" type="text" value="<%= device.location.coordinates %>" readonly><br>
                 <label for="addressDevice">Dirección</label>
-                <input class="form-control" id="addressDevice" type="text" placeholder="<%= device.address %>" readonly><br>
+                <input class="form-control" id="addressDevice" type="text" value="<%= device.address %>" readonly><br>
                 <label for="cityDevice">Localidad</label>
-                <input class="form-control" id="cityDevice" type="text" placeholder="<%= device.city%>" readonly><br>
+                <input class="form-control" id="cityDevice" type="text" value="<%= device.city%>" readonly><br>
                 <label for="postal_codeDevice">Código postal</label>
-                <input class="form-control" id="postal_codeDevice" type="text" placeholder="<%= device.postal_code%>" readonly><br>
+                <input class="form-control" id="postal_codeDevice" type="text" value="<%= device.postal_code%>" readonly><br>
                 <label for="provinceDevice">Provincia</label>
-                <input class="form-control" id="provinceDevice" type="text" placeholder="<%= device.province%>" readonly><br>
+                <input class="form-control" id="provinceDevice" type="text" value="<%= device.province%>" readonly><br>
                 <label for="instalationDevice">Instalación</label>
-                <input class="form-control" id="instalationDevice" type="text" placeholder="<%= device.instalation %>" readonly><br>
+                <input class="form-control" id="instalationDevice" type="text" value="<%= device.instalation %>" readonly><br>
                 <label for="date_instalationDevice">Fecha de instalación</label>
-                <input class="form-control" id="date_instalationDevice" type="text" placeholder="<%= device.date_instalation.getDate() + "/" + (device.date_instalation.getMonth()+1 ) + "/" + device.date_instalation.getFullYear() %>" readonly><br>
+                <input class="form-control" id="date_instalationDevice" type="text" value="<% if (device.date_instalation != null) { %> <%=device.date_instalation.getDate() + "/" + (device.date_instalation.getMonth()+1 ) + "/" + device.date_instalation.getFullYear()%><% } else { %> <%= device.date_instalation %> <% } %>" readonly><br>
                 <label for="id_estadoDevice">Estado (0 - fallo, 1 - ok, 2 - revision) </label>
-                <input class="form-control" id="id_estadoDevice" type="text" placeholder="<%= device.id_estado %>" readonly><br>
-                <label for="registryDevice">Registro</label>
-                <input class="form-control" id="registry.dateDevice" type="text" placeholder="<%= device.registrydate %>" readonly><br>
-                <input class="form-control" id="registry.id_casoDevice" type="text" placeholder="<%= device.registryid_caso %>" readonly><br>
-                <label for="revisionsDevice">Revisiones</label>
-                <input class="form-control" id="revisionsdateDevice" type="text" placeholder="<%= device.revisionsdate%>" readonly><br>
-                <input class="form-control" id="revisionsid_estadoDevice" type="text" placeholder="<%= device.revisionsid_caso %>" readonly><br>
-                <input class="form-control" id="revisionsid_revisorDevice" type="text" placeholder="<%= device.revisionsid_revisor %>" readonly><br>
+                <input class="form-control" id="id_estadoDevice" type="text" value="<%= device.id_estado %>" readonly><br>
                 <label for="makeDevice">Marca</label>
-                <input class="form-control" id="makeDevice" type="text" placeholder="<%= device.make %>" readonly><br>
+                <input class="form-control" id="makeDevice" type="text" value="<%= device.make %>" readonly><br>
                 <label for="modelDevice">Modelo</label>
-                <input class="form-control" id="modelDevice" type="text" placeholder="<%= device.model %>" readonly><br>
+                <input class="form-control" id="modelDevice" type="text" value="<%= device.model %>" readonly><br>
                 <label for="firmwareDevice">firmware</label>
-                <input class="form-control" id="firmwareDevice" type="text" placeholder="<%= device.firmware %>" readonly><br>
+                <input class="form-control" id="firmwareDevice" type="text" value="<%= device.firmware %>" readonly><br>
 
             </div>
   </div>
@@ -83,7 +76,7 @@
 
   <hr>
   <div class="backButton">
-    <a href="<%= redir %>" class="btn btn-info btn-lg active btn-block">Volver</a>
+    <a href="/devices/" class="btn btn-info btn-lg active btn-block">Volver</a>
   </div>
   <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
   <script src="../../js/leaflet-sidebar.js"></script>

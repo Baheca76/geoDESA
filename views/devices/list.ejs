@@ -48,7 +48,7 @@
                  Localización
                </th>
                <th>
-                 Próxima revisión
+                 Fecha de instalación
                </th>
              </tr>
 
@@ -69,7 +69,11 @@
                    <%= listDevices[i].location.coordinates %>
                  </td>
                  <td>
-                   <%= listDevices[i].revisionsdate %>
+                   <%if (listDevices[i].date_instalation != null){%>
+                      <%= listDevices[i].date_instalation.getDate() + "/" + (listDevices[i].date_instalation.getMonth()+1 ) + "/" + listDevices[i].date_instalation.getFullYear() %>
+                   <% } else {%>
+                      <%= listDevices[i].date_instalation %>
+                   <%}%> 
                  </td>
                  <td>
                       <form action="/devices/<%= listDevices[i]._id %>" method="get">

@@ -165,6 +165,7 @@
                           <br>
                           <div class="form-group">
                             <label for="localizacion">Localización</label><br>
+
                             <input type="text" class="form-control" id="location" name="location" placeholder="localización (lon,lat) __._,__._"><br>
                           </div>
                           <br>
@@ -207,24 +208,12 @@
                           </div>
                           <br>
                           <div class="form-group">
-                            <label for="registry">Registro</label><br>
-                            <input type="date" class="form-control" id="registrydate" name="registrydate" placeholder="fecha de activacion"><br>
-                            <input type="text" class="form-control" id="registryid_caso" name="registryid_caso" placeholder="numero de caso"><br>
-                          </div><br>
-                          <div class="form-group">
                             <label for="deviceType">Estado (0 - fallo, 1 - ok, 2 - revision)</label><br>
                             <select class="form-control" id="id_estado" name="id_estado"><br>
                               <option>0</option>
                               <option>1</option>
                               <option>2</option>
                             </select>
-                          </div>
-                          <br>
-                          <div class="form-group">
-                            <label for="revisions">Resiones</label><br>
-                            <input type="date" class="form-control" id="revisionsdate" name="revisionsdate" placeholder="fecha de revisión"><br>
-                            <input type="text" class="form-control" id="revisionsid_estado" name="revisionsid_estado" placeholder="estado"><br>
-                            <input type="text" class="form-control" id="revisionsid_revisor" name="revisionsid_revisor" placeholder="Revisor"><br>
                           </div>
                           <br>
                           <div class="form-group">
@@ -238,13 +227,8 @@
                           </div>
                           <br>
                           <div class="form-group">
-                            <label  for="software">software:</label><br>
-                            <input type="text" class="form-control" id="software" name="software" placeholder="software"><br>
-                          </div>
-                          <br>
-                          <div class="form-group">
-                            <label  for="software_version">software_version</label><br>
-                            <input type="text" class="form-control" id="software_version" name="software_version" placeholder="software_version"><br>
+                            <label  for="firmware">firmware:</label><br>
+                            <input type="text" class="form-control" id="firmware" name="firmware" placeholder="firmware"><br>
                           </div>
                           <br><br>
                           <button type="submit" class="btn btn-info">Enviar</button>
@@ -319,7 +303,7 @@
                       </div>
                       <br>
                       <div class="form-group">
-                        <label for="mail">Correo Electrónico</label><br>
+                        <label for="mail">Email</label><br>
                         <input type="text" class="form-control" id="mail" name="mail" placeholder="Correo electrónico">
                       </div>
                       <br>
@@ -574,6 +558,8 @@
           geoPositionLat = position.coords.latitude;
           geoPositionLon = position.coords.longitude;
 
+
+
           var map = L.map('map');
           map.setView([geoPositionLat, geoPositionLon], 14, {icon: personIcon});
           L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -618,6 +604,8 @@
 
 
           });
+          $('#location').val(geoPositionLat + "," + geoPositionLon);
+          $('#locationTemp').val(geoPositionLat + "," + geoPositionLon);
         }
     </script>
 

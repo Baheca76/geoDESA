@@ -39,6 +39,10 @@ var UserSchema = new Schema({
 		type: String,
 		default:'',
 	},
+	phone:{
+		type:Number,
+		default:'',
+	},
 	permissions:{
 		type: [{
 			type:String,

@@ -75,8 +75,6 @@ exports.create = function(req, res) {
             province: req.body.province,
             instalation: req.body.instalation,
             date_instalation: req.body.date_instalation,
-            registrydate: req.body.registrydate,
-            registryid_caso : req.body.registryid_caso,
             model: req.body.model,
           	make: req.body.make,
           	firmware:req.body.firmware,
@@ -137,13 +135,10 @@ exports.update = function(req, res) {
     device.city = req.body.city,
     device.instalation = req.body.instalation,
     device.date_instalation = req.body.date_instalation,
-    device.registrydate = req.body.registrydate,
-    device.registryid_caso = req.body.registryid_caso,
+    device.id_estado = req.body.id_estado,
     device.model = req.body.model,
     device.make = req.body.make,
     device.firmware = req.body.firmware,
-    device.id_estado = req.body.id_estado,
-    //device.revisions: [{"date":req.body.revisionsDate,"id_estado":req.body.revisionsId_estado,"id_revisor":req.body.revisionsId_revisor}]
 
     device.save(function (err) {
       if (err) return res.send(err);
@@ -209,13 +204,18 @@ exports.newRevision = function(req, res){
 
 // POST /device/:deviceId/revisions/:revisionId
 exports.createRevision = function(req, res){
+    console.log(req.params.deviceId);
+    console.log(req.body);
      var atemp = {"date":req.body.date,"id_estado":req.body.id_estado,"id_revisor":req.body.id_revisor};
-     Device.update({_id:req.body._id}, {$push: {revisions : [atemp]}}, function(err){
+     console.log(atemp);
+     Device.update({_id:req.params.deviceId}, {$push: {revisions : [[atemp]]}}, function(err){
+       //device.revisions: [{"date":req.body.revisionsDate,"id_estado":req.body.revisionsId_estado,"id_revisor":req.body.revisionsId_revisor}]
 
         if(err){
                 console.log(err);
         }else{
                 console.log("Successfully added");
+                res.redirect('/devices/' + req.params.deviceId + '/revisions');
         }
     }
 )};
@@ -232,6 +232,14 @@ exports.updateRevision = function(req, res){
 
 // Controller to execute when API REST delete revision is executed
 exports.deleteRevision = function(req, res){
+
+  req.device._id.revisions._id.remove(function(err){
+    if (err){
+      res.send(error);
+    }
+      console.log('regitro borrado');
+      res.redirect('/devices');
+  })
 
 };
 
