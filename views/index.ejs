@@ -67,7 +67,9 @@
                 <% } %>
                 <li><a href="#api" role="tab"><i class="fa fa-html5"></i></a></li>
                 <li><a href="#contact" role="tab"><i class="fa fa-envelope"></i></a></li>
-                <li><a href="#chat" role="tab"><i class="fa fa-comment"></i></a></li>
+                <% if ((session.user.permissions == "administrador")|| (session.user.permissions == "colaborador")){ %>
+                  <li><a href="#chat" role="tab"><i class="fa fa-comment"></i></a></li>
+                <% } %>  
             </ul>
                         <% if (session.user.permissions == "revisor") { %>
                           <ul role="tablist">

@@ -260,14 +260,16 @@ exports.newRegistry = function(req, res){
 
 // POST /device/:deviceId/registries/:registryId
 exports.createRegistry = function(req, res){
+  console.log(req.params.deviceId);
+  console.log(req.body);
   var atemp = {"date":req.body.date,"id_caso":req.body.id_caso};
-  Device.update({_id:req.body._id}, {$push: {registry : [atemp]}}, function(err){
+  Device.update({_id:req.params.deviceId}, {$push: {registry : [[atemp]]}}, function(err){
 
      if(err){
              console.log(err);
      }else{
              console.log("Successfully added");
-             res.redirect('/devices/registries/' + +req.body._id);
+             res.redirect('/devices/' + req.params.deviceId + '/registries');
      }
   }
 )};
