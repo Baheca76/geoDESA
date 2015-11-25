@@ -527,9 +527,11 @@
         popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
     var desaIcon = L.icon({
-        iconUrl: './images/heart.png',console.log(user);
-  console.log(isAdmin);
-  console.log(isApprove);
+        iconUrl: './images/heart.png',
+        iconSize:     [24, 24], // size of the icon
+        iconAnchor:   [22, 50], // point of the icon which will correspond to marker's location
+        popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    });
     var desaGreen = L.icon({
         iconUrl: './images/healthgreen.png',
         iconSize:     [24, 24], // size of the icon
@@ -607,6 +609,7 @@
 
 
           });
+
           $('#location').val(geoPositionLat + "," + geoPositionLon);
           $('#locationTemp').val(geoPositionLat + "," + geoPositionLon);
         }
