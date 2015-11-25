@@ -204,13 +204,8 @@ exports.newRevision = function(req, res){
 
 // POST /device/:deviceId/revisions/:revisionId
 exports.createRevision = function(req, res){
-    console.log(req.params.deviceId);
-    console.log(req.body);
-     var atemp = {"date":req.body.date,"id_estado":req.body.id_estado,"id_revisor":req.body.id_revisor};
-     console.log(atemp);
-     Device.update({_id:req.params.deviceId}, {$push: {revisions : [[atemp]]}}, function(err){
-       //device.revisions: [{"date":req.body.revisionsDate,"id_estado":req.body.revisionsId_estado,"id_revisor":req.body.revisionsId_revisor}]
-
+    Device.update({_id:req.params.deviceId}, 
+                   {$push: {revisions : {"date":req.body.date,"id_estado":req.body.id_estado,"id_revisor":req.body.id_revisor}}}, function(err){
         if(err){
                 console.log(err);
         }else{
