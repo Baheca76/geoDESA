@@ -1,57 +1,60 @@
 
 
 <!--formulario de providers -->
-
-        <form class="form-inline" action="/create" method="post" enctype="multipart/form-data">
+<form class="form-inline" action="/create" method="post" enctype="multipart/form-data">
+  <div class="panel panel-info nuevoformulario">
           <div class="form-group">
-            <label class="sr-only" for="name">Nombre</label>
+            <label for="name">Nombre</label><br>
             <input type="text" class="form-control " id="name" name="name" placeholder="Nombre">
           </div>
           <br>
           <div class="form-group">
-            <label class="sr-only" for="cif">Cif</label>
+            <label for="cif">Cif</label><br>
             <input type="text" class="form-control" id="cif" name="cif" placeholder="Cif">
           </div>
           <br>
           <div class="form-group">
-            <label class="sr-only" for="phone">Teléfono</label>
+            <label for="phone">Teléfono</label><br>
             <input type="text" class="form-control" id="phone" name="phone" placeholder="Teléfono">
           </div>
           <br>
           <div class="form-group">
-            <label class="sr-only" for="fax">Fax</label>
+            <label for="fax">Fax</label><br>
             <input type="text" class="form-control" id="fax" name="fax" placeholder="Fax">
           </div>
           <br>
           <div class="form-group">
-            <label class="sr-only" for="mail">Correo Electrónico</label>
+            <label  for="mail">Correo Electrónico</label><br>
             <input type="text" class="form-control" id="mail" name="mail" placeholder="Correo electrónico">
           </div>
           <br>
           <div class="form-group">
-            <label class="sr-only" for="address">Dirección</label>
+            <label for="address">Dirección</label><br>
             <input type="text" class="form-control" id="address" name="address" placeholder="Dirección">
           </div>
           <br>
           <div class="form-group">
-            <label class="sr-only" for="city">Ciudad</label>
+            <label  for="city">Ciudad</label><br>
             <input type="text" class="form-control" id="city" name="city" placeholder="Ciudad">
           </div>
           <br>
           <div class="form-group">
-            <label class="sr-only" for="postal_code">Código postal</label>
+            <label for="postal_code">Código postal</label><br>
             <input type="text" class="form-control" id="postal_code" name="postal_code" placeholder="Código postal">
           </div>
           <br><br>
           <div class="form-group">
-            <label class="sr-only" for="province">Provincia</label>
+            <label for="province">Provincia</label><br>
             <input type="text" class="form-control" id="province" name="province" placeholder="Provincia">
           </div>
           <br><br>
           <button type="submit" class="btn btn-info">Enviar</button>
-        </form>
-        <br><br>
-        <form action="/providers/" method="get">
-           <button type="submit" class="btn btn-primary">volver</button>
-        </form>
-        <br>
+          <br><br>
+      </div>
+</form>
+
+<br><br>
+<div class="backButton">
+  <a href="/providers" class="btn btn-info btn-lg active btn-block">Volver</a>
+</div>
+<br>

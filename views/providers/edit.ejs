@@ -34,7 +34,8 @@
               <h3 class="panel-title"><p>Provider: </p></h3>
             </div>
             <div class="panel-body">
-              <form class="form-inline" method="post" action="/providers/<%=provider._id %>?_method=put">
+        <form class="form-inline" method="post" action="/providers/<%=provider._id %>?_method=put">
+            <div class="panel panel-info nuevoformulario">
                 <label for="nameProvider">Nombre</label><br>
                 <input class="form-control" id="nameProvider" type="text" value="<%= provider.name %>" name="name"><br><br>
                 <label for="cifProvider">Cif</label><br>
@@ -54,7 +55,8 @@
 
                 <br><br>
                 <button type="submit" class="btn btn-info">Modificar</button>
-              </form>
+            </div>    
+        </form>
             </div>
 
   </div>

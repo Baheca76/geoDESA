@@ -1,31 +1,26 @@
 
 <form class="form-inline" action="/create" method="post" enctype="multipart/form-data">
+  <div class="panel panel-info nuevoformulario">
       <div class="form-group">
-              <label class="sr-only" for="firstName">Nombre</label>
+              <label for="firstName">Nombre</label>
               <input type="text" class="form-control " id="firstName" name="firstName" placeholder="nombre">
       </div>
-      <br>
       <div class="form-group">
               <label for="lastName">Apellidos</label>
               <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Apellidos">
       </div>
-      <br>
       <div class="form-group">
               <label for="dni">DNI</label>
               <input type="text" class="form-control" id="dni" name="dni" placeholder="dni">
       </div>
-
-      <br>
       <div class="form-group">
               <label  for="email">Email</label>
-              <input type="email" class="form-control" id="email" name="email" placeholder="email">
+              <input type="email" class="form-control" id="email" name="mail" placeholder="email">
       </div>
-      <br>
       <div class="form-group">
               <label  for="phone">Teléfono</label>
               <input type="text" class="form-control" id="phone" name="phone" placeholder="phone">
       </div>
-      <br>
       <div class="form-group">
             <label  for="login">login</label>
             <input type="text" class="form-control" id="login" name="userName" placeholder="login">
@@ -43,11 +38,11 @@
         </select>
       </div>
       <br>
-      <br><br>
-      <button type="submit" class="btn btn-info">Enviar</button>
+      <button type="submit" class="btn btn-info">Enviar</button><br><br>
+    </div>
 </form>
 <br>
 <br>
-<form action="/users/" method="get">
-   <button type="submit" class="btn btn-primary">volver</button>
-</form>
+<div class="backButton">
+  <a href="/users" class="btn btn-info btn-lg active btn-block">Volver</a>
+</div>

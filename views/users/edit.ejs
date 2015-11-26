@@ -33,8 +33,8 @@
             <div class="panel-heading">
               <h3 class="panel-title"><p>Usuario: </p></h3>
             </div>
-            <div class="panel-body">
-              <form class="form-inline" method="post" action="/users/<%= user._id %>?_method=put">
+      <div class="panel-body">
+        <form class="form-inline" method="post" action="/users/<%= user._id %>?_method=put">
                 <label for="firstNameUser">Nombre</label><br>
                 <input class="form-control" id="firstNameUser" type="text" value="<%= user.firstName %>" name="firstName"><br><br>
                 <label for="lastNameUser">Apellidos</label><br>
@@ -57,8 +57,8 @@
                 </select>
                 <br><br>
                 <button type="submit" class="btn btn-info">Modificar</button>
-              </form>
-            </div>
+          </form>
+      </div>
 
   </div>
   <hr>

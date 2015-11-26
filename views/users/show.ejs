@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
     <!--[if lte IE 8]><link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.ie.css" /><![endif]-->
 
-    <link rel="stylesheet" href="../stylesheets/leaflet-sidebar.css" />
-    <link rel="stylesheet" href="../stylesheets/geodesa.css" />
+    <link rel="stylesheet" href="../../stylesheets/leaflet-sidebar.css" />
+    <link rel="stylesheet" href="../../stylesheets/geodesa.css" />
     <style>
         body {
             padding: 0;
@@ -39,7 +39,7 @@
                 <label for="userNameUser">Login</label>
                 <input class="form-control" id="userNameUser" type="text" value="<%= user.userName %>" readonly><br>
                 <label for="mailUser">Email</label>
-                <input class="form-control" id="userNameUser" type="text" value="<%= user.userName %>" readonly><br>
+                <input class="form-control" id="mailUser" type="mail" value="<%= user.mail %>" readonly><br>
                 <label for="phoneUser">Teléfono</label>
                 <input class="form-control" id="phoneUser" type="phone" value="<%= user.phone %>" readonly><br>
                 <label for="premissionsUser">Permisos</label>
@@ -52,6 +52,6 @@
     <a href="<%= redir %>" class="btn btn-info btn-lg active btn-block">Volver</a>
   </div>
   <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
-  <script src="../js/leaflet-sidebar.js"></script>
+  <script src="../../js/leaflet-sidebar.js"></script>
 
 </body>
