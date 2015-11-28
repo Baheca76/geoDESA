@@ -204,7 +204,7 @@ exports.newRevision = function(req, res){
 
 // POST /device/:deviceId/revisions/:revisionId
 exports.createRevision = function(req, res){
-    Device.update({_id:req.params.deviceId}, 
+    Device.update({_id:req.params.deviceId},
                    {$push: {revisions : {"date":req.body.date,"id_estado":req.body.id_estado,"id_revisor":req.body.id_revisor}}}, function(err){
         if(err){
                 console.log(err);
@@ -217,26 +217,36 @@ exports.createRevision = function(req, res){
 
 // GET /devices/:deviceId/revisions/:revisionId/edit
 exports.editRevision = function(req, res){
-
+  req.session.redir= "/devices/" + req.device._id + "/revisions/" + req.device.revisions._id + "/editRevision";
+  res.render('devices/editRevisions', {device: req.device, redir: req.session.redir});
 }
 
 // PUT /devices/:deviceId/revisions/:revisionId
 exports.updateRevision = function(req, res){
-
-}
+  Device.update({_id:req.params.deviceId.revisions._id},
+                {$set: {"date":req.body.date,"id_estado":req.body.id_estado,"id_revisor":req.body.id_revisor}}, function(err){
+      if(err){
+              console.log(err);
+      }else{
+              console.log("Successfully added");
+              //res.redirect('/devices/' + req.params.deviceId + '/revisions'+ req.device.revisions._id);
+      }
+  }
+  )};
 
 // Controller to execute when API REST delete revision is executed
 exports.deleteRevision = function(req, res){
 
-  req.device._id.revisions._id.remove(function(err){
-    if (err){
-      res.send(error);
-    }
-      console.log('regitro borrado');
-      res.redirect('/devices');
-  })
-
-};
+  Device.update({_id:req.params.deviceId},
+                 {$pull: {_id: req.device.revisions._id }}, function(err){
+      if(err){
+              console.log(err);
+      }else{
+              console.log("Successfully delete");
+              res.redirect('/devices/' + req.params.deviceId + '/revisions');
+      }
+  }
+)};
 
 
 //Registro
@@ -257,8 +267,8 @@ exports.newRegistry = function(req, res){
 exports.createRegistry = function(req, res){
   console.log(req.params.deviceId);
   console.log(req.body);
-  var atemp = {"date":req.body.date,"id_caso":req.body.id_caso};
-  Device.update({_id:req.params.deviceId}, {$push: {registry : [[atemp]]}}, function(err){
+
+  Device.update({_id:req.params.deviceId}, {$push: {registry :{"date":req.body.date,"id_caso":req.body.id_caso}}}, function(err){
 
      if(err){
              console.log(err);
@@ -269,9 +279,12 @@ exports.createRegistry = function(req, res){
   }
 )};
 
+
+
 // GET /devices/:deviceId/registries/:registryId/edit
 exports.editRegistry = function(req, res){
-
+  req.session.redir= "/devices/" + req.device._id + "/registries/" + req.device.registry._id + "/editRegistries";
+  res.render('devices/editRegistry', {device: req.device, redir: req.session.redir});
 }
 
 // PUT /devices/:deviceId/registries/:registryId

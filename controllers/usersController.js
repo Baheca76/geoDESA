@@ -11,6 +11,7 @@ exports.autenticar = function(login, password, callback) {
     }
     if (user[0].password == password){
       callback(null, user[0]);
+
     } else {
       callback(new Error("Contraseña incorrecta"), null);
     }

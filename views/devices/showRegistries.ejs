@@ -45,20 +45,21 @@
            <% for (var i=0; i< device.registry.length; i++) { %>
                <tr>
                  <td>
-                   <%= device.registry[i].date %>
+                   <% if (device.registry[i].date != null) { %> <%= (device.registry[i].date.getDate() + "/" + (device.registry[i].date.getMonth()+1 ) + "/" + device.registry[i].date.getFullYear()) %><% } else { %> <%= device.registry[i].date %> <% } %>
+
                  </td>
                  <td>
                   <%= device.registry[i].id_caso %>
                  </td>
                  <td>
-                    <form action="/devices/<%= device.registry[i]._id %>/editRegistry" method="get">
+                    <form action="/devices/<%= device._id %>/registries/<%= device.registry[i]._id %>/edit" method="get">
                           <button type="submit" class="btn btn-warning">
                             <span class="glyphicon glyphicon-pencil"></span>
                           </button>
                     </form>
                  </td>
                  <td>
-                   <form method= "post" action="/devices/<%= device.registry[i]._id %>?_method=delete">
+                   <form method= "post" action="/devices/<%= device._id %>/registries/<%= device.registry[i]._id %>?_method=delete">
                             <button type="submit" class="btn btn-danger">
                               <span class="glyphicon glyphicon-trash"></span>
                             </button>

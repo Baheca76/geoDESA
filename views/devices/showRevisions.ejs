@@ -48,7 +48,7 @@
            <% for (var i=0; i< device.revisions.length; i++) { %>
                <tr>
                  <td>
-                   <%= device.revisions[i].date %>
+                   <% if (device.revisions[i].date != null) { %> <%= (device.revisions[i].date.getDate() + "/" + (device.revisions[i].date.getMonth()+1 ) + "/" + device.revisions[i].date.getFullYear()) %><% } else { %> <%= device.revisions[i].date %> <% } %>
                  </td>
                  <td>
                   <%= device.revisions[i].id_estado %>

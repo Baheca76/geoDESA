@@ -34,12 +34,12 @@
               <h3 class="panel-title"><p>Device: </p></h3>
             </div>
             <div class="panel-body">
-              <form class="form-inline" method="post" action="/devices/<%= devices._id %>/editRevisions/<%= devices.revisions[i]._id %>?_method=put">
+              <form class="form-inline" method="post" action="/devices/<%= device._id %>/editRevisions/<%= device.revisions._id %>?_method=put">
 
                 <label for="revisionsDevice">Resviones</label><br>
-                <input type="date" class="form-control" id="revisionsdateDevice" value="<%= devices.revisions[i].date %>"name="date" placeholder="fecha de revisión"><br>
-                <input type="text" class="form-control" id="revisionsid_estadoDevice" value="<%= devices.revisions[i].id_estado %>"name="id_estado" placeholder="estado"><br>
-                <input type="text" class="form-control" id="revisionsid_revisorDevice" value="<%= devices.revisions[i].id_revisor %>"name="id_revisor" placeholder="Revisor"><br><br>
+                <input type="date" class="form-control" id="revisionsdateDevice" value="<%= device.revisions.date %>"name="date" placeholder="fecha de revisión"><br>
+                <input type="text" class="form-control" id="revisionsid_estadoDevice" value="<%= device.revisions.id_estado %>"name="id_estado" placeholder="estado"><br>
+                <input type="text" class="form-control" id="revisionsid_revisorDevice" value="<%= device.revisions.id_revisor %>"name="id_revisor" placeholder="Revisor"><br><br>
 
                 <br><br>
                 <button type="submit" class="btn btn-info">Modificar</button>
@@ -49,7 +49,7 @@
   </div>
   <hr>
   <div class="backButton">
-    <a href="<%= redir %>" class="btn btn-info btn-lg active btn-block">Volver</a>
+    <a href="/devices/<%= device._id %>/revisions/ " class="btn btn-info btn-lg active btn-block">Volver</a>
   </div>
   <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
   <script src="../../js/leaflet-sidebar.js"></script>
