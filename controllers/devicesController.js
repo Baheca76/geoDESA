@@ -88,7 +88,7 @@ exports.create = function(req, res) {
            res.send('Error al intentar guardar el device.');
         }else{
           console.log("device creado");
-          res.redirect('/devices');
+          res.redirect('/');
         }
      });
 };

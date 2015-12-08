@@ -46,9 +46,9 @@ var UserSchema = new Schema({
 	permissions:{
 		type: [{
 			type:String,
-			enum: ['administrador','colaborador','revisor']
+			enum: ['administrador','colaborador','revisor','pendiente']
 			}],
-		default: ['colaborador'],
+		default: ['pendiente'],
 	}
 });
 

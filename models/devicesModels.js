@@ -126,7 +126,7 @@ var DeviceSchema = new Schema({
 	},
 	id_estado:{
 		type: Number,
-		default: '1',
+		default: '3',
 	},
 	revisions: [
 
