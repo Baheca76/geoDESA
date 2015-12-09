@@ -238,37 +238,42 @@
                       </div>
                     <%} else { %>
                       <div class="panel-body">
-                        <p class="lorem">Introduzca la información del dispositivo que ha enconctrado</p>
-                        <form class="form-inline" action="/devices/createTemp" method="post">
-                          <br>
-                          <div class="form-group">
-                            <label for="locationTemp">Localización</label><br>
-                            <input type="text" class="form-control" id="locationTemp" name="locationTemp" placeholder="localizacion (lon,lat) __._,__._"><br>
-                          </div>
-                          <br>
-                          <div class="form-group">
-                            <label for="addressTemp">Dirección</label><br>
-                            <input type="text" class="form-control" id="addressTemp" name="addressTemp" placeholder="Dirección"><br>
-                          </div>
-                          <br>
-                          <div class="form-group">
-                            <label for="cityTemp">Localidad</label><br>
-                            <input type="text" class="form-control" id="cityTemp" name="cityTemp" placeholder="localidad"><br>
-                          </div>
-                          <br>
-                          <div class="form-group">
-                            <label for="postal_codeTemp">Código postal</label><br>
-                            <input type="text" class="form-control" id="postal_codeTemp" name="postal_codeTemp" placeholder="Código postal"><br>
-                          </div>
-                          <br>
-                          <div class="form-group">
-                            <label  for="provinceTemp">Provincia</label><br>
-                            <input type="text" class="form-control" id="provinceTemp" name="provinceTemp" placeholder="Provincia"><br>
-                          </div>
-                          <br><br>
-                          <button type="submit" class="btn btn-info">Enviar</button>
-                        </form>
-                      </div>
+                          <p class="lorem">Introduzca la información del dispositivo que ha enconctrado</p>
+                          <form class="form-inline" action="/devices/createTemp" method="post">
+                            <br>
+                            <div class="form-group">
+                              <label for="name">Nombre (obligatorio)</label><br>
+                              <input type="text" class="form-control" id="name" name="name" placeholder="No Registrado/Defectuoso"><br>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                              <label for="location">Localización</label><br>
+                              <input type="text" class="form-control" id="location" name="location" placeholder="localizacion (lon,lat) __._,__._"><br>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                              <label for="addressTemp">Dirección</label><br>
+                              <input type="text" class="form-control" id="address" name="address" placeholder="Dirección"><br>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                              <label for="cityTemp">Localidad</label><br>
+                              <input type="text" class="form-control" id="city" name="city" placeholder="localidad"><br>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                              <label for="postal_code">Código postal</label><br>
+                              <input type="text" class="form-control" id="postal_code" name="postal_code" placeholder="Código postal"><br>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                              <label  for="province">Provincia</label><br>
+                              <input type="text" class="form-control" id="province" name="province" placeholder="Provincia"><br>
+                            </div>
+                            <br><br>
+                            <button type="submit" class="btn btn-info">Enviar</button>
+                          </form>
+                        </div>
                     <%}%>
                 </div>
             </div>

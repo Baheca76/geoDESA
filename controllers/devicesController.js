@@ -88,7 +88,7 @@ exports.create = function(req, res) {
            res.send('Error al intentar guardar el device.');
         }else{
           console.log("device creado");
-          res.redirect('/');
+          res.redirect('/devices');
         }
      });
 };
@@ -159,35 +159,37 @@ exports.delete = function(req, res) {
       res.redirect('/devices');
   })
 };
+
+//Creacion del devices que necesita comprobación o ser revisado.
 exports.createTemp = function(req, res) {
 
-    //cogemos las coordenadas
-    console.log(req.body);
-    console.log("location----> "+req.body.locationTemp);
+  //cogemos las coordenadas
+  console.log(req.body);
+  console.log("location----> "+req.body.location);
+  console.log("name---> "+req.body.name);
+  var comaPosition = req.body.location.indexOf(",");
+  var latitude = req.body.location.substring(0, comaPosition);
+  var longitude = req.body.location.substring(comaPosition+1, req.body.location.length);
 
-    var comaPosition = req.body.locationTemp.indexOf(",");
-    var latitude = req.body.locationTemp.substring(0, comaPosition);
-    var longitude = req.body.locationTemp.substring(comaPosition+1, req.body.locationTemp.length);
+  var device = new Device({
 
-    var temp = new Temp({
+          name: req.body.name,
+          location: {type:'Point', coordinates:[latitude, longitude]},
+          address: req.body.address,
+          city: req.body.city,
+          postal_code: req.body.postal_code,
+          province: req.body.province
 
-            locationTemp: {type:'Point', coordinates:[latitude, longitude]},
-            addressTemp: req.body.addressTemp,
-            cityTemp: req.body.cityTemp,
-            postal_codeTemp: req.body.postal_codeTemp,
-            provinceTemp: req.body.provinceTemp,
+   });
+   device.save(function(error){
 
-     });
-     temp.save(function(error){
-
-        if(error){
-           res.send('Error al intentar guardar el device.');
-        }else{
-          console.log("device creado");
-          console.log(temp);
-          res.redirect('/');
-        }
-     });
+      if(error){
+         res.send('Error al intentar guardar el device.');
+      }else{
+        console.log("device creado");
+        res.redirect('/');
+      }
+   });
 };
 
 //revisiones
