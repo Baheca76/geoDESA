@@ -44,6 +44,27 @@ exports.create = function(req, res) {
     });
 };
 
+exports.createSignup = function(req, res) {
+    console.log("Pasa por CreateSignup");
+    console.log(req.body);
+
+     var user = new User({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        dni:req.body.dni,
+        userName: req.body.userName,
+        password: req.body.password,
+        mail: req.body.mail,
+        phone: req.body.phone
+    });
+    user.save(function (error){
+      if (error){
+        res.send(error);
+      }
+      console.log("usuario creado");
+      res.redirect('/');
+    });
+};
 exports.insertar = function(req, res){
 
   var user = new User({

@@ -54,7 +54,7 @@
                   <option>voluntario</option>
                 </select><br>
                 <label for="date_instalationDevice">Fecha de instalación</label><br>
-                <input class="form-control" id="date_instalationDevice" type="date" value="<% if (device.date_instalation != null) { %> <%=device.date_instalation.getDate() + "/" + (device.date_instalation.getMonth()+1 ) + "/" + device.date_instalation.getFullYear()%><% } else { %> <%= device.date_instalation %> <% } %>" name="date_instalation"><br><br>
+                <input class="form-control" id="date_instalationDevice" type="date" value="<% if (device.date_instalation != null) { %><%=device.date_instalation.getFullYear().toString().trim()%>-<%=(device.date_instalation.getMonth()+1).toString()%>-<%=device.date_instalation.getDate().toString().trim()%><% } else { %><%= device.date_instalation %> <% } %>" name="date_instalation"><br><br>
                 <label for="deviceType">Estado (0 - fallo, 1 - ok, 2 - revision)</label><br>
                 <select class="form-control" id="id_estadoDevice" value="<%= device.id_estado %>" name="id_estado"><br><br>
                   <option>0</option>
