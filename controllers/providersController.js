@@ -107,3 +107,7 @@ exports.delete = function(req, res) {
       res.redirect('/providers');
   })
 };
+
+exports.providersApi = function(req,res){
+  res.render('providers/api', {errors: [], title : "Providers API Docs"});
+};

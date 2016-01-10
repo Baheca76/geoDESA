@@ -362,22 +362,31 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr class="active">
-                        <td>Sesiones</td>
-                        <td><a href="#" class="btn btn-info btn-sm active" role="button">Session API Docs</a></td>
-                      </tr>
-                      <tr>
-                        <td>Users</td>
-                        <td><a href="#" class="btn btn-info btn-sm active" role="button">Users API Docs</a></td>
-                      </tr>
-                      <tr>
-                        <td>Devices</td>
-                        <td><a href="#" class="btn btn-info btn-sm active" role="button">Users Devices Docs</a></td>
-                      </tr>
-                      <tr>
-                        <td>Providers</td>
-                        <td><a href="#" class="btn btn-info btn-sm active" role="button">Providers API Docs</a></td>
-                      </tr>
+
+                      <form class="form-inline" action="/sessions/api" method="get">
+                          <tr>
+                            <td>Sesiones</td>
+                            <td><button type="submit" class="btn btn-info">Session API Docs</button></td>
+                          </tr>
+                      </from>
+                      <form class="form-inline" action="/users/api" method="get">
+                            <tr>
+                                <td>Users</td>
+                                <td><button type="submit" class="btn btn-info">Users API Docs</button></td>
+                            </tr>
+                      </form>
+                      <form class="form-inline" action="/devices/api" method="get">
+                          <tr>
+                            <td>Devices</td>
+                            <td><button type="submit" class="btn btn-info">Devices API Docs</button></td>
+                          </tr>
+                      </from>
+                      <form class="form-inline" action="/providers/api" method="get">
+                          <tr>
+                            <td>Providers</td>
+                            <td><button type="submit" class="btn btn-info">Providers API Docs</button></td>
+                          </tr>
+                      </from>
                     </tbody>
                   </table>
                 </div>
@@ -464,7 +473,7 @@
                         <br>
                         <br>
                           <button type="submit" class="btn btn-info">Devices</button>
-                      </form>
+                    </form>
                   </div>
                 </div>
             </div>

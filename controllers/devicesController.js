@@ -298,3 +298,7 @@ exports.updateRegistry = function(req, res){
 exports.deleteRegistry = function(req, res){
 
 };
+
+exports.devicesApi = function(req,res){
+  res.render('devices/api', {errors: [], title : "Devices API Docs"});
+};

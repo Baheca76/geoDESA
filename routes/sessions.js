@@ -8,6 +8,6 @@ var sessionController = require ('../controllers/sessionsController');
 router.get('/login', sessionController.new); //formulario login
 router.post('/login', sessionController.create); //crear session
 router.get('/logout', sessionController.destroy); //destruir session
-
+router.get('/api', sessionController.sessionsApi);//API
 
 module.exports = router;

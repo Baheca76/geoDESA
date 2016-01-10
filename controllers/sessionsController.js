@@ -6,7 +6,6 @@ exports.loginRequired = function(req, res, next){
         res.redirect('/login');
     }
 };
-
 // Get /login   -- Formulario de login
 exports.new = function(req, res) {
     var errors = req.session.errors || {};
@@ -44,4 +43,8 @@ exports.create = function(req, res) {
 exports.destroy = function(req, res) {
     delete req.session.user;
     res.redirect("/"); // redirect a path anterior a login
+};
+
+exports.sessionsApi = function(req,res){
+  res.render('sessions/api', {errors: [], title : "Sessions API Docs"});
 };

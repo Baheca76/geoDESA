@@ -14,7 +14,8 @@ router.get('/solicitudalta', devicesController.solicitudalta);
 // Route to localize device for a location and a distance around
 router.get('/search/:lat/:lon/:distance', devicesController.search);
 
-router.get('/:deviceId', sessionController.loginRequired, devicesController.show);
+//router.get('/:deviceId', sessionController.loginRequired, devicesController.show);
+router.get('/:deviceId', devicesController.show);
 router.delete('/:deviceId', devicesController.delete);
 router.get('/:deviceId/edit', devicesController.edit);
 router.put('/:deviceId', devicesController.update);
@@ -36,5 +37,8 @@ router.get('/:deviceId/registries/:registryId/edit', devicesController.editRegis
 router.put('/:deviceId/registries/:registryId', devicesController.updateRegistry);
 router.delete('/:deviceId/registries/:registryId', devicesController.deleteRegistry);
 router.post('/:deviceId/registries/:registryId', devicesController.createRegistry);
+
+router.get('/api', devicesController.devicesApi);//API
+
 
 module.exports = router;
