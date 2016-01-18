@@ -30,27 +30,35 @@
 <body>
   <div class="panel panel-info panel-listado">
 
+    <div class="panel-heading">
+          <h3 class="panel-title"><p>Sessions API Documentation</p></h3>
+    </div>
          <table class="table">
-                 <td>
-                   /users/
-                  <button type="submit" class="btn btn-success">GET</button>
-                 </td>
-                 <td>
-                   /users/create
-                   <button type="submit" class="btn btn-warning">POST</button>
-                 </td>
-                 <td>
-                   /users/:userId
-                    <button type="submit" class="btn btn-danger">DELETE</button>
-                 </td>
-          
-        </table>
+           <tr>
+            <td>
+               /sessions/login
+               <button type="submit" class="btn btn-success pull-right btn-sm">GET</button>
+               <button type="submit" class="btn btn-danger pull-right btn-sm">POST</button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+               /sessions/logout
+               <button type="submit" class="btn btn-success pull-right btn-sm">GET</button>
+            </td>
+          </tr>
+          <tr>
+           <td>
+             /sessions/api
+              <button type="submit" class="btn btn-success pull-right btn-sm">GET</button>
+           </td>
+          </tr>
+         </table>
   </div>
-
-      <hr>
-      <div class="backButton">
-        <a href="/" class="btn btn-info btn-lg active btn-block">Volver</a>
-      </div>
+  <hr>
+  <div class="backButton">
+    <a href="/" class="btn btn-info btn-lg active btn-block">Volver</a>
+  </div>
 
 
     <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>

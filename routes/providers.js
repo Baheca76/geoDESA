@@ -4,6 +4,8 @@ var router = express.Router();
 var providersController = require('../controllers/providersController');
 var sessionController = require('../controllers/sessionsController');
 
+router.get('/api', providersController.providersApi); //API Documentation
+
 //autoload los id
 //router.param('providersId', providersController.load);
 //definicion de rutas de providers
@@ -17,7 +19,6 @@ router.delete('/:providerId', providersController.delete);
 router.get('/:providerId', providersController.show);
 router.get('/:providerId/edit', providersController.edit);
 router.put('/:providerId', providersController.update);
-router.get('/api', providersController.providersApi);//API
 
 
 module.exports = router;

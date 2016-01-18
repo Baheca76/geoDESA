@@ -4,6 +4,8 @@ var router = express.Router();
 var devicesController = require('../controllers/devicesController');
 var sessionController = require('../controllers/sessionsController');
 
+router.get('/api', devicesController.devicesApi); // API Documentation
+
 router.param('deviceId', devicesController.load);
 
 router.get('/', sessionController.loginRequired, devicesController.list);
@@ -38,7 +40,6 @@ router.put('/:deviceId/registries/:registryId', devicesController.updateRegistry
 router.delete('/:deviceId/registries/:registryId', devicesController.deleteRegistry);
 router.post('/:deviceId/registries/:registryId', devicesController.createRegistry);
 
-router.get('/api', devicesController.devicesApi);//API
 
 
 module.exports = router;

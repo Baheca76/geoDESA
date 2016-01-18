@@ -4,8 +4,11 @@ var router= express.Router();
 var usersController = require ('../controllers/usersController');
 var sessionController = require('../controllers/sessionsController');
 
+
+
 router.param('userId', usersController.load);
 
+router.get('/api', usersController.usersApi); // API Documentation
 
 /* GET users listing. */
 //router.get('/', sessionController.loginRequired, usersController.list);//listar todos los usuarios
@@ -22,8 +25,6 @@ router.get('/:userId', usersController.show);
 
 router.get('/:userId/edit', usersController.edit);
 router.put('/:userId', usersController.update);
-
-router.get('/api', usersController.usersApi);//API
 
 
 
