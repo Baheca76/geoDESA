@@ -445,6 +445,7 @@
 
             <div class="sidebar-pane" id="settings">
                 <h1 class="sidebar-header">Settings<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
+                <br>
                 <div class="panel panel-info">
                   <div class="panel-body">
                     <p class="lorem">User operations</p>
@@ -493,8 +494,8 @@
     <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="../js/leaflet-sidebar.js"></script>
-    <!-- Icono del mundo a la derecha arriba.-->
-    <a href="/" role="tab"><i style="position: fixed; top: 40px; right: 40px; border: 40px; width: 40px; heigth:40px" class="fa fa-globe fa-3x"></i>></a>
+    <!-- Icono de ambulancia cuando se esta en modo callcenter, a la derecha arriba.-->
+    <a href="/callcenter" role="tab"><i style="position: fixed; top: 40px; right: 40px; border: 40px; width: 40px; heigth:40px" class="fa fa-ambulance fa-3x"></i>></a>
 
 
     <script>
@@ -611,7 +612,7 @@
         });
 
         socket.on('newPosition', function(msg) {
-          
+
         });
     </script>
 

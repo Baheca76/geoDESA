@@ -174,6 +174,7 @@ exports.delete = function(req, res) {
     })
 
 };
+
 exports.usersApi = function(req,res){
   res.render('users/api', {errors: [], title : "Users API Docs"});
 };

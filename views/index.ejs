@@ -78,7 +78,8 @@
                         <%}%>
                         <% if (session.user.permissions == "administrador") { %>
                           <ul role="tablist">
-                              <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
+                            <li><a href="#callcenter" role="tab"><i class="fa fa-ambulance"></i></a></li>
+                            <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
                           </ul>
                         <%}%>
         </div>
@@ -481,6 +482,27 @@
                   </div>
                 </div>
             </div>
+
+            <div class="sidebar-pane" id="callcenter">
+                <h1 class="sidebar-header"><i class="fa fa-ambulance"></i>Call Center<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
+                <br>
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-ambulance"></i> Call center operations</h3>
+                  </div>
+                  <div class="panel-body">
+
+                    <form class="form-inline" action="/callcenter" method="get">
+                        <br>
+                        <br>
+                          <button type="submit" class="btn btn-info">Go to Callcenter</button>
+                      </form>
+                  </div>
+                </div>
+
+
+            </div>
+
 
             <div class="sidebar-pane" id="settings">
                 <h1 class="sidebar-header"><i class="fa fa-gear"></i> Settings<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
