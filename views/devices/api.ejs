@@ -30,28 +30,84 @@
 <body>
   <div class="panel panel-info panel-listado">
       <div class="panel-heading">
-            <h3 class="panel-title"><p>Sessions API Documentation</p></h3>
+            <h3 class="panel-title"><p>Devices API Documentation</p></h3>
       </div>
            <table class="table">
              <tr>
               <td>
-                 /sessions/login
-                 <button type="submit" class="btn btn-success pull-right btn-sm">GET</button>
-                 <button type="submit" class="btn btn-danger pull-right btn-sm">POST</button>
+                 /devices/create
+                 <button type="submit" class="btn btn-primary pull-right btn-sm">POST</button>
               </td>
             </tr>
             <tr>
               <td>
-                 /sessions/logout
+                 /devices/solicitudalta
                  <button type="submit" class="btn btn-success pull-right btn-sm">GET</button>
               </td>
             </tr>
             <tr>
              <td>
-               /sessions/api
+               /devices/search/:lat/:lon/:distance
                 <button type="submit" class="btn btn-success pull-right btn-sm">GET</button>
              </td>
             </tr>
+            <tr>
+             <td>
+                /devices/:deviceId
+                <button type="submit" class="btn btn-success pull-right btn-sm">GET</button>
+                <button type="submit" class="btn btn-danger pull-right btn-sm">DELETE</button>
+                <button type="submit" class="btn btn-warning pull-right btn-sm">PUT</button>
+             </td>
+           </tr>
+           <tr>
+             <td>
+                /devices/:deviceId/edit
+                <button type="submit" class="btn btn-success pull-right btn-sm">GET</button>
+             </td>
+           </tr>
+           <tr>
+            <td>
+              /devices/:deviceId/revisions
+               <button type="submit" class="btn btn-success pull-right btn-sm">GET</button>
+            </td>
+           </tr>
+           <tr>
+            <td>
+              /devices/:deviceId/revisions/:revisionId/edit
+               <button type="submit" class="btn btn-success pull-right btn-sm">GET</button>
+            </td>
+           </tr>
+           <tr>
+            <td>
+               /devices/:deviceId/:revisionId/
+               <button type="submit" class="btn btn-success pull-right btn-sm">GET</button>
+               <button type="submit" class="btn btn-danger pull-right btn-sm">DELETE</button>
+               <button type="submit" class="btn btn-warning pull-right btn-sm">PUT</button>
+               <button type="submit" class="btn btn-primary pull-right btn-sm">POST</button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+               /devices/:deviceId/registries
+               <button type="submit" class="btn btn-success pull-right btn-sm">GET</button>
+            </td>
+          </tr>
+          <tr>
+           <td>
+             /devices/:deviceId/registries/:registryId/edit
+              <button type="submit" class="btn btn-success pull-right btn-sm">GET</button>
+           </td>
+          </tr>
+          <tr>
+           <td>
+              /devices/:deviceId/registries/:registryId
+              <button type="submit" class="btn btn-success pull-right btn-sm">GET</button>
+              <button type="submit" class="btn btn-danger pull-right btn-sm">DELETE</button>
+              <button type="submit" class="btn btn-warning pull-right btn-sm">PUT</button>
+              <button type="submit" class="btn btn-primary pull-right btn-sm">POST</button>
+           </td>
+         </tr>
+
            </table>
     </div>
     <hr>

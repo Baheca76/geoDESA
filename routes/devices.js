@@ -8,7 +8,8 @@ router.get('/api', devicesController.devicesApi); // API Documentation
 
 router.param('deviceId', devicesController.load);
 
-router.get('/', sessionController.loginRequired, devicesController.list);
+router.get('/', devicesController.list);
+//router.get('/', sessionController.loginRequired, devicesController.list);
 router.get('/new', devicesController.new);
 router.post('/create', devicesController.create);
 router.get('/solicitudalta', devicesController.solicitudalta);
