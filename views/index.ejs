@@ -45,8 +45,8 @@
 
         var objDiv = document.getElementById("chatMessages");
         objDiv.scrollTop = objDiv.scrollHeight;
-
       });
+
 
     </script>
 
@@ -661,6 +661,16 @@
 
           $('#location').val(geoPositionLat + "," + geoPositionLon);
           $('#locationTemp').val(geoPositionLat + "," + geoPositionLon);
+
+          <% if (session.user.permissions == "colaborador") { %>
+            setInterval(function () {
+              var socket = io();
+              var colaborador = '<%= String(session.user.username) %>';
+              var pos = "Posicion " + colaborador + ": " + geoPositionLat+ ","+ geoPositionLon;
+              console.log(pos);
+              socket.emit('collaborator position', {lat: geoPositionLat, lon: geoPositionLon, colaborador:colaborador});
+            }, 5000);
+          <% } %>
         }
     </script>
 

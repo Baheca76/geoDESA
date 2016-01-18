@@ -28,6 +28,27 @@
         }
     </style>
     <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+      var socket = io();
+
+      function sendMessage() {
+        var msg = $('#textMessage').val();
+        console.log(arguments[0] + " " + msg);
+        socket.emit('new message', {name: arguments[0], message: msg});
+
+        $('#textMessage').val('');
+      }
+
+      socket.on('chat message', function(msg) {
+        var messageHTML = '<div class="media msg"><a class="pull-left" href="#"><img class="media-object  img-circle" data-src="holder.js/64x64" alt="64x64" style="width: 24px; height: 24px;" src="/images/boy.png"></a><div class="media-body"><small class="pull-right time"><i class="fa fa-clock-o"></i> 12:10am</small><h5 class="media-heading">'+msg.name+'</h5><small class="col-md-10 text-muted">' + msg.message +'</small></div></div>';
+        $('#chatMessages').append(messageHTML);
+
+        var objDiv = document.getElementById("chatMessages");
+        objDiv.scrollTop = objDiv.scrollHeight;
+      });
+
+
+    </script>
 
 </head>
 
@@ -592,28 +613,19 @@
           $('#location').val(geoPositionLat + "," + geoPositionLon);
           $('#locationTemp').val(geoPositionLat + "," + geoPositionLon);
         }
-        var socket = io();
 
-        function sendMessage() {
-          var msg = $('#textMessage').val();
-          console.log(arguments[0] + " " + msg);
-          socket.emit('new message', {name: arguments[0], message: msg});
+        var socketCall = io();
 
-          $('#textMessage').val('');
-        }
-
-        socket.on('chat message', function(msg) {
-          var messageHTML = '<div class="media msg"><a class="pull-left" href="#"><img class="media-object  img-circle" data-src="holder.js/64x64" alt="64x64" style="width: 24px; height: 24px;" src="/images/boy.png"></a><div class="media-body"><small class="pull-right time"><i class="fa fa-clock-o"></i> 12:10am</small><h5 class="media-heading">'+msg.name+'</h5><small class="col-md-10 text-muted">' + msg.message +'</small></div></div>';
-          $('#chatMessages').append(messageHTML);
-
-          var objDiv = document.getElementById("chatMessages");
-          objDiv.scrollTop = objDiv.scrollHeight;
-
+        socketCall.on('collaborator position', function(col) {
+          console.log("Pasa por el ON");
+          console.log(col.lat, col.lon, col.colaborador);
+          var marcaColaborador = L.marker([col.lat, col.lon],{icon: desaYellow}).
+                        bindPopup("<html><body>"
+                                  + "<h2>"+col.colaborador+"</h2>"
+                                  + "</body></html>").openPopup().addTo(map);
         });
 
-        socket.on('newPosition', function(msg) {
 
-        });
     </script>
 
 </body>
