@@ -100,7 +100,7 @@
             </div>
             <!--Formulario de autenticación de usuarios registrados, y también pueden darse de alta con sing up-->
             <div class="sidebar-pane" id="profile">
-                <h1 class="sidebar-header">Profile<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
+                <h1 class="sidebar-header"><i class="fa fa-user"></i> Profile<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
                 <br>
                 <div class="panel panel-info">
                   <%if (session.user == ""){ %>
@@ -144,7 +144,7 @@
 
             <!--formulario de Devices -->
             <div class="sidebar-pane" id="device">
-                <h1 class="sidebar-header">DEA / DESA<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
+                <h1 class="sidebar-header"><i class="fa fa-heartbeat"></i> DEA / DESA<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
                 <br>
                 <div class="panel panel-info">
 
@@ -279,7 +279,7 @@
             </div>
             <!--formulario de providers -->
             <div class="sidebar-pane" id="provider">
-                <h1 class="sidebar-header">PROVIDERS<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
+                <h1 class="sidebar-header"><i class="fa fa-shopping-cart"></i> PROVIDERS<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
                 <br>
                 <div class="panel panel-info">
                   <div class="panel-heading">
@@ -342,7 +342,7 @@
 
             <!--Formulario APIDocs-->
             <div class="sidebar-pane" id="api">
-                <h1 class="sidebar-header">API Docs<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
+                <h1 class="sidebar-header"><i class="fa fa-html5"></i> API Docs<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
                 <br>
                 <div class="panel panel-info">
                   <!-- Default panel contents -->
@@ -395,7 +395,7 @@
 
             <!-- Panel de contacto vía email -->
             <div class="sidebar-pane" id="contact">
-                <h1 class="sidebar-header">Contacto<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
+                <h1 class="sidebar-header"><i class="fa fa-envelope"></i> Contacto<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
                 <br>
                 <div class="panel panel-info">
                   <div class="panel-heading">
@@ -428,7 +428,7 @@
 
             <!--icono para chatear con el centro coordinador.-->
             <div class="sidebar-pane" id="chat">
-                <h1 class="sidebar-header">Chat<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
+                <h1 class="sidebar-header"><i class="fa fa-comment"></i> Chat<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
                 <br>
                 <div class="panel panel-info">
                   <div class="panel-heading">
@@ -468,8 +468,11 @@
             <div class="sidebar-pane" id="revisions">
                 <h1 class="sidebar-header">Revisiones<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
                 <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Devices administration</h3>
+                  </div>
                   <div class="panel-body">
-                    <p class="lorem">Device operations</p>
+
                     <form class="form-inline" action="/devices/" method="get">
                         <br>
                         <br>
@@ -480,10 +483,14 @@
             </div>
 
             <div class="sidebar-pane" id="settings">
-                <h1 class="sidebar-header">Settings<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
+                <h1 class="sidebar-header"><i class="fa fa-gear"></i> Settings<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
+                <br>
                 <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-user"></i> Users administration</h3>
+                  </div>
                   <div class="panel-body">
-                    <p class="lorem">User operations</p>
+
                     <form class="form-inline" action="/users/" method="get">
                         <br>
                         <br>
@@ -492,8 +499,10 @@
                   </div>
                 </div>
                 <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-heartbeat"></i> Devices administration</h3>
+                  </div>
                   <div class="panel-body">
-                    <p class="lorem">Device operations</p>
                     <form class="form-inline" action="/devices/" method="get">
                         <br>
                         <br>
@@ -502,8 +511,11 @@
                   </div>
                 </div>
                 <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-shopping-cart"></i> Provider adminitration</h3>
+                  </div>
                   <div class="panel-body">
-                    <p class="lorem">Provider operations</p>
+
                     <form class="form-inline" action="/providers/" method="get">
                         <br>
                         <br>
