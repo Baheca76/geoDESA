@@ -108,6 +108,11 @@ app.io.on('connection', function(socket){
     console.log(data.name + ' new message: ' + data.message);
     app.io.emit('chat message', data);
   });
+  socket.on('collaborator position', function(col){
+    console.log(col.lat,col.lon,col.colaborador);
+    app.io.emit('collaborator position', col);
+  });
+
 });
 
 module.exports = app;
