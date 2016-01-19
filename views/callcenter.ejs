@@ -630,7 +630,7 @@
             var marker = L.marker([cols[col][0], cols[col][1]],{icon: collaboratorIcon}).
                   bindPopup("<html><body>"
                             + "<a href=/users/"
-                            + ">Ver usuario</a>"
+                            + ">Ver usuario " +col+" </a>"
                             + "</body></html>").openPopup().addTo(map);
             markers.push(marker);
           }
