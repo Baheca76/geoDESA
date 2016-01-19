@@ -672,8 +672,8 @@
               var socket = io();
               var colaborador = '<%= String(session.user.username) %>';
               var pos = "Posicion " + colaborador + ": " + geoPositionLat+ ","+ geoPositionLon;
+              socket.emit('collaborator position', {lat: geoPositionLat + Math.random(0.1,0.3), lon: geoPositionLon + Math.random(0.1,0.2), colaborador:colaborador});
               console.log(pos);
-              socket.emit('collaborator position', {lat: geoPositionLat, lon: geoPositionLon, colaborador:colaborador});
             }, 5000);
           <% } %>
         }
