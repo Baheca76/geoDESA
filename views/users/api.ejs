@@ -31,29 +31,42 @@
   <div class="panel panel-info panel-listado">
 
     <div class="panel-heading">
-          <h3 class="panel-title"><p>Sessions API Documentation</p></h3>
+          <h3 class="panel-title"><p>Users API Documentation</p></h3>
     </div>
          <table class="table">
            <tr>
             <td>
-               /sessions/login
-               <button type="submit" class="btn btn-success pull-right btn-sm">GET</button>
-               <button type="submit" class="btn btn-danger pull-right btn-sm">POST</button>
+               /users/create
+               <button type="submit" class="btn btn-primary pull-right btn-sm">POST</button>
             </td>
           </tr>
           <tr>
             <td>
-               /sessions/logout
-               <button type="submit" class="btn btn-success pull-right btn-sm">GET</button>
+               /users/createSignup
+               <button type="submit" class="btn btn-primary pull-right btn-sm">POST</button>
             </td>
           </tr>
           <tr>
            <td>
-             /sessions/api
-              <button type="submit" class="btn btn-success pull-right btn-sm">GET</button>
+             /users/:userId
+             <button type="submit" class="btn btn-success pull-right btn-sm">GET</button>
+             <button type="submit" class="btn btn-danger pull-right btn-sm">DELETE</button>
+             <button type="submit" class="btn btn-warning pull-right btn-sm">PUT</button>
            </td>
+         </tr>
+         <tr>
+            <td>
+              /users/:userId/edit
+              <button type="submit" class="btn btn-success pull-right btn-sm">GET</button>
+            </td>
           </tr>
-         </table>
+          <tr>
+             <td>
+               /users/solicitudalta
+               <button type="submit" class="btn btn-success pull-right btn-sm">GET</button>
+             </td>
+         </tr>
+      </table>
   </div>
   <hr>
   <div class="backButton">
