@@ -674,7 +674,7 @@
               var pos = "Posicion " + colaborador + ": " + geoPositionLat+ ","+ geoPositionLon;
               socket.emit('collaborator position', {lat: geoPositionLat + Math.random(0.1,0.3), lon: geoPositionLon + Math.random(0.1,0.2), colaborador:colaborador});
               console.log(pos);
-            }, 5000);
+            }, 10000);
           <% } %>
         }
     </script>

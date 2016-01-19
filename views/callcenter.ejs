@@ -569,9 +569,6 @@
           geoPositionLat = position.coords.latitude;
           geoPositionLon = position.coords.longitude;
 
-
-
-
           map.setView([geoPositionLat, geoPositionLon], 14, {icon: personIcon});
           L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
               maxZoom: 18,
@@ -621,13 +618,23 @@
         }
 
         var socket = io();
+        var markers = [];
+        socket.on('collaborator position', function(cols) {
 
-        socket.on('collaborator position', function(col) {
-          console.log(col.lat, col.lon, col.colaborador);
-          var marcaColaborador = L.marker([col.lat, col.lon],{icon: collaboratorIcon}).
-                        bindPopup("<html><body>"
-                                  + "<h2>"+col.colaborador+"</h2>"
-                                  + "</body></html>").openPopup().addTo(map);
+          for (var i=0; i < markers.length; i++){
+            map.removeLayer(markers[i]);
+          }
+          for (col in cols){
+            console.log(col, cols[col][0], cols[col][1]);
+
+            var marker = L.marker([cols[col][0], cols[col][1]],{icon: collaboratorIcon}).
+                  bindPopup("<html><body>"
+                            + "<a href=/users/"
+                            + ">Ver usuario</a>"
+                            + "</body></html>").openPopup().addTo(map);
+            markers.push(marker);
+          }
+
         });
 
 
