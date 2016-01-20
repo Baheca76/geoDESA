@@ -100,7 +100,7 @@
             </div>
             <!--Formulario de autenticación de usuarios registrados, y también pueden darse de alta con sing up-->
             <div class="sidebar-pane" id="profile">
-                <h1 class="sidebar-header">Profile<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
+                <h1 class="sidebar-header"><i class="fa fa-user"> </i> Profile<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
                 <br>
                 <div class="panel panel-info">
                   <%if (session.user == ""){ %>
@@ -144,7 +144,7 @@
 
             <!--formulario de Devices -->
             <div class="sidebar-pane" id="device">
-                <h1 class="sidebar-header">DEA / DESA<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
+                <h1 class="sidebar-header"><i class="fa fa-heartbeat"></i> DEA / DESA<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
                 <br>
                 <div class="panel panel-info">
 
@@ -274,7 +274,7 @@
             </div>
             <!--formulario de providers -->
             <div class="sidebar-pane" id="provider">
-                <h1 class="sidebar-header">PROVIDERS<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
+                <h1 class="sidebar-header"><i class="fa fa-shopping-cart"></i> PROVIDERS<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
                 <br>
                 <div class="panel panel-info">
                   <div class="panel-heading">
@@ -337,7 +337,7 @@
             <!--Formulario APIDocs-->
 
             <div class="sidebar-pane" id="api">
-                <h1 class="sidebar-header">API Docs<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
+                <h1 class="sidebar-header"><i class="fa fa-html5"></i> API Docs<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
                 <br>
                 <div class="panel panel-info">
                   <!-- Default panel contents -->
@@ -348,6 +348,7 @@
                     <p>Accede a la docuentación de la API, selecciona la entidad correspondiente</p>
                   </div>
 
+
                   <!-- Table -->
                   <table class="table">
                     <thead>
@@ -357,22 +358,31 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr class="active">
-                        <td>Sesiones</td>
-                        <td><a href="#" class="btn btn-info btn-sm active" role="button">Session API Docs</a></td>
-                      </tr>
-                      <tr>
-                        <td>Users</td>
-                        <td><a href="#" class="btn btn-info btn-sm active" role="button">Users API Docs</a></td>
-                      </tr>
-                      <tr>
-                        <td>Devices</td>
-                        <td><a href="#" class="btn btn-info btn-sm active" role="button">Users Devices Docs</a></td>
-                      </tr>
-                      <tr>
-                        <td>Providers</td>
-                        <td><a href="#" class="btn btn-info btn-sm active" role="button">Providers API Docs</a></td>
-                      </tr>
+
+                      <form class="form-inline" action="/sessions/api" method="get">
+                          <tr>
+                            <td>Sesiones</td>
+                            <td><button type="submit" class="btn btn-info pull-right">Session API Docs</button></td>
+                          </tr>
+                      </form>
+                      <form class="form-inline" action="/users/api" method="get">
+                            <tr>
+                                <td>Users</td>
+                                <td><button type="submit" class="btn btn-info pull-right">Users API Docs</button></td>
+                            </tr>
+                      </form>
+                      <form class="form-inline" action="/devices/api" method="get">
+                          <tr>
+                            <td>Devices</td>
+                            <td><button type="submit" class="btn btn-info pull-right">Devices API Docs</button></td>
+                          </tr>
+                      </form>
+                      <form class="form-inline" action="/providers/api" method="get">
+                          <tr>
+                            <td>Providers</td>
+                            <td><button type="submit" class="btn btn-info pull-right">Providers API Docs</button></td>
+                          </tr>
+                      </form>
                     </tbody>
                   </table>
                 </div>
@@ -380,7 +390,7 @@
 
 
             <div class="sidebar-pane" id="contact">
-                <h1 class="sidebar-header">Contacto<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
+                <h1 class="sidebar-header"><i class="fa fa-envelope"></i> Contacto<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
                 <br>
                 <div class="panel panel-info">
                   <div class="panel-heading">
@@ -413,7 +423,7 @@
 
             <!--icono para chatear con el centro coordinador.-->
             <div class="sidebar-pane" id="chat">
-                <h1 class="sidebar-header">Chat<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
+                <h1 class="sidebar-header"><i class="fa fa-comment"></i>Chat<div class="sidebar-close"><i class="fa fa-caret-left"></i></div></h1>
                 <br>
                 <div class="panel panel-info">
                   <div class="panel-heading">
@@ -553,6 +563,12 @@
         iconAnchor:   [22, 50], // point of the icon which will correspond to marker's location
         popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
+    var centroIcon = L.icon({
+        iconUrl: './images/centro.png',
+        iconSize:     [24, 24], // size of the icon
+        iconAnchor:   [22, 50], // point of the icon which will correspond to marker's location
+        popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    });
 
     //geolocalizacion de la posicion
 
@@ -579,9 +595,9 @@
 
 
           // marcamos nuestra posicion L.marker([lat, long], zoom, {icon:icono})
-          var marker = L.marker([geoPositionLat, geoPositionLon],{icon: personIcon}).
+          var marker = L.marker([geoPositionLat, geoPositionLon],{icon: centroIcon}).
                       bindPopup("<html><body>"
-                                + "<p>Este soy yo!!!</p>"
+                                + "<p>Centro Coordinador</p>"
                                 + "</body></html>").openPopup().addTo(map);
 
           // Mostrar listado de posiciones de deispositivos cercanoss
