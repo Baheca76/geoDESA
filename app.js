@@ -122,7 +122,7 @@ app.io.on('connection', function(socket){
       app.io.emit('collaborator position', collaborators);
       console.log(collaborators);
     }
-    collaborators[col.colaborador] = [col.lat, col.lon];
+    collaborators[col.colaborador] = [col.lat, col.lon, col.id];
   });
 
 });

@@ -647,7 +647,8 @@
 
             var marker = L.marker([cols[col][0], cols[col][1]],{icon: collaboratorIcon}).
                   bindPopup("<html><body>"
-                            + "<p>Centro Coordinador</p>"
+                            + "<p>Usuario:</p>"
+                            + "<p>" + "<a href=./users/" + cols[col][2] +">" + col +"</a>" + "</p>"
                             + "</body></html>").openPopup().addTo(map);
             markers.push(marker);
           }
@@ -664,8 +665,8 @@
 
             var marker = L.marker([cols["collaborators"][col][0], cols["collaborators"][col][1]],{icon: collaboratorIcon}).
                   bindPopup("<html><body>"
-                            + "<a href=/users/"
-                            + ">Ver usuario " +col+" </a>"
+                            + "<p>Usuario:</p>"
+                            + "<p>" + "<a href=./users/" + cols["collaborators"][col][2] +">" + col +"</a>" + "</p>"
                             + "</body></html>").openPopup().addTo(map);
             markers.push(marker);
           }

@@ -677,8 +677,10 @@
             setInterval(function () {
               var socket = io();
               var colaborador = '<%= String(session.user.username) %>';
+              var id = '<%= String(session.user.id) %>';
+              console.log("Id de usuario:" + id);
               var pos = "Posicion " + colaborador + ": " + geoPositionLat+ ","+ geoPositionLon;
-              socket.emit('collaborator position', {lat: geoPositionLat, lon: geoPositionLon, colaborador:colaborador});
+              socket.emit('collaborator position', {lat: geoPositionLat, lon: geoPositionLon, colaborador:colaborador, id: id});
               //socket.emit('collaborator position', {lat: geoPositionLat + Math.random(0.1,0.3), lon: geoPositionLon + Math.random(0.1,0.2), colaborador:colaborador});
               console.log(pos);
             }, 10000);
