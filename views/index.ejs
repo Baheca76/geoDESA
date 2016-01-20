@@ -39,6 +39,10 @@
         $('#textMessage').val('');
       }
 
+      function logoutMessage() {
+        socket.emit('logout message', {name: arguments[0]});
+      }
+
       socket.on('chat message', function(msg) {
         var messageHTML = '<div class="media msg"><a class="pull-left" href="#"><img class="media-object  img-circle" data-src="holder.js/64x64" alt="64x64" style="width: 24px; height: 24px;" src="/images/boy.png"></a><div class="media-body"><small class="pull-right time"><i class="fa fa-clock-o"></i> 12:10am</small><h5 class="media-heading">'+msg.name+'</h5><small class="col-md-10 text-muted">' + msg.message +'</small></div></div>';
         $('#chatMessages').append(messageHTML);
@@ -136,7 +140,7 @@
                       <div class="panel-body">
                         <p>User: <%= session.user.username %></p>
                         <form action="/sessions/logout" method="get">
-                          <button type="submit" class="btn btn-info">Log out</button>
+                          <button type="submit" class="btn btn-info" onclick="logoutMessage('<%= String(session.user.username) %>')">Log out</button>
                         </form>
                       </div>
                     <% } %>
@@ -563,6 +567,8 @@
     <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="../js/leaflet-sidebar.js"></script>
+    <script src="../js/notify.js"></script>
+
     <!-- Icono del mundo a la derecha arriba.-->
     <a href="/" role="tab"><i style="position: fixed; top: 40px; right: 40px; border: 40px; width: 40px; heigth:40px" class="fa fa-globe fa-3x"></i>></a>
 

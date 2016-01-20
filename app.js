@@ -100,19 +100,29 @@ app.use(function(err, req, res, next) {
   });
 });
 
-var collaborators = {};
+var collaborators = collaborators || {};
 
 app.io.on('connection', function(socket){
   console.log('a user connected');
-  console.log('Collaborators: ' +  collaborators);
   socket.on('new message', function(data){
     console.log(data.name + ' new message: ' + data.message);
     app.io.emit('chat message', data);
   });
+
+  socket.on('logout message', function(user){
+    delete collaborators[user.name];
+    app.io.emit('logoutACK', {name: user.name});
+  });
+
   socket.on('collaborator position', function(col){
+    if (collaborators[col.colaborador] == undefined) {
+      app.io.emit('new collaborator position', {collaborators: collaborators, new: col.colaborador});
+      console.log(collaborators);
+    } else {
+      app.io.emit('collaborator position', collaborators);
+      console.log(collaborators);
+    }
     collaborators[col.colaborador] = [col.lat, col.lon];
-    app.io.emit('collaborator position', collaborators);
-    console.log(collaborators);
   });
 
 });

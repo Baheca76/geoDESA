@@ -515,6 +515,8 @@
     <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="../js/leaflet-sidebar.js"></script>
+    <script src="../js/notify.js"></script>
+
     <!-- Icono de ambulancia cuando se esta en modo callcenter, a la derecha arriba.-->
     <a href="/callcenter" role="tab"><i style="position: fixed; top: 40px; right: 40px; border: 40px; width: 40px; heigth:40px" class="fa fa-ambulance fa-3x"></i>></a>
 
@@ -629,13 +631,38 @@
 
             var marker = L.marker([cols[col][0], cols[col][1]],{icon: collaboratorIcon}).
                   bindPopup("<html><body>"
-                            + "<a href=/users/"
-                            + ">Ver usuario " +col+" </a>"
+                            + "<p>Centro Coordinador</p>"
                             + "</body></html>").openPopup().addTo(map);
             markers.push(marker);
           }
 
         });
+
+        socket.on('new collaborator position', function(cols) {
+
+          for (var i=0; i < markers.length; i++){
+            map.removeLayer(markers[i]);
+          }
+          for (col in cols["collaborators"]){
+            console.log(col, cols["collaborators"][col][0], cols["collaborators"][col][1]);
+
+            var marker = L.marker([cols["collaborators"][col][0], cols["collaborators"][col][1]],{icon: collaboratorIcon}).
+                  bindPopup("<html><body>"
+                            + "<a href=/users/"
+                            + ">Ver usuario " +col+" </a>"
+                            + "</body></html>").openPopup().addTo(map);
+            markers.push(marker);
+          }
+          // Si hay un nuevo colaborador activo emitimos un mensaje flotante de aviso
+          $.notify("Colaborador " + cols.new + " activo !!","info");
+
+        });
+
+        socket.on('logoutACK', function(user) {
+          // Mensaje a callcenter de logout de un colaborador
+          $.notify(user.name + " ha cerrado su sesión !!!", "warn");
+        });
+
 
 
     </script>
